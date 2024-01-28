@@ -8,23 +8,62 @@ using Newtonsoft.Json;
 namespace ModelX.Units
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public readonly struct Time
+    class Time : IUnit
     {
+        public Time()
+        {
+            
+        }
+        public Time(double value, Enum type)
+        {
+            Scale = type switch
+            {
+                Type.Time.Millisecond => Millisecond,
+                Type.Time.Second => Second,
+                Type.Time.Minute => Minute,
+                Type.Time.Kilosecond => Kilosecond,
+                Type.Time.Hour => Hour,
+                Type.Time.Day => Day,
+                Type.Time.Week => Week,
+                Type.Time.Megasecond => Megasecond,
+                _ => 0
+            };
+
+            Second = value / Scale;
+        }
+
+        double Scale {get;set;}
+
         [JsonProperty]
-        public static readonly double Millisecond = 1e-3d;
+        public double Millisecond { get => Second * 1e3d; }
         [JsonProperty]
-        public static readonly double Second = 1d;
+        public double Second { get; set; } = 1d;
         [JsonProperty]
-        public static readonly double Minute = 60d;
+        public double Minute { get => Second / 60d; }
         [JsonProperty]
-        public static readonly double Kilosecond = 1e3d;
+        public double Kilosecond { get => Second / 1e3d; }
         [JsonProperty]
-        public static readonly double Hour = 60d * Minute;
+        public double Hour { get => Minute / 60; }
         [JsonProperty]
-        public static readonly double Day = 24d * Hour;
+        public double Day { get => Hour / 24; }
         [JsonProperty]
-        public static readonly double Week = 7d * Day;
+        public double Week { get => Day / 7; }
         [JsonProperty]
-        public static readonly double Megasecond = 1e6d;
+        public double Megasecond { get => Second / 1e6d; }
+
+        public double Result<T>(T type) where T : Enum
+        {
+            return type switch {
+                Type.Time.Millisecond => Millisecond,
+                Type.Time.Second => Second,
+                Type.Time.Minute => Minute,
+                Type.Time.Kilosecond => Kilosecond,
+                Type.Time.Hour => Hour,
+                Type.Time.Day => Day,
+                Type.Time.Week => Week,
+                Type.Time.Megasecond => Megasecond,
+                _ => 0
+            };
+        }
     }
 }

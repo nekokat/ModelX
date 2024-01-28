@@ -11,15 +11,6 @@ namespace ModelX.Units.Type
         Newton,
         Romer,
         Reaumur,
-        Delisle,
-        //Aliases
-        C = Celsius,
-        K = Kelvin,
-        F = Fahrenheit,
-        R = Rankine,
-        N = Newton,
-        Ro = Romer,
-        Re = Reaumur,
-        De = Delisle
+        Delisle
     }
 }

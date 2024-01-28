@@ -8,5 +8,21 @@ namespace ModelX.Units.Type
 {
     public enum Length
     {
+        KiloMeter,
+        HectoMeter,
+        DecaMeter,
+        Meter,
+        DeciMeter,
+        CentiMeter,
+        MilliMeter,
+        //Imperial
+        Foot,
+        Inch,
+        Hand,
+        Yard,
+        Chain,
+        Furlong,
+        Mile,
+        League
     }
 }

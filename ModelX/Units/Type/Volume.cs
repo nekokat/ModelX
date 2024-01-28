@@ -8,5 +8,16 @@ namespace ModelX.Units.Type
 {
     public enum Volume
     {
+        Litre,
+        CubicDecimetre,
+        CubicMetre,
+        CubicCentimetre,
+        //Imperial
+        CubicInch,
+        BarrelOil,
+        USGallon,
+        USPint,
+        USFluidOunce,
+        CubicFoot
     }
 }

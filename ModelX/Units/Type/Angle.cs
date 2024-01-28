@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace ModelX.Units.Type
 {
-    public enum Time
+    public enum Angle
     {
-        Millisecond,
-        Second,
-        Minute,
-        Kilosecond,
-        Hour,
-        Day,
-        Week,
-        Megasecond
+        Radian,
+        Degree,
+        Turn,
+        Gradian
     }
 }

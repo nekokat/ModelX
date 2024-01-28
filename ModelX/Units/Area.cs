@@ -8,45 +8,75 @@ using System.Threading.Tasks;
 namespace ModelX.Units
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public readonly struct Area
+    class Area : IUnit
     {
+        public Area(){}
+
+        public Area(double value, Enum type)
+        {
+            Scale = type switch
+            {
+                Type.Area.SquareKilometer => SquareKilometer,
+                Type.Area.SquareHectometer => SquareHectometer,
+                Type.Area.SquareDecameter => SquareDecameter,
+                Type.Area.SquareMeter => SquareMeter,
+                Type.Area.SquareDecimeter => SquareDecimeter,
+                Type.Area.SquareCentimeter => SquareCentimeter,
+                Type.Area.SquareMillimeter => SquareMillimeter,
+                Type.Area.Perch => Perch,
+                Type.Area.Rood => Rood,
+                Type.Area.Acre => Acre,
+                Type.Area.SquareMile => SquareMile,
+                _ => 1
+            };
+
+            SquareMeter = value / Scale;
+        }
+
+        double Scale { get; set; }
+
         //Mertic
         [JsonProperty]
-        public static readonly double SquareKilometer = 1e6d;
+        public double SquareKilometer { get => SquareMeter / 1e6d; }
         [JsonProperty]
-        public static readonly double SquareHectometer = 1e4d;
+        public double SquareHectometer { get => SquareMeter / 1e4d; }
         [JsonProperty]
-        public static readonly double SquareDecameter = 1e2d;
+        public double SquareDecameter { get => SquareMeter / 1e2d; }
         [JsonProperty]
-        public static readonly double SquareMeter = 1d;
+        public double SquareMeter { get; set; } = 1d;
         [JsonProperty]
-        public static readonly double SquareDecimeter = 1e-2d;
+        public double SquareDecimeter { get => SquareMeter / 1e-2d; }
         [JsonProperty]
-        public static readonly double SquareCentimeter = 1e-4d;
+        public double SquareCentimeter { get => SquareMeter / 1e-4d; }
         [JsonProperty]
-        public static readonly double SquareMillimeter = 1e-6d;
-        //Mertic Aliases
-        [JsonProperty]
-        public static readonly double Hectare = SquareHectometer;
-        [JsonProperty]
-        public static readonly double ha = Hectare;
-        [JsonProperty]
-        public static readonly double Are = SquareDecameter;
-        [JsonProperty]
-        public static readonly double a = Are;
-        [JsonProperty]
-        public static readonly double Centiare = SquareMeter;
-        [JsonProperty]
-        public static readonly double ca = Centiare;
+        public double SquareMillimeter { get => SquareMeter / 1e-6d; }
         //Imperial
         [JsonProperty]
-        public static readonly double Perch = 30.25 * Math.Pow(Length.Yard, 2);
+        public double Perch { get => SquareMeter / 30.25 * Math.Pow(3 * 0.3048d, 2); }
         [JsonProperty]
-        public static readonly double Rood = 40 * Perch;
+        public double Rood { get => 40 * Perch; }
         [JsonProperty]
-        public static readonly double Acre = 4 * Rood;
+        public double Acre { get => 4 * Rood; }
         [JsonProperty]
-        public static readonly double SquareMile = 640 * Acre;
+        public double SquareMile { get => 640 * Acre; }
 
+        public double Result<T>(T type) where T : Enum
+        {
+            return type switch
+            {
+                Type.Area.SquareKilometer => SquareKilometer,
+                Type.Area.SquareHectometer => SquareHectometer,
+                Type.Area.SquareDecameter => SquareDecameter,
+                Type.Area.SquareMeter => SquareMeter,
+                Type.Area.SquareDecimeter => SquareDecimeter,
+                Type.Area.SquareCentimeter => SquareCentimeter,
+                Type.Area.SquareMillimeter => SquareMillimeter,
+                Type.Area.Perch => Perch,
+                Type.Area.Rood => Rood,
+                Type.Area.Acre => Acre,
+                Type.Area.SquareMile => SquareMile,
+                _ => 0
+            };
+        }
     }
 }

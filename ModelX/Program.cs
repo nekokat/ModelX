@@ -1,3 +1,5 @@
+using ModelX.Units;
+
 namespace ModelX
 {
     internal static class Program
@@ -10,9 +12,7 @@ namespace ModelX
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            // ApplicationConfiguration.Initialize();
-            // Application.Run(new Form1());
-            Converter res = new(1, Units.Type.Temperature.C, Units.Type.Temperature.R);
+            Converter<Length> res = new (100, Units.Type.Length.CentiMeter, Units.Type.Length.Meter);
             Console.WriteLine(res.Result());
             res.SerializeUnit();
         }

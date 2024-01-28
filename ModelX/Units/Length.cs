@@ -8,55 +8,90 @@ using Newtonsoft.Json;
 namespace ModelX.Units
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public readonly struct Length
+    class Length : IUnit
     {
+        public Length() { }
+
+        public Length(double value, Enum type)
+        {
+            Scale = type switch
+            {
+                Type.Length.KiloMeter => KiloMeter,
+                Type.Length.HectoMeter => HectoMeter,
+                Type.Length.DecaMeter => DecaMeter,
+                Type.Length.Meter => Meter,
+                Type.Length.DeciMeter => DeciMeter,
+                Type.Length.CentiMeter => CentiMeter,
+                Type.Length.MilliMeter => MilliMeter,
+                Type.Length.Foot => Foot,
+                Type.Length.Inch => Inch,
+                Type.Length.Hand => Hand,
+                Type.Length.Yard => Yard,
+                Type.Length.Chain => Chain,
+                Type.Length.Furlong => Furlong,
+                Type.Length.Mile => Mile,
+                Type.Length.League => League,
+                _ => 1
+            };
+
+            Meter = value / Scale;
+        }
+
+        double Scale { get; set; }
         //Metric
         [JsonProperty]
-        public static readonly double KiloMeter = 1000d;
+        public double KiloMeter => Meter / 1000d;
         [JsonProperty]
-        public static readonly double HectoMeter = 100d;
+        public double HectoMeter => Meter / 100d;
         [JsonProperty]
-        public static readonly double DecaMeter = 10d;
+        public double DecaMeter => Meter / 10d;
         [JsonProperty]
-        public static readonly double Meter = 1d;
+        public double Meter { get; set; } = 1d;
         [JsonProperty]
-        public static readonly double DeciMeter = 1e-1d;
+        public double DeciMeter => Meter / 1e-1d;
         [JsonProperty]
-        public static readonly double CentiMeter = 1e-2d;
+        public double CentiMeter => Meter / 1e-2d;
         [JsonProperty]
-        public static readonly double MilliMeter = 1e-3d;
-        [JsonProperty]
-        public static readonly double Km = KiloMeter;
-        [JsonProperty]
-        public static readonly double Hm = HectoMeter;
-        [JsonProperty]
-        public static readonly double Dam = DecaMeter;
-        [JsonProperty]
-        public static readonly double M = Meter;
-        [JsonProperty]
-        public static readonly double Dm = DeciMeter;
-        [JsonProperty]
-        public static readonly double Cm = CentiMeter;
-        [JsonProperty]
-        public static readonly double Mm = MilliMeter;
+        public double MilliMeter => Meter / 1e-3d;
         //Imperial
         [JsonProperty]
-        public static readonly double Foot = 0.3048d;
+        public double Foot => Meter / 0.3048d; 
         [JsonProperty]
-        public static readonly double Inch = Foot / 12;
+        public double Inch => Foot / 12;
         [JsonProperty]
-        public static readonly double Hand = Foot / 3;
+        public double Hand => Foot / 3;
         [JsonProperty]
-        public static readonly double Yard = 3 * Foot;
+        public double Yard => 3 * Foot;
         [JsonProperty]
-        public static readonly double Chain = 66 * Foot;
+        public double Chain => 66 * Foot;
         [JsonProperty]
-        public static readonly double Furlong = 220 * Yard;
+        public double Furlong => 220 * Yard;
         [JsonProperty]
-        public static readonly double Mile = 1760 * Yard;
+        public double Mile => 1760 * Yard;
         [JsonProperty]
-        public static readonly double League = 3 * Mile;
-        [JsonProperty]
-        public static readonly double ft = Foot;
+        public double League => (3 * Mile);
+
+        public double Result<T>(T type) where T : Enum
+        {
+            return type switch
+            {
+                Type.Length.KiloMeter => KiloMeter,
+                Type.Length.HectoMeter => HectoMeter,
+                Type.Length.DecaMeter => DecaMeter,
+                Type.Length.Meter => Meter,
+                Type.Length.DeciMeter => DeciMeter,
+                Type.Length.CentiMeter => CentiMeter,
+                Type.Length.MilliMeter => MilliMeter,
+                Type.Length.Foot => Foot,
+                Type.Length.Inch => Inch,
+                Type.Length.Hand => Hand,
+                Type.Length.Yard => Yard,
+                Type.Length.Chain => Chain,
+                Type.Length.Furlong => Furlong,
+                Type.Length.Mile => Mile,
+                Type.Length.League => League,
+                _ => 0
+            };
+        }
     }
 }

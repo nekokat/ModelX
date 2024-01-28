@@ -4,27 +4,28 @@ using Newtonsoft.Json;
 namespace ModelX.Units
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public struct Temperature : IUnit
+    public class Temperature : IUnit
     {
+        public Temperature() { }
         public Temperature(double value) : this(value, Type.Temperature.Celsius) { }
     
-        public Temperature(double value, Type.Temperature type)
+        public Temperature(double value, Enum type)
         {
-            Celsius = ((int)type) switch
+            Celsius = type switch
             {
-                1 => value - 273.15d,
-                2 => (value - 32d) * 5 / 9,
-                3 => (value - 273.15d) * 5 / 9,
-                4 => value / 0.33d,
-                5 => (value - 7.5d) * 40 / 21,
-                6 => value * 5d / 4,
-                7 => 100 - value * 2 / 3,
+                Type.Temperature.Kelvin => value - 273.15d,
+                Type.Temperature.Fahrenheit => (value - 32d) * 5 / 9,
+                Type.Temperature.Rankine => (value - 273.15d) * 5 / 9,
+                Type.Temperature.Newton => value / 0.33d,
+                Type.Temperature.Romer => (value - 7.5d) * 40 / 21,
+                Type.Temperature.Reaumur => value * 5d / 4,
+                Type.Temperature.Delisle => 100 - value * 2 / 3,
                 _ => value
             };
         }
 
         [JsonProperty]
-        public double Celsius { get; set; }
+        public double Celsius { get; set; } = 0d;
         [JsonProperty]
         public double Kelvin { get => Celsius + 273.15d; }
         [JsonProperty]
@@ -49,25 +50,22 @@ namespace ModelX.Units
         public double Re { get => Reaumur; }
         public double De { get => Delisle; }
 
-        public double Result(Type.Temperature type)
+
+        public double Result<T>(T type) where T : Enum
         {
-            return ((int)type) switch
+            return type switch
             {
-                0 => Celsius,
-                1 => Kelvin,
-                2 => Fahrenheit,
-                3 => Rankine,
-                4 => Newton,
-                5 => Romer,
-                6 => Reaumur,
-                7 => Delisle,
+                Type.Temperature.Celsius    => Celsius,
+                Type.Temperature.Kelvin     => Kelvin,
+                Type.Temperature.Fahrenheit => Fahrenheit,
+                Type.Temperature.Rankine    => Rankine,
+                Type.Temperature.Newton     => Newton,
+                Type.Temperature.Romer      => Romer,
+                Type.Temperature.Reaumur    => Reaumur,
+                Type.Temperature.Delisle    => Delisle,
                 _ => 0
             };
-        }
 
-        public double Result()
-        {
-            return Result(Type.Temperature.Celsius);
         }
     }
 }

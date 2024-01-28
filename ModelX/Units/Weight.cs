@@ -8,8 +8,18 @@ using System.Threading.Tasks;
 namespace ModelX.Units
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public readonly struct Weight
+    class Weight :IUnit
     {
+        public Weight()
+        {
+            
+        }
+
+        public Weight(double value, Enum type)
+        {
+            
+        }
+
         //Metric
         [JsonProperty]
         public static readonly double gigatonne = 1e15d;
@@ -29,22 +39,6 @@ namespace ModelX.Units
         public static readonly double nanogram = 1e-12d;
         [JsonProperty]
         public static readonly double picogram = 1e-15d;
-        [JsonProperty]
-        public static readonly double gt = gigatonne;
-        [JsonProperty]
-        public static readonly double mt = megatonne;
-        [JsonProperty]
-        public static readonly double kg = kilogramm;
-        [JsonProperty]
-        public static readonly double g = gramm;
-        [JsonProperty]
-        public static readonly double mg = milligramm;
-        [JsonProperty]
-        public static readonly double um = microgram;
-        [JsonProperty]
-        public static readonly double ng = nanogram;
-        [JsonProperty]
-        public static readonly double pg = picogram;
         //Imperial
         [JsonProperty]
         public static readonly double USton = 0.907d * tonne;
@@ -54,9 +48,10 @@ namespace ModelX.Units
         public static readonly double pound = 453.59d;
         [JsonProperty]
         public static readonly double ounce = 28.35d;
-        [JsonProperty]
-        public static readonly double lb = pound;
-        [JsonProperty]
-        public static readonly double oz = ounce;
+
+        public double Result<T>(T type) where T : Enum
+        {
+            throw new NotImplementedException();
+        }
     }
 }

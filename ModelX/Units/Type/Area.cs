@@ -8,5 +8,24 @@ namespace ModelX.Units.Type
 {
     public enum Area
     {
+        SquareKilometer,
+        SquareHectometer,
+        SquareDecameter,
+        SquareMeter,
+        SquareDecimeter,
+        SquareCentimeter,
+        SquareMillimeter,
+        //Imperial    
+        Perch,
+        Rood,
+        Acre,
+        SquareMile,
+        //Mertic Aliases    
+        Hectare = SquareHectometer,    
+        ha = SquareHectometer,
+        Are = SquareDecameter,    
+        a = SquareDecameter,    
+        Centiare = SquareMeter,    
+        ca = SquareMeter
     }
 }

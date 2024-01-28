@@ -8,30 +8,72 @@ using System.Threading.Tasks;
 namespace ModelX.Units
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public readonly struct Volume
+    class Volume : IUnit
     {
+        public Volume() { }
+
+        public Volume(double value, Type.Volume type)
+        {
+            Scale = type switch
+            {
+                Type.Volume.Litre => Litre,
+                Type.Volume.CubicDecimetre => CubicDecimetre,
+                Type.Volume.CubicMetre => CubicMetre,
+                Type.Volume.CubicCentimetre => CubicCentimetre,
+                Type.Volume.CubicInch => CubicInch,
+                Type.Volume.BarrelOil => BarrelOil,
+                Type.Volume.USGallon => USGallon,
+                Type.Volume.USPint => USPint,
+                Type.Volume.USFluidOunce => USFluidOunce,
+                Type.Volume.CubicFoot => CubicFoot,
+                _ => 1
+            };
+
+            CubicMetre = value / Scale;
+        }
+
+        double Scale { get; set; }
         //Metric
         [JsonProperty]
-        public static readonly double Litre = 0.001d;
+        public double Litre { get => CubicMetre * 1e3d; }
         [JsonProperty]
-        public static readonly double CubicDecimetre = Litre;
+        public double CubicDecimetre { get => Litre; }
         [JsonProperty]
-        public static readonly double CubicMetre = 1d;
+        public double CubicMetre { get; set; } = 1d;
         [JsonProperty]
-        public static readonly double CubicCentimetre = 1e-6d;
+        public double CubicCentimetre { get => CubicMetre * 1e6d; }
         //Imperial
         [JsonProperty]
-        public static readonly double CubicInch = Math.Pow(Length.Inch, 3);
+        public double CubicInch { get => CubicMetre / Math.Pow(0.3048d/12, 3); }
+        //public double CubicInch { get => CubicMetre / Math.Pow(Length.Inch, 3); }
         [JsonProperty]
-        public static readonly double Barrel = 9.702d * CubicInch;
+        public double BarrelOil { get => CubicInch / 9702d; }
         [JsonProperty]
-        public static readonly double USGallon = 231 * CubicInch;
+        public double USGallon { get => CubicInch / 231 ; }
         [JsonProperty]
-        public static readonly double USPint = USGallon / 8;
+        public double USPint { get => USGallon * 8; }
         [JsonProperty]
-        public static readonly double USFluidOunce = USGallon / 128;
+        public double USFluidOunce { get => USGallon * 128; }
         [JsonProperty]
-        public static readonly double CubicFoot = Math.Pow(Length.Foot, 3);
+        public double CubicFoot { get => CubicMetre / Math.Pow(0.3048d, 3); }
+        //public double CubicFoot { get => CubicMetre / Math.Pow(Length.Foot, 3); }
+        public double Result<T>(T type) where T : Enum
+        {
+            return type switch
+            {
+                Type.Volume.Litre => Litre,
+                Type.Volume.CubicDecimetre => CubicDecimetre,
+                Type.Volume.CubicMetre => CubicMetre,
+                Type.Volume.CubicCentimetre => CubicCentimetre,
+                Type.Volume.CubicInch => CubicInch,
+                Type.Volume.BarrelOil => BarrelOil,
+                Type.Volume.USGallon => USGallon,
+                Type.Volume.USPint => USPint,
+                Type.Volume.USFluidOunce => USFluidOunce,
+                Type.Volume.CubicFoot => CubicFoot,
+                _ => 1
+            };
+        }
     }
 
 }

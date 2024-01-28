@@ -9,8 +9,6 @@ namespace ModelX
 {
     public interface IUnit
     {
-        public double Result();
-        //TODO : delete
-        double Result(Temperature inputUnit);
+        public double Result<T>(T type) where T : Enum;
     }
 }
