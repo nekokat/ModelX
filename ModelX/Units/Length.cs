@@ -57,19 +57,19 @@ namespace ModelX.Units
         [JsonProperty]
         public double Foot => Meter / 0.3048d; 
         [JsonProperty]
-        public double Inch => Foot / 12;
+        public double Inch => 12*Foot;
         [JsonProperty]
-        public double Hand => Foot / 3;
+        public double Hand => 3*Foot;
         [JsonProperty]
-        public double Yard => 3 * Foot;
+        public double Yard => Foot / 3 ;
         [JsonProperty]
-        public double Chain => 66 * Foot;
+        public double Chain => Foot / 66;
         [JsonProperty]
-        public double Furlong => 220 * Yard;
+        public double Furlong => Yard / 220 ;
         [JsonProperty]
-        public double Mile => 1760 * Yard;
+        public double Mile => Yard / 1760 ;
         [JsonProperty]
-        public double League => (3 * Mile);
+        public double League => Mile / 3;
 
         public double Result<T>(T type) where T : Enum
         {

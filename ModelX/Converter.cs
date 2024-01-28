@@ -37,7 +37,7 @@ namespace ModelX
                 writer = new StreamWriter("Converter.json", true);
                 foreach (var d in types)
                 {
-                    var data = this.Unit;
+                    var data = Unit;
                     var json = JsonConvert.SerializeObject(data, Formatting.Indented);
                     writer.Write(json + "\n");
                 }

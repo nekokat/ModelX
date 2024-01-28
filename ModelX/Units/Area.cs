@@ -27,6 +27,9 @@ namespace ModelX.Units
                 Type.Area.Rood => Rood,
                 Type.Area.Acre => Acre,
                 Type.Area.SquareMile => SquareMile,
+                Type.Area.SquareYard => SquareYard,
+                Type.Area.SquareFoot => SquareFoot,
+                Type.Area.SquareInch => SquareInch,
                 _ => 1
             };
 
@@ -52,13 +55,20 @@ namespace ModelX.Units
         public double SquareMillimeter { get => SquareMeter / 1e-6d; }
         //Imperial
         [JsonProperty]
-        public double Perch { get => SquareMeter / 30.25 * Math.Pow(3 * 0.3048d, 2); }
+        public double Perch { get => SquareYard / 30.25; }
         [JsonProperty]
-        public double Rood { get => 40 * Perch; }
+        public double Rood { get => Perch / 40; }
         [JsonProperty]
-        public double Acre { get => 4 * Rood; }
+        public double Acre { get => Rood / 4; }
         [JsonProperty]
-        public double SquareMile { get => 640 * Acre; }
+        public double SquareMile { get => Acre / 640; }
+        [JsonProperty]
+        public double SquareYard { get => SquareFoot / 9; }
+        [JsonProperty]
+        public double SquareFoot { get => SquareMeter / Math.Pow(0.3048d, 2); }
+
+        [JsonProperty]
+        public double SquareInch { get => 144 * SquareFoot; }
 
         public double Result<T>(T type) where T : Enum
         {
@@ -75,6 +85,9 @@ namespace ModelX.Units
                 Type.Area.Rood => Rood,
                 Type.Area.Acre => Acre,
                 Type.Area.SquareMile => SquareMile,
+                Type.Area.SquareYard => SquareYard,
+                Type.Area.SquareFoot => SquareFoot,
+                Type.Area.SquareInch => SquareInch,
                 _ => 0
             };
         }

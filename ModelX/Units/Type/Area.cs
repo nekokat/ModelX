@@ -20,12 +20,8 @@ namespace ModelX.Units.Type
         Rood,
         Acre,
         SquareMile,
-        //Mertic Aliases    
-        Hectare = SquareHectometer,    
-        ha = SquareHectometer,
-        Are = SquareDecameter,    
-        a = SquareDecameter,    
-        Centiare = SquareMeter,    
-        ca = SquareMeter
+        SquareYard,
+        SquareFoot,
+        SquareInch
     }
 }
