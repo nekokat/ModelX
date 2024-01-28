@@ -12,7 +12,7 @@ namespace ModelX
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            Converter<Area> res = new (1296, Units.Type.Area.SquareInch, Units.Type.Area.SquareYard);
+            Converter<Weight> res = new (1296, Units.Type.Weight.Kilogramm, Units.Type.Weight.Tonne);
             Console.WriteLine(res.Result());
             res.SerializeUnit();
         }

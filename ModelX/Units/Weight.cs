@@ -10,48 +10,83 @@ namespace ModelX.Units
     [JsonObject(MemberSerialization.OptIn)]
     class Weight :IUnit
     {
-        public Weight()
-        {
-            
-        }
+        public Weight() { }
 
         public Weight(double value, Enum type)
         {
-            
+            Scale = type switch
+            {
+                Type.Weight.Gigatonne => Gigatonne,
+                Type.Weight.Megatonne => Megatonne,
+                Type.Weight.Tonne => Tonne,
+                Type.Weight.Kilogramm => Kilogramm,
+                Type.Weight.Gramm => Gramm,
+                Type.Weight.Milligramm => Milligramm,
+                Type.Weight.Microgram => Microgram,
+                Type.Weight.Nanogram => Nanogram,
+                Type.Weight.Picogram => Picogram,
+                //Imperial
+                Type.Weight.USton => USton,
+                Type.Weight.UKton => UKton,
+                Type.Weight.Pound => Pound,
+                Type.Weight.Ounce => Ounce,
+                _ => 0
+            };
+
+            Gramm = value / Scale;
         }
+
+        double Scale { get; set; }
 
         //Metric
         [JsonProperty]
-        public static readonly double gigatonne = 1e15d;
+        public double Gigatonne => Gramm / 1e15d;
         [JsonProperty]
-        public static readonly double megatonne = 1e12d;
+        public double Megatonne => Gramm / 1e12d;
         [JsonProperty]
-        public static readonly double tonne = 1e6d;
+        public double Tonne => Gramm / 1e6d;
         [JsonProperty]
-        public static readonly double kilogramm = 1e3d;
+        public double Kilogramm => Gramm / 1e3d;
         [JsonProperty]
-        public static readonly double gramm = 1d;
+        public double Gramm { get; set; } = 1d;
         [JsonProperty]
-        public static readonly double milligramm = 1e-3d;
+        public double Milligramm => Gramm / 1e-3d;
         [JsonProperty]
-        public static readonly double microgram = 1e-6d;
+        public double Microgram => Gramm / 1e-6d;
         [JsonProperty]
-        public static readonly double nanogram = 1e-12d;
+        public double Nanogram => Gramm / 1e-12d;
         [JsonProperty]
-        public static readonly double picogram = 1e-15d;
+        public double Picogram => Gramm / 1e-15d;
         //Imperial
         [JsonProperty]
-        public static readonly double USton = 0.907d * tonne;
+        public double USton => Tonne / 0.907d;
         [JsonProperty]
-        public static readonly double UKton = 1.016d * tonne;
+        public double UKton => Tonne / 1.016d ;
         [JsonProperty]
-        public static readonly double pound = 453.59d;
+        public double Pound => Gramm / 453.59d;
         [JsonProperty]
-        public static readonly double ounce = 28.35d;
+        public double Ounce => Gramm / 28.35d;
 
         public double Result<T>(T type) where T : Enum
         {
-            throw new NotImplementedException();
+            return type switch
+            {
+                Type.Weight.Gigatonne => Gigatonne,
+                Type.Weight.Megatonne => Megatonne,
+                Type.Weight.Tonne => Tonne,
+                Type.Weight.Kilogramm => Kilogramm,
+                Type.Weight.Gramm => Gramm,
+                Type.Weight.Milligramm => Milligramm,
+                Type.Weight.Microgram => Microgram,
+                Type.Weight.Nanogram => Nanogram,
+                Type.Weight.Picogram => Picogram,
+                //Imperial
+                Type.Weight.USton => USton,
+                Type.Weight.UKton => UKton,
+                Type.Weight.Pound => Pound,
+                Type.Weight.Ounce => Ounce,
+                _ => 0
+            };
         }
     }
 }
