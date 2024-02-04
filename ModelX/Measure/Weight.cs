@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelX.Units
+namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    class Weight :IUnit
+    class Weight :IMeasure
     {
         public Weight() { }
 

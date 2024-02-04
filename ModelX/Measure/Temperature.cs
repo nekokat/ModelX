@@ -1,10 +1,10 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace ModelX.Units
+namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Temperature : IUnit
+    public class Temperature : IMeasure
     {
         public Temperature() { }
         public Temperature(double value) : this(value, Type.Temperature.Celsius) { }

@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace ModelX.Units
+namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    class Length : IUnit
+    class Length : IMeasure
     {
         public Length() { }
 

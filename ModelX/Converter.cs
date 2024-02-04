@@ -1,25 +1,23 @@
 ﻿using Newtonsoft.Json;
 using System;
-using ModelX.Units;
+using ModelX.Measure;
 
 namespace ModelX
 {
-    class Converter<TUnit> where TUnit : IUnit, new()
+    class Converter<TMeasure> where TMeasure : IMeasure, new()
     {
-        public Converter(double value, Enum inputMeasure, Enum outputMeasure)
+        public Converter(double value, Enum inputUnit, Enum outputUnit)
         {
-            Value = value;
-            InputMeasure = inputMeasure;
-            OutputMeasure = outputMeasure;
-            Unit = (TUnit)Activator.CreateInstance(typeof(TUnit), value, inputMeasure);
-            InputValue = Unit.Result(inputMeasure);
-            OutputValue = Unit.Result(outputMeasure);
+            InputMeasure = inputUnit;
+            OutputMeasure = outputUnit;
+            Measure = (TMeasure)Activator.CreateInstance(typeof(TMeasure), value, inputUnit);
+            InputValue = value;
+            OutputValue = Measure.Result(outputUnit);
         }
 
         public Enum InputMeasure { get; set; }
         public Enum OutputMeasure { get; set; }
-        public double Value { get; set; }
-        public TUnit Unit { get; set; }
+        public TMeasure Measure { get; set; }
         public double InputValue { get; set; }
         public double OutputValue { get; set; }
 
@@ -28,19 +26,27 @@ namespace ModelX
             return OutputValue;
         }
 
+        //TODO: Create Converter's Swap
+        public void SwapUnit()
+        {
+            Measure = (TMeasure)Activator.CreateInstance(typeof(TMeasure), InputValue, OutputMeasure);
+            OutputValue = Measure.Result(InputMeasure);
+            (InputMeasure, OutputMeasure) = (OutputMeasure, InputMeasure);
+        }
+
         public override string ToString()
         {
             return $"{InputValue} {InputMeasure} = {OutputValue} {OutputMeasure}";
         }
 
-        public void SerializeUnit()
+        public void SerializeMeasure()
         {
             TextWriter? writer = null;
 
             try
             {
                 writer = new StreamWriter("Converter.json", true);
-                var json = JsonConvert.SerializeObject(Unit, Formatting.Indented);
+                var json = JsonConvert.SerializeObject(Measure, Formatting.Indented);
                 writer.Write(this.ToString() + "\n");
                 writer.Write(json + "\n");
             }

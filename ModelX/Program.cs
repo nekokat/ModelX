@@ -1,4 +1,4 @@
-using ModelX.Units;
+using ModelX.Measure;
 
 namespace ModelX
 {
@@ -12,9 +12,10 @@ namespace ModelX
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            Converter<Angle> res = new (180, Units.Type.Angle.Degree, Units.Type.Angle.Radian);
-            Console.WriteLine(res.Result());
-            res.SerializeUnit();
+            Converter<Area> res = new (2*3.141592653589793d, Measure.Type.Area.Acre, Measure.Type.Area.SquareKilometer);
+            res.SerializeMeasure();
+            res.SwapUnit();
+            res.SerializeMeasure();
         }
     }
 }
