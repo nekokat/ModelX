@@ -15,10 +15,10 @@ namespace ModelX.Units
         {
             Scale = type switch
             {
-                Type.Angle.Radian => Radian,
-                Type.Angle.Degree => Degree,
-                Type.Angle.Turn => Turn,
-                Type.Angle.Gradian => Gradian,
+                Type.Angle.Radian   => Radian,
+                Type.Angle.Degree   => Degree,
+                Type.Angle.Turn     => Turn,
+                Type.Angle.Gradian  => Gradian,
                 _ => 1
             };
 
@@ -40,10 +40,10 @@ namespace ModelX.Units
         {
             return type switch
             {
-                Type.Angle.Radian => Radian,
-                Type.Angle.Degree => Degree,
-                Type.Angle.Turn => Turn,
-                Type.Angle.Gradian => Gradian,
+                Type.Angle.Radian   => Radian,
+                Type.Angle.Degree   => Degree,
+                Type.Angle.Turn     => Turn,
+                Type.Angle.Gradian  => Gradian,
                 _ => 0
             };
         }

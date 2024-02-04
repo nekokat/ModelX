@@ -16,20 +16,20 @@ namespace ModelX.Units
         {
             Scale = type switch
             {
-                Type.Area.SquareKilometer => SquareKilometer,
-                Type.Area.SquareHectometer => SquareHectometer,
-                Type.Area.SquareDecameter => SquareDecameter,
-                Type.Area.SquareMeter => SquareMeter,
-                Type.Area.SquareDecimeter => SquareDecimeter,
-                Type.Area.SquareCentimeter => SquareCentimeter,
-                Type.Area.SquareMillimeter => SquareMillimeter,
-                Type.Area.Perch => Perch,
-                Type.Area.Rood => Rood,
-                Type.Area.Acre => Acre,
-                Type.Area.SquareMile => SquareMile,
-                Type.Area.SquareYard => SquareYard,
-                Type.Area.SquareFoot => SquareFoot,
-                Type.Area.SquareInch => SquareInch,
+                Type.Area.SquareKilometer   => SquareKilometer,
+                Type.Area.SquareHectometer  => SquareHectometer,
+                Type.Area.SquareDecameter   => SquareDecameter,
+                Type.Area.SquareMeter       => SquareMeter,
+                Type.Area.SquareDecimeter   => SquareDecimeter,
+                Type.Area.SquareCentimeter  => SquareCentimeter,
+                Type.Area.SquareMillimeter  => SquareMillimeter,
+                Type.Area.Perch             => Perch,
+                Type.Area.Rood              => Rood,
+                Type.Area.Acre              => Acre,
+                Type.Area.SquareMile        => SquareMile,
+                Type.Area.SquareYard        => SquareYard,
+                Type.Area.SquareFoot        => SquareFoot,
+                Type.Area.SquareInch        => SquareInch,
                 _ => 1
             };
 
@@ -74,20 +74,20 @@ namespace ModelX.Units
         {
             return type switch
             {
-                Type.Area.SquareKilometer => SquareKilometer,
-                Type.Area.SquareHectometer => SquareHectometer,
-                Type.Area.SquareDecameter => SquareDecameter,
-                Type.Area.SquareMeter => SquareMeter,
-                Type.Area.SquareDecimeter => SquareDecimeter,
-                Type.Area.SquareCentimeter => SquareCentimeter,
-                Type.Area.SquareMillimeter => SquareMillimeter,
-                Type.Area.Perch => Perch,
-                Type.Area.Rood => Rood,
-                Type.Area.Acre => Acre,
-                Type.Area.SquareMile => SquareMile,
-                Type.Area.SquareYard => SquareYard,
-                Type.Area.SquareFoot => SquareFoot,
-                Type.Area.SquareInch => SquareInch,
+                Type.Area.SquareKilometer   => SquareKilometer,
+                Type.Area.SquareHectometer  => SquareHectometer,
+                Type.Area.SquareDecameter   => SquareDecameter,
+                Type.Area.SquareMeter       => SquareMeter,
+                Type.Area.SquareDecimeter   => SquareDecimeter,
+                Type.Area.SquareCentimeter  => SquareCentimeter,
+                Type.Area.SquareMillimeter  => SquareMillimeter,
+                Type.Area.Perch             => Perch,
+                Type.Area.Rood              => Rood,
+                Type.Area.Acre              => Acre,
+                Type.Area.SquareMile        => SquareMile,
+                Type.Area.SquareYard        => SquareYard,
+                Type.Area.SquareFoot        => SquareFoot,
+                Type.Area.SquareInch        => SquareInch,
                 _ => 0
             };
         }

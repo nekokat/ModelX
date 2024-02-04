@@ -16,16 +16,16 @@ namespace ModelX.Units
         {
             Scale = type switch
             {
-                Type.Volume.Litre => Litre,
-                Type.Volume.CubicDecimetre => CubicDecimetre,
-                Type.Volume.CubicMetre => CubicMetre,
+                Type.Volume.Litre           => Litre,
+                Type.Volume.CubicDecimetre  => CubicDecimetre,
+                Type.Volume.CubicMetre      => CubicMetre,
                 Type.Volume.CubicCentimetre => CubicCentimetre,
-                Type.Volume.CubicInch => CubicInch,
-                Type.Volume.BarrelOil => BarrelOil,
-                Type.Volume.USGallon => USGallon,
-                Type.Volume.USPint => USPint,
-                Type.Volume.USFluidOunce => USFluidOunce,
-                Type.Volume.CubicFoot => CubicFoot,
+                Type.Volume.CubicInch       => CubicInch,
+                Type.Volume.BarrelOil       => BarrelOil,
+                Type.Volume.USGallon        => USGallon,
+                Type.Volume.USPint          => USPint,
+                Type.Volume.USFluidOunce    => USFluidOunce,
+                Type.Volume.CubicFoot       => CubicFoot,
                 _ => 1
             };
 
@@ -61,16 +61,16 @@ namespace ModelX.Units
         {
             return type switch
             {
-                Type.Volume.Litre => Litre,
-                Type.Volume.CubicDecimetre => CubicDecimetre,
-                Type.Volume.CubicMetre => CubicMetre,
+                Type.Volume.Litre           => Litre,
+                Type.Volume.CubicDecimetre  => CubicDecimetre,
+                Type.Volume.CubicMetre      => CubicMetre,
                 Type.Volume.CubicCentimetre => CubicCentimetre,
-                Type.Volume.CubicInch => CubicInch,
-                Type.Volume.BarrelOil => BarrelOil,
-                Type.Volume.USGallon => USGallon,
-                Type.Volume.USPint => USPint,
-                Type.Volume.USFluidOunce => USFluidOunce,
-                Type.Volume.CubicFoot => CubicFoot,
+                Type.Volume.CubicInch       => CubicInch,
+                Type.Volume.BarrelOil       => BarrelOil,
+                Type.Volume.USGallon        => USGallon,
+                Type.Volume.USPint          => USPint,
+                Type.Volume.USFluidOunce    => USFluidOunce,
+                Type.Volume.CubicFoot       => CubicFoot,
                 _ => 1
             };
         }

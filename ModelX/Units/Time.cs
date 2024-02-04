@@ -18,14 +18,14 @@ namespace ModelX.Units
         {
             Scale = type switch
             {
-                Type.Time.Millisecond => Millisecond,
-                Type.Time.Second => Second,
-                Type.Time.Minute => Minute,
-                Type.Time.Kilosecond => Kilosecond,
-                Type.Time.Hour => Hour,
-                Type.Time.Day => Day,
-                Type.Time.Week => Week,
-                Type.Time.Megasecond => Megasecond,
+                Type.Time.Millisecond   => Millisecond,
+                Type.Time.Second        => Second,
+                Type.Time.Minute        => Minute,
+                Type.Time.Kilosecond    => Kilosecond,
+                Type.Time.Hour          => Hour,
+                Type.Time.Day           => Day,
+                Type.Time.Week          => Week,
+                Type.Time.Megasecond    => Megasecond,
                 _ => 0
             };
 
@@ -54,14 +54,14 @@ namespace ModelX.Units
         public double Result<T>(T type) where T : Enum
         {
             return type switch {
-                Type.Time.Millisecond => Millisecond,
-                Type.Time.Second => Second,
-                Type.Time.Minute => Minute,
-                Type.Time.Kilosecond => Kilosecond,
-                Type.Time.Hour => Hour,
-                Type.Time.Day => Day,
-                Type.Time.Week => Week,
-                Type.Time.Megasecond => Megasecond,
+                Type.Time.Millisecond   => Millisecond,
+                Type.Time.Second        => Second,
+                Type.Time.Minute        => Minute,
+                Type.Time.Kilosecond    => Kilosecond,
+                Type.Time.Hour          => Hour,
+                Type.Time.Day           => Day,
+                Type.Time.Week          => Week,
+                Type.Time.Megasecond    => Megasecond,
                 _ => 0
             };
         }

@@ -12,8 +12,7 @@ namespace ModelX
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            Converter<Weight> res = new (1296, Units.Type.Weight.Kilogramm, Units.Type.Weight.Tonne);
-            Console.WriteLine(res.Result());
+            Converter<Volume> res = new (1, Units.Type.Volume.Litre, Units.Type.Volume.CubicFoot);
             res.SerializeUnit();
         }
     }

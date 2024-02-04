@@ -13,13 +13,13 @@ namespace ModelX.Units
         {
             Celsius = type switch
             {
-                Type.Temperature.Kelvin => value - 273.15d,
+                Type.Temperature.Kelvin     => value - 273.15d,
                 Type.Temperature.Fahrenheit => (value - 32d) * 5 / 9,
-                Type.Temperature.Rankine => (value - 273.15d) * 5 / 9,
-                Type.Temperature.Newton => value / 0.33d,
-                Type.Temperature.Romer => (value - 7.5d) * 40 / 21,
-                Type.Temperature.Reaumur => value * 5d / 4,
-                Type.Temperature.Delisle => 100 - value * 2 / 3,
+                Type.Temperature.Rankine    => (value - 273.15d) * 5 / 9,
+                Type.Temperature.Newton     => value / 0.33d,
+                Type.Temperature.Romer      => (value - 7.5d) * 40 / 21,
+                Type.Temperature.Reaumur    => value * 5d / 4,
+                Type.Temperature.Delisle    => 100 - value * 2 / 3,
                 _ => value
             };
         }
@@ -40,16 +40,6 @@ namespace ModelX.Units
         public double Reaumur { get => 0.8d * Celsius; }
         [JsonProperty]
         public double Delisle { get => (100 - Celsius) * 3d / 2; }
-        //Aliases
-        public double C { get => Celsius; }
-        public double K { get => Kelvin; }
-        public double F { get => Fahrenheit; }
-        public double R { get => Rankine; }
-        public double N { get => Newton; }
-        public double Ro { get => Romer; }
-        public double Re { get => Reaumur; }
-        public double De { get => Delisle; }
-
 
         public double Result<T>(T type) where T : Enum
         {

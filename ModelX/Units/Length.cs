@@ -16,21 +16,21 @@ namespace ModelX.Units
         {
             Scale = type switch
             {
-                Type.Length.KiloMeter => KiloMeter,
-                Type.Length.HectoMeter => HectoMeter,
-                Type.Length.DecaMeter => DecaMeter,
-                Type.Length.Meter => Meter,
-                Type.Length.DeciMeter => DeciMeter,
-                Type.Length.CentiMeter => CentiMeter,
-                Type.Length.MilliMeter => MilliMeter,
-                Type.Length.Foot => Foot,
-                Type.Length.Inch => Inch,
-                Type.Length.Hand => Hand,
-                Type.Length.Yard => Yard,
-                Type.Length.Chain => Chain,
-                Type.Length.Furlong => Furlong,
-                Type.Length.Mile => Mile,
-                Type.Length.League => League,
+                Type.Length.KiloMeter   => KiloMeter,
+                Type.Length.HectoMeter  => HectoMeter,
+                Type.Length.DecaMeter   => DecaMeter,
+                Type.Length.Meter       => Meter,
+                Type.Length.DeciMeter   => DeciMeter,
+                Type.Length.CentiMeter  => CentiMeter,
+                Type.Length.MilliMeter  => MilliMeter,
+                Type.Length.Foot        => Foot,
+                Type.Length.Inch        => Inch,
+                Type.Length.Hand        => Hand,
+                Type.Length.Yard        => Yard,
+                Type.Length.Chain       => Chain,
+                Type.Length.Furlong     => Furlong,
+                Type.Length.Mile        => Mile,
+                Type.Length.League      => League,
                 _ => 1
             };
 
@@ -75,21 +75,21 @@ namespace ModelX.Units
         {
             return type switch
             {
-                Type.Length.KiloMeter => KiloMeter,
-                Type.Length.HectoMeter => HectoMeter,
-                Type.Length.DecaMeter => DecaMeter,
-                Type.Length.Meter => Meter,
-                Type.Length.DeciMeter => DeciMeter,
-                Type.Length.CentiMeter => CentiMeter,
-                Type.Length.MilliMeter => MilliMeter,
-                Type.Length.Foot => Foot,
-                Type.Length.Inch => Inch,
-                Type.Length.Hand => Hand,
-                Type.Length.Yard => Yard,
-                Type.Length.Chain => Chain,
-                Type.Length.Furlong => Furlong,
-                Type.Length.Mile => Mile,
-                Type.Length.League => League,
+                Type.Length.KiloMeter   => KiloMeter,
+                Type.Length.HectoMeter  => HectoMeter,
+                Type.Length.DecaMeter   => DecaMeter,
+                Type.Length.Meter       => Meter,
+                Type.Length.DeciMeter   => DeciMeter,
+                Type.Length.CentiMeter  => CentiMeter,
+                Type.Length.MilliMeter  => MilliMeter,
+                Type.Length.Foot        => Foot,
+                Type.Length.Inch        => Inch,
+                Type.Length.Hand        => Hand,
+                Type.Length.Yard        => Yard,
+                Type.Length.Chain       => Chain,
+                Type.Length.Furlong     => Furlong,
+                Type.Length.Mile        => Mile,
+                Type.Length.League      => League,
                 _ => 0
             };
         }
