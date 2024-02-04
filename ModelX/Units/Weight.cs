@@ -14,26 +14,7 @@ namespace ModelX.Units
 
         public Weight(double value, Enum type)
         {
-            Scale = type switch
-            {
-                Type.Weight.Gigatonne   => Gigatonne,
-                Type.Weight.Megatonne   => Megatonne,
-                Type.Weight.Tonne       => Tonne,
-                Type.Weight.Kilogramm   => Kilogramm,
-                Type.Weight.Gramm       => Gramm,
-                Type.Weight.Milligramm  => Milligramm,
-                Type.Weight.Microgram   => Microgram,
-                Type.Weight.Nanogram    => Nanogram,
-                Type.Weight.Picogram    => Picogram,
-                //Imperial
-                Type.Weight.USton       => USton,
-                Type.Weight.UKton       => UKton,
-                Type.Weight.Pound       => Pound,
-                Type.Weight.Ounce       => Ounce,
-                _ => 0
-            };
-
-            Gramm = value / Scale;
+            Gramm = value / Result(type);
         }
 
         double Scale { get; set; }
@@ -85,7 +66,7 @@ namespace ModelX.Units
                 Type.Weight.UKton       => UKton,
                 Type.Weight.Pound       => Pound,
                 Type.Weight.Ounce       => Ounce,
-                _ => 0
+                _ => throw new NotSupportedException()
             };
         }
     }

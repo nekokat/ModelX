@@ -14,30 +14,9 @@ namespace ModelX.Units
 
         public Length(double value, Enum type)
         {
-            Scale = type switch
-            {
-                Type.Length.KiloMeter   => KiloMeter,
-                Type.Length.HectoMeter  => HectoMeter,
-                Type.Length.DecaMeter   => DecaMeter,
-                Type.Length.Meter       => Meter,
-                Type.Length.DeciMeter   => DeciMeter,
-                Type.Length.CentiMeter  => CentiMeter,
-                Type.Length.MilliMeter  => MilliMeter,
-                Type.Length.Foot        => Foot,
-                Type.Length.Inch        => Inch,
-                Type.Length.Hand        => Hand,
-                Type.Length.Yard        => Yard,
-                Type.Length.Chain       => Chain,
-                Type.Length.Furlong     => Furlong,
-                Type.Length.Mile        => Mile,
-                Type.Length.League      => League,
-                _ => 1
-            };
-
-            Meter = value / Scale;
+            Meter = value / Result(type);
         }
 
-        double Scale { get; set; }
         //Metric
         [JsonProperty]
         public double KiloMeter => Meter / 1000d;
@@ -90,7 +69,7 @@ namespace ModelX.Units
                 Type.Length.Furlong     => Furlong,
                 Type.Length.Mile        => Mile,
                 Type.Length.League      => League,
-                _ => 0
+                _ => throw new NotSupportedException()
             };
         }
     }

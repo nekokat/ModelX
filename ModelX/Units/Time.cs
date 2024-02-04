@@ -10,29 +10,12 @@ namespace ModelX.Units
     [JsonObject(MemberSerialization.OptIn)]
     class Time : IUnit
     {
-        public Time()
-        {
-            
-        }
+        public Time() { }
+
         public Time(double value, Enum type)
         {
-            Scale = type switch
-            {
-                Type.Time.Millisecond   => Millisecond,
-                Type.Time.Second        => Second,
-                Type.Time.Minute        => Minute,
-                Type.Time.Kilosecond    => Kilosecond,
-                Type.Time.Hour          => Hour,
-                Type.Time.Day           => Day,
-                Type.Time.Week          => Week,
-                Type.Time.Megasecond    => Megasecond,
-                _ => 0
-            };
-
-            Second = value / Scale;
+            Second = value / Result(type);
         }
-
-        double Scale {get;set;}
 
         [JsonProperty]
         public double Millisecond { get => Second * 1e3d; }
@@ -62,7 +45,7 @@ namespace ModelX.Units
                 Type.Time.Day           => Day,
                 Type.Time.Week          => Week,
                 Type.Time.Megasecond    => Megasecond,
-                _ => 0
+                _ => throw new NotSupportedException()
             };
         }
     }

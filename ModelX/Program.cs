@@ -12,7 +12,8 @@ namespace ModelX
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            Converter<Volume> res = new (1, Units.Type.Volume.Litre, Units.Type.Volume.CubicFoot);
+            Converter<Angle> res = new (180, Units.Type.Angle.Degree, Units.Type.Angle.Radian);
+            Console.WriteLine(res.Result());
             res.SerializeUnit();
         }
     }

@@ -20,7 +20,7 @@ namespace ModelX.Units
                 Type.Temperature.Romer      => (value - 7.5d) * 40 / 21,
                 Type.Temperature.Reaumur    => value * 5d / 4,
                 Type.Temperature.Delisle    => 100 - value * 2 / 3,
-                _ => value
+                _ => throw new NotSupportedException()
             };
         }
 
@@ -53,7 +53,7 @@ namespace ModelX.Units
                 Type.Temperature.Romer      => Romer,
                 Type.Temperature.Reaumur    => Reaumur,
                 Type.Temperature.Delisle    => Delisle,
-                _ => 0
+                _ => throw new NotSupportedException()
             };
 
         }

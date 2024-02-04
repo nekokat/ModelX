@@ -11,21 +11,11 @@ namespace ModelX.Units
     class Angle : IUnit
     {
         public Angle() { }
-        public Angle(double value, Type.Angle type)
+
+        public Angle(double value, Enum type)
         {
-            Scale = type switch
-            {
-                Type.Angle.Radian   => Radian,
-                Type.Angle.Degree   => Degree,
-                Type.Angle.Turn     => Turn,
-                Type.Angle.Gradian  => Gradian,
-                _ => 1
-            };
-
-            Degree = value / Scale;
+            Degree = value / Result(type);
         }
-
-        double Scale { get; set; }
 
         [JsonProperty]
         public double Radian { get => this.Degree * Math.PI / 180d; }
@@ -44,7 +34,7 @@ namespace ModelX.Units
                 Type.Angle.Degree   => Degree,
                 Type.Angle.Turn     => Turn,
                 Type.Angle.Gradian  => Gradian,
-                _ => 0
+                _ => throw new NotSupportedException()
             };
         }
     }

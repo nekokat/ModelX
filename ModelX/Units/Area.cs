@@ -14,29 +14,8 @@ namespace ModelX.Units
 
         public Area(double value, Enum type)
         {
-            Scale = type switch
-            {
-                Type.Area.SquareKilometer   => SquareKilometer,
-                Type.Area.SquareHectometer  => SquareHectometer,
-                Type.Area.SquareDecameter   => SquareDecameter,
-                Type.Area.SquareMeter       => SquareMeter,
-                Type.Area.SquareDecimeter   => SquareDecimeter,
-                Type.Area.SquareCentimeter  => SquareCentimeter,
-                Type.Area.SquareMillimeter  => SquareMillimeter,
-                Type.Area.Perch             => Perch,
-                Type.Area.Rood              => Rood,
-                Type.Area.Acre              => Acre,
-                Type.Area.SquareMile        => SquareMile,
-                Type.Area.SquareYard        => SquareYard,
-                Type.Area.SquareFoot        => SquareFoot,
-                Type.Area.SquareInch        => SquareInch,
-                _ => 1
-            };
-
-            SquareMeter = value / Scale;
+            SquareMeter = value / Result(type);
         }
-
-        double Scale { get; set; }
 
         //Mertic
         [JsonProperty]
@@ -88,7 +67,7 @@ namespace ModelX.Units
                 Type.Area.SquareYard        => SquareYard,
                 Type.Area.SquareFoot        => SquareFoot,
                 Type.Area.SquareInch        => SquareInch,
-                _ => 0
+                _ => throw new NotSupportedException()
             };
         }
     }

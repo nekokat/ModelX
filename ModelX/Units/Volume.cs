@@ -12,27 +12,11 @@ namespace ModelX.Units
     {
         public Volume() { }
 
-        public Volume(double value, Type.Volume type)
+        public Volume(double value, Enum type)
         {
-            Scale = type switch
-            {
-                Type.Volume.Litre           => Litre,
-                Type.Volume.CubicDecimetre  => CubicDecimetre,
-                Type.Volume.CubicMetre      => CubicMetre,
-                Type.Volume.CubicCentimetre => CubicCentimetre,
-                Type.Volume.CubicInch       => CubicInch,
-                Type.Volume.BarrelOil       => BarrelOil,
-                Type.Volume.USGallon        => USGallon,
-                Type.Volume.USPint          => USPint,
-                Type.Volume.USFluidOunce    => USFluidOunce,
-                Type.Volume.CubicFoot       => CubicFoot,
-                _ => 1
-            };
-
-            CubicMetre = value / Scale;
+            CubicMetre = value / Result(type);
         }
 
-        double Scale { get; set; }
         //Metric
         [JsonProperty]
         public double Litre { get => CubicMetre * 1e3d; }
@@ -71,7 +55,7 @@ namespace ModelX.Units
                 Type.Volume.USPint          => USPint,
                 Type.Volume.USFluidOunce    => USFluidOunce,
                 Type.Volume.CubicFoot       => CubicFoot,
-                _ => 1
+                _ => throw new NotSupportedException()
             };
         }
     }

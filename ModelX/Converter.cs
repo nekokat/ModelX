@@ -6,41 +6,43 @@ namespace ModelX
 {
     class Converter<TUnit> where TUnit : IUnit, new()
     {
-        public Converter(double value, Enum inputUnit, Enum outUnit)
+        public Converter(double value, Enum inputMeasure, Enum outputMeasure)
         {
             Value = value;
-            Unit = (TUnit)Activator.CreateInstance(typeof(TUnit), value, inputUnit);
-            Input = Unit.Result(inputUnit);
-            Output = Unit.Result(outUnit);
+            InputMeasure = inputMeasure;
+            OutputMeasure = outputMeasure;
+            Unit = (TUnit)Activator.CreateInstance(typeof(TUnit), value, inputMeasure);
+            InputValue = Unit.Result(inputMeasure);
+            OutputValue = Unit.Result(outputMeasure);
         }
 
+        public Enum InputMeasure { get; set; }
+        public Enum OutputMeasure { get; set; }
         public double Value { get; set; }
         public TUnit Unit { get; set; }
-        public double Input { get; set; }
-        public double Output { get; set; }
+        public double InputValue { get; set; }
+        public double OutputValue { get; set; }
 
         public double Result()
         {
-            if (Unit is Temperature)
-                return Output;
-            return Value * Input / Output;
+            return OutputValue;
+        }
+
+        public override string ToString()
+        {
+            return $"{InputValue} {InputMeasure} = {OutputValue} {OutputMeasure}";
         }
 
         public void SerializeUnit()
         {
-            //List<System.Type> types = new() { typeof(Volume), typeof(Area), typeof(Time), typeof(Weight), typeof(Length), typeof(Temperature), typeof(Angle) };
-            List<System.Type> types = new() { typeof(Angle) };
-
             TextWriter? writer = null;
+
             try
             {
                 writer = new StreamWriter("Converter.json", true);
-                foreach (var d in types)
-                {
-                    var data = Unit;
-                    var json = JsonConvert.SerializeObject(data, Formatting.Indented);
-                    writer.Write(json + "\n");
-                }
+                var json = JsonConvert.SerializeObject(Unit, Formatting.Indented);
+                writer.Write(this.ToString() + "\n");
+                writer.Write(json + "\n");
             }
             finally
             {
