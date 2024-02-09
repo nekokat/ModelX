@@ -17,8 +17,6 @@ namespace ModelX.Measure
             Gramm = value / Result(type);
         }
 
-        double Scale { get; set; }
-
         //Metric
         [JsonProperty]
         public double Gigatonne => Gramm / 1e15d;
