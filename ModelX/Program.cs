@@ -12,7 +12,7 @@ namespace ModelX
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            Converter<Area> res = new (2*3.141592653589793d, Measure.Type.Area.Acre, Measure.Type.Area.SquareKilometer);
+            Converter<Area> res = new (180.0, Measure.Unit.Area.SquareCentimeter, Measure.Unit.Area.SquareInch);
             res.SerializeMeasure();
             res.SwapUnit();
             res.SerializeMeasure();

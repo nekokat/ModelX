@@ -1,20 +1,15 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    class Volume : IMeasure
+    public class Volume : IMeasure
     {
         public Volume() { }
 
-        public Volume(double value, Enum type)
+        public Volume(double value, Enum unit)
         {
-            CubicMetre = value / Result(type);
+            CubicMetre = value / Result(unit);
         }
 
         //Metric
@@ -41,20 +36,20 @@ namespace ModelX.Measure
         [JsonProperty]
         public double CubicFoot { get => CubicMetre / Math.Pow(0.3048d, 3); }
         //public double CubicFoot { get => CubicMetre / Math.Pow(Length.Foot, 3); }
-        public double Result<T>(T type) where T : Enum
+        public double Result<T>(T unit) where T : Enum
         {
-            return type switch
+            return unit switch
             {
-                Type.Volume.Litre           => Litre,
-                Type.Volume.CubicDecimetre  => CubicDecimetre,
-                Type.Volume.CubicMetre      => CubicMetre,
-                Type.Volume.CubicCentimetre => CubicCentimetre,
-                Type.Volume.CubicInch       => CubicInch,
-                Type.Volume.BarrelOil       => BarrelOil,
-                Type.Volume.USGallon        => USGallon,
-                Type.Volume.USPint          => USPint,
-                Type.Volume.USFluidOunce    => USFluidOunce,
-                Type.Volume.CubicFoot       => CubicFoot,
+                Unit.Volume.Litre           => Litre,
+                Unit.Volume.CubicDecimetre  => CubicDecimetre,
+                Unit.Volume.CubicMetre      => CubicMetre,
+                Unit.Volume.CubicCentimetre => CubicCentimetre,
+                Unit.Volume.CubicInch       => CubicInch,
+                Unit.Volume.BarrelOil       => BarrelOil,
+                Unit.Volume.USGallon        => USGallon,
+                Unit.Volume.USPint          => USPint,
+                Unit.Volume.USFluidOunce    => USFluidOunce,
+                Unit.Volume.CubicFoot       => CubicFoot,
                 _ => throw new NotSupportedException()
             };
         }

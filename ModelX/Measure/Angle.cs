@@ -1,20 +1,17 @@
 ﻿using Newtonsoft.Json;
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    class Angle : IMeasure
+    public class Angle : IMeasure
     {
         public Angle() { }
 
-        public Angle(double value, Enum type)
+        public Angle(double value, Enum unit)
         {
-            Degree = value / Result(type);
+            Degree = value / Result(unit);
         }
 
         [JsonProperty]
@@ -26,14 +23,19 @@ namespace ModelX.Measure
         [JsonProperty]
         public double Gradian { get => this.Degree * 400d / 360; }
 
-        public double Result<T>(T type) where T : Enum
+        public new bool Equals(object x, object y)
         {
-            return type switch
+            return x is Angle && y is Angle && ((Angle)x).Degree.Equals(((Angle)y).Degree);
+        }
+
+        public double Result<T>(T unit) where T : Enum
+        {
+            return unit switch
             {
-                Type.Angle.Radian   => Radian,
-                Type.Angle.Degree   => Degree,
-                Type.Angle.Turn     => Turn,
-                Type.Angle.Gradian  => Gradian,
+                Unit.Angle.Radian   => Radian,
+                Unit.Angle.Degree   => Degree,
+                Unit.Angle.Turn     => Turn,
+                Unit.Angle.Gradian  => Gradian,
                 _ => throw new NotSupportedException()
             };
         }

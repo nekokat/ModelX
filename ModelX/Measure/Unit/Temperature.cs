@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ModelX.Measure.Type
+namespace ModelX.Measure.Unit
 {
     public enum Temperature
     {

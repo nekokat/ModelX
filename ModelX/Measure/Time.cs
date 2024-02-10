@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    class Time : IMeasure
+    public class Time : IMeasure
     {
         public Time() { }
 
-        public Time(double value, Enum type)
+        public Time(double value, Enum unit)
         {
-            Second = value / Result(type);
+            Second = value / Result(unit);
         }
 
         [JsonProperty]
@@ -34,17 +29,17 @@ namespace ModelX.Measure
         [JsonProperty]
         public double Megasecond { get => Second / 1e6d; }
 
-        public double Result<T>(T type) where T : Enum
+        public double Result<T>(T unit) where T : Enum
         {
-            return type switch {
-                Type.Time.Millisecond   => Millisecond,
-                Type.Time.Second        => Second,
-                Type.Time.Minute        => Minute,
-                Type.Time.Kilosecond    => Kilosecond,
-                Type.Time.Hour          => Hour,
-                Type.Time.Day           => Day,
-                Type.Time.Week          => Week,
-                Type.Time.Megasecond    => Megasecond,
+            return unit switch {
+                Unit.Time.Millisecond   => Millisecond,
+                Unit.Time.Second        => Second,
+                Unit.Time.Minute        => Minute,
+                Unit.Time.Kilosecond    => Kilosecond,
+                Unit.Time.Hour          => Hour,
+                Unit.Time.Day           => Day,
+                Unit.Time.Week          => Week,
+                Unit.Time.Megasecond    => Megasecond,
                 _ => throw new NotSupportedException()
             };
         }

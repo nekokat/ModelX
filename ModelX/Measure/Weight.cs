@@ -1,20 +1,15 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    class Weight :IMeasure
+    public class Weight : IMeasure
     {
         public Weight() { }
 
-        public Weight(double value, Enum type)
+        public Weight(double value, Enum unit)
         {
-            Gramm = value / Result(type);
+            Gramm = value / Result(unit);
         }
 
         //Metric
@@ -46,24 +41,24 @@ namespace ModelX.Measure
         [JsonProperty]
         public double Ounce => Gramm / 28.35d;
 
-        public double Result<T>(T type) where T : Enum
+        public double Result<T>(T unit) where T : Enum
         {
-            return type switch
+            return unit switch
             {
-                Type.Weight.Gigatonne   => Gigatonne,
-                Type.Weight.Megatonne   => Megatonne,
-                Type.Weight.Tonne       => Tonne,
-                Type.Weight.Kilogramm   => Kilogramm,
-                Type.Weight.Gramm       => Gramm,
-                Type.Weight.Milligramm  => Milligramm,
-                Type.Weight.Microgram   => Microgram,
-                Type.Weight.Nanogram    => Nanogram,
-                Type.Weight.Picogram    => Picogram,
+                Unit.Weight.Gigatonne   => Gigatonne,
+                Unit.Weight.Megatonne   => Megatonne,
+                Unit.Weight.Tonne       => Tonne,
+                Unit.Weight.Kilogramm   => Kilogramm,
+                Unit.Weight.Gramm       => Gramm,
+                Unit.Weight.Milligramm  => Milligramm,
+                Unit.Weight.Microgram   => Microgram,
+                Unit.Weight.Nanogram    => Nanogram,
+                Unit.Weight.Picogram    => Picogram,
                 //Imperial
-                Type.Weight.USton       => USton,
-                Type.Weight.UKton       => UKton,
-                Type.Weight.Pound       => Pound,
-                Type.Weight.Ounce       => Ounce,
+                Unit.Weight.USton       => USton,
+                Unit.Weight.UKton       => UKton,
+                Unit.Weight.Pound       => Pound,
+                Unit.Weight.Ounce       => Ounce,
                 _ => throw new NotSupportedException()
             };
         }

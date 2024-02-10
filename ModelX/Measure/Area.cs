@@ -1,20 +1,15 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    class Area : IMeasure
+    public class Area : IMeasure
     {
         public Area(){}
 
-        public Area(double value, Enum type)
+        public Area(double value, Enum unit)
         {
-            SquareMeter = value / Result(type);
+            SquareMeter = value / Result(unit);
         }
 
         //Mertic
@@ -49,24 +44,28 @@ namespace ModelX.Measure
         [JsonProperty]
         public double SquareInch { get => 144 * SquareFoot; }
 
-        public double Result<T>(T type) where T : Enum
+        public new bool Equals(object x, object y)
         {
-            return type switch
+            return x is Area && y is Area && ((Area)x).SquareMeter.Equals(((Area)y).SquareMeter);
+        }
+        public double Result<T>(T unit) where T : Enum
+        {
+            return unit switch
             {
-                Type.Area.SquareKilometer   => SquareKilometer,
-                Type.Area.SquareHectometer  => SquareHectometer,
-                Type.Area.SquareDecameter   => SquareDecameter,
-                Type.Area.SquareMeter       => SquareMeter,
-                Type.Area.SquareDecimeter   => SquareDecimeter,
-                Type.Area.SquareCentimeter  => SquareCentimeter,
-                Type.Area.SquareMillimeter  => SquareMillimeter,
-                Type.Area.Perch             => Perch,
-                Type.Area.Rood              => Rood,
-                Type.Area.Acre              => Acre,
-                Type.Area.SquareMile        => SquareMile,
-                Type.Area.SquareYard        => SquareYard,
-                Type.Area.SquareFoot        => SquareFoot,
-                Type.Area.SquareInch        => SquareInch,
+                Unit.Area.SquareKilometer   => SquareKilometer,
+                Unit.Area.SquareHectometer  => SquareHectometer,
+                Unit.Area.SquareDecameter   => SquareDecameter,
+                Unit.Area.SquareMeter       => SquareMeter,
+                Unit.Area.SquareDecimeter   => SquareDecimeter,
+                Unit.Area.SquareCentimeter  => SquareCentimeter,
+                Unit.Area.SquareMillimeter  => SquareMillimeter,
+                Unit.Area.Perch             => Perch,
+                Unit.Area.Rood              => Rood,
+                Unit.Area.Acre              => Acre,
+                Unit.Area.SquareMile        => SquareMile,
+                Unit.Area.SquareYard        => SquareYard,
+                Unit.Area.SquareFoot        => SquareFoot,
+                Unit.Area.SquareInch        => SquareInch,
                 _ => throw new NotSupportedException()
             };
         }

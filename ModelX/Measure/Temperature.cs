@@ -7,19 +7,19 @@ namespace ModelX.Measure
     public class Temperature : IMeasure
     {
         public Temperature() { }
-        public Temperature(double value) : this(value, Type.Temperature.Celsius) { }
+        public Temperature(double value) : this(value, Unit.Temperature.Celsius) { }
     
-        public Temperature(double value, Enum type)
+        public Temperature(double value, Enum unit)
         {
-            Celsius = type switch
+            Celsius = unit switch
             {
-                Type.Temperature.Kelvin     => value - 273.15d,
-                Type.Temperature.Fahrenheit => (value - 32d) * 5 / 9,
-                Type.Temperature.Rankine    => (value - 273.15d) * 5 / 9,
-                Type.Temperature.Newton     => value / 0.33d,
-                Type.Temperature.Romer      => (value - 7.5d) * 40 / 21,
-                Type.Temperature.Reaumur    => value * 5d / 4,
-                Type.Temperature.Delisle    => 100 - value * 2 / 3,
+                Unit.Temperature.Kelvin     => value - 273.15d,
+                Unit.Temperature.Fahrenheit => (value - 32d) * 5 / 9,
+                Unit.Temperature.Rankine    => (value - 273.15d) * 5 / 9,
+                Unit.Temperature.Newton     => value / 0.33d,
+                Unit.Temperature.Romer      => (value - 7.5d) * 40 / 21,
+                Unit.Temperature.Reaumur    => value * 5d / 4,
+                Unit.Temperature.Delisle    => 100 - value * 2 / 3,
                 _ => throw new NotSupportedException()
             };
         }
@@ -41,18 +41,18 @@ namespace ModelX.Measure
         [JsonProperty]
         public double Delisle { get => (100 - Celsius) * 3d / 2; }
 
-        public double Result<T>(T type) where T : Enum
+        public double Result<T>(T unit) where T : Enum
         {
-            return type switch
+            return unit switch
             {
-                Type.Temperature.Celsius    => Celsius,
-                Type.Temperature.Kelvin     => Kelvin,
-                Type.Temperature.Fahrenheit => Fahrenheit,
-                Type.Temperature.Rankine    => Rankine,
-                Type.Temperature.Newton     => Newton,
-                Type.Temperature.Romer      => Romer,
-                Type.Temperature.Reaumur    => Reaumur,
-                Type.Temperature.Delisle    => Delisle,
+                Unit.Temperature.Celsius    => Celsius,
+                Unit.Temperature.Kelvin     => Kelvin,
+                Unit.Temperature.Fahrenheit => Fahrenheit,
+                Unit.Temperature.Rankine    => Rankine,
+                Unit.Temperature.Newton     => Newton,
+                Unit.Temperature.Romer      => Romer,
+                Unit.Temperature.Reaumur    => Reaumur,
+                Unit.Temperature.Delisle    => Delisle,
                 _ => throw new NotSupportedException()
             };
 

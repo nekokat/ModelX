@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace ModelX.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
-    class Length : IMeasure
+    public class Length : IMeasure
     {
         public Length() { }
 
-        public Length(double value, Enum type)
+        public Length(double value, Enum unit)
         {
-            Meter = value / Result(type);
+            Meter = value / Result(unit);
         }
 
         //Metric
@@ -50,25 +45,25 @@ namespace ModelX.Measure
         [JsonProperty]
         public double League => Mile / 3;
 
-        public double Result<T>(T type) where T : Enum
+        public double Result<T>(T unit) where T : Enum
         {
-            return type switch
+            return unit switch
             {
-                Type.Length.KiloMeter   => KiloMeter,
-                Type.Length.HectoMeter  => HectoMeter,
-                Type.Length.DecaMeter   => DecaMeter,
-                Type.Length.Meter       => Meter,
-                Type.Length.DeciMeter   => DeciMeter,
-                Type.Length.CentiMeter  => CentiMeter,
-                Type.Length.MilliMeter  => MilliMeter,
-                Type.Length.Foot        => Foot,
-                Type.Length.Inch        => Inch,
-                Type.Length.Hand        => Hand,
-                Type.Length.Yard        => Yard,
-                Type.Length.Chain       => Chain,
-                Type.Length.Furlong     => Furlong,
-                Type.Length.Mile        => Mile,
-                Type.Length.League      => League,
+                Unit.Length.KiloMeter   => KiloMeter,
+                Unit.Length.HectoMeter  => HectoMeter,
+                Unit.Length.DecaMeter   => DecaMeter,
+                Unit.Length.Meter       => Meter,
+                Unit.Length.DeciMeter   => DeciMeter,
+                Unit.Length.CentiMeter  => CentiMeter,
+                Unit.Length.MilliMeter  => MilliMeter,
+                Unit.Length.Foot        => Foot,
+                Unit.Length.Inch        => Inch,
+                Unit.Length.Hand        => Hand,
+                Unit.Length.Yard        => Yard,
+                Unit.Length.Chain       => Chain,
+                Unit.Length.Furlong     => Furlong,
+                Unit.Length.Mile        => Mile,
+                Unit.Length.League      => League,
                 _ => throw new NotSupportedException()
             };
         }

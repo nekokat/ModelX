@@ -1,4 +1,4 @@
-﻿using ModelX.Measure.Type;
+﻿using ModelX.Measure.Unit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace ModelX
 {
     public interface IMeasure
     {
-        public double Result<T>(T type) where T : Enum;
+        public double Result<T>(T unit) where T : Enum;
     }
 }
