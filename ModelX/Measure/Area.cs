@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ModelX.Measure
 {
@@ -44,10 +46,18 @@ namespace ModelX.Measure
         [JsonProperty]
         public double SquareInch { get => 144 * SquareFoot; }
 
-        public new bool Equals(object x, object y)
-        {
+        /*
+        public new bool Equals(object? x, object? y)
+        {            
             return x is Area && y is Area && ((Area)x).SquareMeter.Equals(((Area)y).SquareMeter);
         }
+
+        public int GetHashCode(object obj)
+        {
+            throw new NotImplementedException();
+        }
+        */
+
         public double Result<T>(T unit) where T : Enum
         {
             return unit switch

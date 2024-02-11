@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -23,10 +24,12 @@ namespace ModelX.Measure
         [JsonProperty]
         public double Gradian { get => this.Degree * 400d / 360; }
 
+        /*
         public new bool Equals(object x, object y)
         {
             return x is Angle && y is Angle && ((Angle)x).Degree.Equals(((Angle)y).Degree);
         }
+        */
 
         public double Result<T>(T unit) where T : Enum
         {

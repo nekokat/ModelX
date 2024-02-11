@@ -13,6 +13,7 @@ namespace ModelX.Measure
         {
             Celsius = unit switch
             {
+                Unit.Temperature.Celsius    => value,
                 Unit.Temperature.Kelvin     => value - 273.15d,
                 Unit.Temperature.Fahrenheit => (value - 32d) * 5 / 9,
                 Unit.Temperature.Rankine    => (value - 273.15d) * 5 / 9,
