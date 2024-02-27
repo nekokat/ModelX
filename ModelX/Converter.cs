@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using ModelX.Measure;
+using System.IO;
 
 namespace ModelX
 {
@@ -10,14 +11,14 @@ namespace ModelX
         {
             InputMeasure = inputUnit;
             OutputMeasure = outputUnit;
-            Measure = (TMeasure?)Activator.CreateInstance(typeof(TMeasure?), value, inputUnit);
+            Measure = (TMeasure)Activator.CreateInstance(typeof(TMeasure), value, inputUnit);
             InputValue = value;
             OutputValue = Measure?.Result(outputUnit);
         }
 
         public Enum InputMeasure { get; set; }
         public Enum OutputMeasure { get; set; }
-        public TMeasure? Measure { get; set; }
+        public TMeasure Measure { get; set; }
         public double? InputValue { get; set; }
         public double? OutputValue { get; set; }
 
@@ -29,7 +30,7 @@ namespace ModelX
         //TODO: Create Converter's Swap
         public void SwapUnit()
         {
-            Measure = (TMeasure?)Activator.CreateInstance(typeof(TMeasure?), InputValue, OutputMeasure);
+            Measure = (TMeasure)Activator.CreateInstance(typeof(TMeasure), InputValue, OutputMeasure);
             OutputValue = Measure?.Result(InputMeasure);
             (InputMeasure, OutputMeasure) = (OutputMeasure, InputMeasure);
         }
@@ -41,11 +42,11 @@ namespace ModelX
 
         public void SerializeMeasure()
         {
-            TextWriter? writer = null;
+            TextWriter writer = null;
 
             try
             {
-                writer = new StreamWriter("Converter.json", true);
+                writer = new StreamWriter("./Converter.json", true);
                 var json = JsonConvert.SerializeObject(Measure, Formatting.Indented);
                 writer.Write(this.ToString() + "\n");
                 writer.Write(json + "\n");

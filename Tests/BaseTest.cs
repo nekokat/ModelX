@@ -1,4 +1,5 @@
-﻿using ModelX;
+﻿using System;
+using ModelX;
 using NUnit.Framework.Legacy;
 
 namespace Tests

@@ -1,11 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <EnableWindowsTargeting>true</EnableWindowsTargeting>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <SupportedOSPlatformVersion>10.0.22621.0</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>

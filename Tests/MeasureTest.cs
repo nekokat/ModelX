@@ -1,3 +1,4 @@
+using System;
 using ModelX.Measure.Unit;
 
 namespace Tests
@@ -5,8 +6,7 @@ namespace Tests
     public class Tests : BaseTest
     {
         [SetUp]
-        public void Setup()
-        {}
+        public void Setup(){}
 
 
         [TestCase(90.0, Angle.Degree, Math.PI/2, Angle.Radian, 0d)]
