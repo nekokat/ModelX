@@ -10,18 +10,18 @@ namespace ModelX
         {
             InputMeasure = inputUnit;
             OutputMeasure = outputUnit;
-            Measure = (TMeasure)Activator.CreateInstance(typeof(TMeasure), value, inputUnit);
+            Measure = (TMeasure?)Activator.CreateInstance(typeof(TMeasure?), value, inputUnit);
             InputValue = value;
-            OutputValue = Measure.Result(outputUnit);
+            OutputValue = Measure?.Result(outputUnit);
         }
 
         public Enum InputMeasure { get; set; }
         public Enum OutputMeasure { get; set; }
-        public TMeasure Measure { get; set; }
-        public double InputValue { get; set; }
-        public double OutputValue { get; set; }
+        public TMeasure? Measure { get; set; }
+        public double? InputValue { get; set; }
+        public double? OutputValue { get; set; }
 
-        public double Result()
+        public double? Result()
         {
             return OutputValue;
         }
@@ -29,8 +29,8 @@ namespace ModelX
         //TODO: Create Converter's Swap
         public void SwapUnit()
         {
-            Measure = (TMeasure)Activator.CreateInstance(typeof(TMeasure), InputValue, OutputMeasure);
-            OutputValue = Measure.Result(InputMeasure);
+            Measure = (TMeasure?)Activator.CreateInstance(typeof(TMeasure?), InputValue, OutputMeasure);
+            OutputValue = Measure?.Result(InputMeasure);
             (InputMeasure, OutputMeasure) = (OutputMeasure, InputMeasure);
         }
 
