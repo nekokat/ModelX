@@ -1,6 +1,4 @@
-using ModelX;
 using ModelX.Measure.Unit;
-using NUnit.Framework;
 
 namespace Tests
 {
