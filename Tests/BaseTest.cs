@@ -10,10 +10,8 @@ namespace Tests
         {
             T expected = (T)Activator.CreateInstance(typeof(T), x, typex);
             T actual = (T)Activator.CreateInstance(typeof(T), y, typey);
-#pragma warning disable NUnit2005 // Consider using Assert.That(actual, Is.EqualTo(expected)) instead of ClassicAssert.AreEqual(expected, actual)
-            ClassicAssert.AreEqual((double)expected.Result(typey), (double)y, (double)delta);
-            ClassicAssert.AreEqual((double)actual.Result(typex), (double)x, (double)delta);
-#pragma warning restore NUnit2005 // Consider using Assert.That(actual, Is.EqualTo(expected)) instead of ClassicAssert.AreEqual(expected, actual)
+            Assert.That(Math.Abs(expected.Result(typey) - y), delta);
+            Assert.That(Math.Abs(actual.Result(typex)- x), delta);
         }
 
     }
