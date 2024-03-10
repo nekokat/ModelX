@@ -10,42 +10,42 @@ namespace ModelX.Measure
     {
         public Area(){}
 
-        public Area(double value, Enum unit)
+        public Area(decimal value, Enum unit)
         {
             SquareMeter = value / Result(unit);
         }
 
         //Mertic
         [JsonProperty]
-        public double SquareKilometer { get => SquareMeter / 1e6d; }
+        public decimal SquareKilometer { get => SquareMeter / 1e6m; }
         [JsonProperty]
-        public double SquareHectometer { get => SquareMeter / 1e4d; }
+        public decimal SquareHectometer { get => SquareMeter / 1e4m; }
         [JsonProperty]
-        public double SquareDecameter { get => SquareMeter / 1e2d; }
+        public decimal SquareDecameter { get => SquareMeter / 1e2m; }
         [JsonProperty]
-        public double SquareMeter { get; set; } = 1d;
+        public decimal SquareMeter { get; set; } = 1m;
         [JsonProperty]
-        public double SquareDecimeter { get => SquareMeter / 1e-2d; }
+        public decimal SquareDecimeter { get => SquareMeter / 1e-2m; }
         [JsonProperty]
-        public double SquareCentimeter { get => SquareMeter / 1e-4d; }
+        public decimal SquareCentimeter { get => SquareMeter / 1e-4m; }
         [JsonProperty]
-        public double SquareMillimeter { get => SquareMeter / 1e-6d; }
+        public decimal SquareMillimeter { get => SquareMeter / 1e-6m; }
         //Imperial
         [JsonProperty]
-        public double Perch { get => SquareYard / 30.25; }
+        public decimal Perch { get => SquareYard / 30.25m; }
         [JsonProperty]
-        public double Rood { get => Perch / 40; }
+        public decimal Rood { get => Perch / 40m; }
         [JsonProperty]
-        public double Acre { get => Rood / 4; }
+        public decimal Acre { get => Rood / 4m; }
         [JsonProperty]
-        public double SquareMile { get => Acre / 640; }
+        public decimal SquareMile { get => Acre / 640m; }
         [JsonProperty]
-        public double SquareYard { get => SquareFoot / 9; }
+        public decimal SquareYard { get => SquareFoot / 9m; }
         [JsonProperty]
-        public double SquareFoot { get => SquareMeter / Math.Pow(0.3048d, 2); }
+        public decimal SquareFoot { get => SquareMeter / 0.3048m / 0.3048m; }
 
         [JsonProperty]
-        public double SquareInch { get => 144 * SquareFoot; }
+        public decimal SquareInch { get => 144 * SquareFoot; }
 
         /*
         public new bool Equals(object? x, object? y)
@@ -59,7 +59,7 @@ namespace ModelX.Measure
         }
         */
 
-        public double Result<T>(T unit) where T : Enum
+        public decimal Result<T>(T unit) where T : Enum
         {
             return unit switch
             {

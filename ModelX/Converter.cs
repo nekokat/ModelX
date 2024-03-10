@@ -7,7 +7,7 @@ namespace ModelX
 {
     class Converter<TMeasure> where TMeasure : IMeasure, new()
     {
-        public Converter(double value, Enum inputUnit, Enum outputUnit)
+        public Converter(decimal value, Enum inputUnit, Enum outputUnit)
         {
             InputMeasure = inputUnit;
             OutputMeasure = outputUnit;
@@ -19,10 +19,10 @@ namespace ModelX
         public Enum InputMeasure { get; set; }
         public Enum OutputMeasure { get; set; }
         public TMeasure Measure { get; set; }
-        public double? InputValue { get; set; }
-        public double? OutputValue { get; set; }
+        public decimal? InputValue { get; set; }
+        public decimal? OutputValue { get; set; }
 
-        public double? Result()
+        public decimal? Result()
         {
             return OutputValue;
         }

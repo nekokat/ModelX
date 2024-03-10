@@ -9,6 +9,6 @@ namespace ModelX
 {
     public interface IMeasure
     {
-        public double Result<T>(T unit) where T : Enum;
+        public decimal Result<T>(T unit) where T : Enum;
     }
 }

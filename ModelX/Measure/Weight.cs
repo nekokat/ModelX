@@ -8,41 +8,41 @@ namespace ModelX.Measure
     {
         public Weight() { }
 
-        public Weight(double value, Enum unit)
+        public Weight(decimal value, Enum unit)
         {
             Gramm = value / Result(unit);
         }
 
         //Metric
         [JsonProperty]
-        public double Gigatonne => Gramm / 1e15d;
+        public decimal Gigatonne => Gramm / 1e15m;
         [JsonProperty]
-        public double Megatonne => Gramm / 1e12d;
+        public decimal Megatonne => Gramm / 1e12m;
         [JsonProperty]
-        public double Tonne => Gramm / 1e6d;
+        public decimal Tonne => Gramm / 1e6m;
         [JsonProperty]
-        public double Kilogramm => Gramm / 1e3d;
+        public decimal Kilogramm => Gramm / 1e3m;
         [JsonProperty]
-        public double Gramm { get; set; } = 1d;
+        public decimal Gramm { get; set; } = 1m;
         [JsonProperty]
-        public double Milligramm => Gramm / 1e-3d;
+        public decimal Milligramm => Gramm / 1e-3m;
         [JsonProperty]
-        public double Microgram => Gramm / 1e-6d;
+        public decimal Microgram => Gramm / 1e-6m;
         [JsonProperty]
-        public double Nanogram => Gramm / 1e-12d;
+        public decimal Nanogram => Gramm / 1e-12m;
         [JsonProperty]
-        public double Picogram => Gramm / 1e-15d;
+        public decimal Picogram => Gramm / 1e-15m;
         //Imperial
         [JsonProperty]
-        public double USton => Tonne / 0.907d;
+        public decimal USton => Tonne / 0.907m;
         [JsonProperty]
-        public double UKton => Tonne / 1.016d ;
+        public decimal UKton => Tonne / 1.016m ;
         [JsonProperty]
-        public double Pound => Gramm / 453.59d;
+        public decimal Pound => Gramm / 453.59m;
         [JsonProperty]
-        public double Ounce => Gramm / 28.35d;
+        public decimal Ounce => Gramm / 28.35m;
 
-        public double Result<T>(T unit) where T : Enum
+        public decimal Result<T>(T unit) where T : Enum
         {
             return unit switch
             {

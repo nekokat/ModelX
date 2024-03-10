@@ -8,29 +8,29 @@ namespace ModelX.Measure
     {
         public Time() { }
 
-        public Time(double value, Enum unit)
+        public Time(decimal value, Enum unit)
         {
             Second = value / Result(unit);
         }
 
         [JsonProperty]
-        public double Millisecond { get => Second * 1e3d; }
+        public decimal Millisecond { get => Second * 1e3m; }
         [JsonProperty]
-        public double Second { get; set; } = 1d;
+        public decimal Second { get; set; } = 1m;
         [JsonProperty]
-        public double Minute { get => Second / 60d; }
+        public decimal Minute { get => Second / 60m; }
         [JsonProperty]
-        public double Kilosecond { get => Second / 1e3d; }
+        public decimal Kilosecond { get => Second / 1e3m; }
         [JsonProperty]
-        public double Hour { get => Minute / 60; }
+        public decimal Hour { get => Minute / 60m; }
         [JsonProperty]
-        public double Day { get => Hour / 24; }
+        public decimal Day { get => Hour / 24; }
         [JsonProperty]
-        public double Week { get => Day / 7; }
+        public decimal Week { get => Day / 7; }
         [JsonProperty]
-        public double Megasecond { get => Second / 1e6d; }
+        public decimal Megasecond { get => Second / 1e6m; }
 
-        public double Result<T>(T unit) where T : Enum
+        public decimal Result<T>(T unit) where T : Enum
         {
             return unit switch {
                 Unit.Time.Millisecond   => Millisecond,

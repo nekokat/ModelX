@@ -13,11 +13,11 @@ namespace ModelX
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            Converter<Temperature> res = new (90.0, Measure.Unit.Temperature.Celsius, Measure.Unit.Temperature.Fahrenheit);
+            Converter<Temperature> res = new (90.0m, Measure.Unit.Temperature.Celsius, Measure.Unit.Temperature.Fahrenheit);
             res.SerializeMeasure();
-            Converter<Temperature> res1 = new(180.0, Measure.Unit.Temperature.Kelvin, Measure.Unit.Temperature.Newton);
+            Converter<Temperature> res1 = new(180.0m, Measure.Unit.Temperature.Kelvin, Measure.Unit.Temperature.Newton);
             res1.SerializeMeasure();
-            Converter<Temperature> res2 = new(360.0, Measure.Unit.Temperature.Delisle, Measure.Unit.Temperature.Reaumur);
+            Converter<Temperature> res2 = new(360.0m, Measure.Unit.Temperature.Delisle, Measure.Unit.Temperature.Reaumur);
             res2.SerializeMeasure();
         }
     }

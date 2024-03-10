@@ -8,45 +8,45 @@ namespace ModelX.Measure
     {
         public Length() { }
 
-        public Length(double value, Enum unit)
+        public Length(decimal value, Enum unit)
         {
             Meter = value / Result(unit);
         }
 
         //Metric
         [JsonProperty]
-        public double KiloMeter => Meter / 1000d;
+        public decimal KiloMeter => Meter / 1000m;
         [JsonProperty]
-        public double HectoMeter => Meter / 100d;
+        public decimal HectoMeter => Meter / 100m;
         [JsonProperty]
-        public double DecaMeter => Meter / 10d;
+        public decimal DecaMeter => Meter / 10m;
         [JsonProperty]
-        public double Meter { get; set; } = 1d;
+        public decimal Meter { get; set; } = 1m;
         [JsonProperty]
-        public double DeciMeter => Meter / 1e-1d;
+        public decimal DeciMeter => Meter / 1e-1m;
         [JsonProperty]
-        public double CentiMeter => Meter / 1e-2d;
+        public decimal CentiMeter => Meter / 1e-2m;
         [JsonProperty]
-        public double MilliMeter => Meter / 1e-3d;
+        public decimal MilliMeter => Meter / 1e-3m;
         //Imperial
         [JsonProperty]
-        public double Foot => Meter / 0.3048d; 
+        public decimal Foot => Meter / 0.3048m; 
         [JsonProperty]
-        public double Inch => 12*Foot;
+        public decimal Inch => 12m*Foot;
         [JsonProperty]
-        public double Hand => 3*Foot;
+        public decimal Hand => 3m*Foot;
         [JsonProperty]
-        public double Yard => Foot / 3 ;
+        public decimal Yard => Foot / 3 ;
         [JsonProperty]
-        public double Chain => Foot / 66;
+        public decimal Chain => Foot / 66;
         [JsonProperty]
-        public double Furlong => Yard / 220 ;
+        public decimal Furlong => Yard / 220 ;
         [JsonProperty]
-        public double Mile => Yard / 1760 ;
+        public decimal Mile => Yard / 1760 ;
         [JsonProperty]
-        public double League => Mile / 3;
+        public decimal League => Mile / 3;
 
-        public double Result<T>(T unit) where T : Enum
+        public decimal Result<T>(T unit) where T : Enum
         {
             return unit switch
             {

@@ -10,19 +10,19 @@ namespace ModelX.Measure
     {
         public Angle() { }
 
-        public Angle(double value, Enum unit)
+        public Angle(decimal value, Enum unit)
         {
             Degree = value / Result(unit);
         }
 
         [JsonProperty]
-        public double Radian { get => this.Degree * Math.PI / 180d; }
+        public decimal Radian { get => this.Degree * (decimal)Math.PI / 180m; }
         [JsonProperty]
-        public double Degree { get; set; } = 1d;
+        public decimal Degree { get; set; } = 1m;
         [JsonProperty]
-        public double Turn { get => this.Degree / 360d; }
+        public decimal Turn { get => this.Degree / 360m; }
         [JsonProperty]
-        public double Gradian { get => this.Degree * 400d / 360; }
+        public decimal Gradian { get => this.Degree * 400m / 360m; }
 
         /*
         public new bool Equals(object x, object y)
@@ -31,7 +31,7 @@ namespace ModelX.Measure
         }
         */
 
-        public double Result<T>(T unit) where T : Enum
+        public decimal Result<T>(T unit) where T : Enum
         {
             return unit switch
             {

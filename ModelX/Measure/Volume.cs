@@ -8,36 +8,36 @@ namespace ModelX.Measure
     {
         public Volume() { }
 
-        public Volume(double value, Enum unit)
+        public Volume(decimal value, Enum unit)
         {
             CubicMetre = value / Result(unit);
         }
 
         //Metric
         [JsonProperty]
-        public double Litre { get => CubicMetre * 1e3d; }
+        public decimal Litre { get => CubicMetre * 1e3m; }
         [JsonProperty]
-        public double CubicDecimetre { get => Litre; }
+        public decimal CubicDecimetre { get => Litre; }
         [JsonProperty]
-        public double CubicMetre { get; set; } = 1d;
+        public decimal CubicMetre { get; set; } = 1m;
         [JsonProperty]
-        public double CubicCentimetre { get => CubicMetre * 1e6d; }
+        public decimal CubicCentimetre { get => CubicMetre * 1e6m; }
         //Imperial
         [JsonProperty]
-        public double CubicInch { get => CubicMetre / Math.Pow(0.3048d/12, 3); }
-        //public double CubicInch { get => CubicMetre / Math.Pow(Length.Inch, 3); }
+        public decimal CubicInch { get => CubicMetre / (decimal)Math.Pow(0.3048d/12, 3); }
+        //public decimal CubicInch { get => CubicMetre / Math.Pow(Length.Inch, 3); }
         [JsonProperty]
-        public double BarrelOil { get => CubicInch / 9702d; }
+        public decimal BarrelOil { get => CubicInch / 9702m; }
         [JsonProperty]
-        public double USGallon { get => CubicInch / 231 ; }
+        public decimal USGallon { get => CubicInch / 231m ; }
         [JsonProperty]
-        public double USPint { get => USGallon * 8; }
+        public decimal USPint { get => USGallon * 8m; }
         [JsonProperty]
-        public double USFluidOunce { get => USGallon * 128; }
+        public decimal USFluidOunce { get => USGallon * 128m; }
         [JsonProperty]
-        public double CubicFoot { get => CubicMetre / Math.Pow(0.3048d, 3); }
-        //public double CubicFoot { get => CubicMetre / Math.Pow(Length.Foot, 3); }
-        public double Result<T>(T unit) where T : Enum
+        public decimal CubicFoot { get => CubicMetre / (decimal)Math.Pow(0.3048d, 3); }
+        //public decimal CubicFoot { get => CubicMetre / Math.Pow(Length.Foot, 3); }
+        public decimal Result<T>(T unit) where T : Enum
         {
             return unit switch
             {
