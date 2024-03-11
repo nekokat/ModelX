@@ -1,6 +1,6 @@
 ﻿using System;
 using ModelX;
-using NUnit.Framework.Legacy;
+using NUnit.Framework;
 
 namespace Tests
 {
@@ -10,8 +10,7 @@ namespace Tests
         {
             T expected = (T)Activator.CreateInstance(typeof(T), x, typex);
             T actual = (T)Activator.CreateInstance(typeof(T), y, typey);
-            Assert.That(Math.Abs(expected.Result(typey) - y), delta);
-            Assert.That(Math.Abs(actual.Result(typex)- x), delta);
+            Assert.That(expected.Result(typex), Is.EqualTo(actual.Result(typex)));
         }
 
     }

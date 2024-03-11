@@ -35,7 +35,7 @@ namespace Tests
 
         [TestCase(90.0, Temperature.Celsius, 194.0, Temperature.Fahrenheit, 1e-2)]
         [TestCase(180.0, Temperature.Kelvin, -30.7395, Temperature.Newton, 1e-4)]
-        [TestCase(360.0, Temperature.Delisle, -112.0d, Temperature.Reaumur, 1e-2)]
+        [TestCase(360.0, Temperature.Delisle, -112.0d, Temperature.Reaumur, 1e-5)]
         public void TestTemperature(decimal x, Temperature typex, decimal y, Temperature typey, decimal delta)
         {
             Test<ModelX.Measure.Temperature>(x, typex, y, typey, delta);
