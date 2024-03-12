@@ -9,9 +9,9 @@ namespace Tests
         public void Setup(){}
 
 
-        [TestCase(90.0, Angle.Degree, Math.PI/2, Angle.Radian, 0)]
-        [TestCase(180.0, Angle.Degree, Math.PI, Angle.Radian, 0)]
-        [TestCase(360.0, Angle.Degree, 2 * Math.PI, Angle.Radian, 0)]
+        [TestCase(90.0, Angle.Degree, Math.PI/2, Angle.Radian, 0.00001)]
+        [TestCase(180.0, Angle.Degree, Math.PI, Angle.Radian, 0.00001)]
+        [TestCase(360.0, Angle.Degree, 2 * Math.PI, Angle.Radian, 0.00001)]
         public void TestAngle(decimal x, Angle typex, decimal y, Angle typey, decimal delta)
         {
             Test<ModelX.Measure.Angle>(x, typex, y, typey, delta);

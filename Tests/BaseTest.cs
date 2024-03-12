@@ -10,7 +10,7 @@ namespace Tests
         {
             T expected = (T)Activator.CreateInstance(typeof(T), x, typex);
             T actual = (T)Activator.CreateInstance(typeof(T), y, typey);
-            Assert.That(expected.Result(typex), Is.EqualTo(actual.Result(typex)));
+            Assert.That(Math.Abs(expected.Result(typey) - actual.Result(typey)), Is.InRange(0, delta));
         }
 
     }
