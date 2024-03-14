@@ -1,54 +1,55 @@
 ﻿using Newtonsoft.Json;
 using System;
-using ModelX.Units;
+using ModelX.Measure;
+using System.IO;
 
 namespace ModelX
 {
-    class Converter
+    class Converter<TMeasure> where TMeasure : IMeasure, new()
     {
-
-        public Converter(double value, IUnit unit, double inputUnit, double outUnit)
-
+        public Converter(decimal value, Enum inputUnit, Enum outputUnit)
         {
-            Value = value;
-            Unit = unit;
-            Input = inputUnit;
-            Output = outUnit;
+            InputMeasure = inputUnit;
+            OutputMeasure = outputUnit;
+            Measure = (TMeasure)Activator.CreateInstance(typeof(TMeasure), value, inputUnit);
+            InputValue = value;
+            OutputValue = Measure?.Result(outputUnit);
         }
 
-        public Converter(double value, Units.Type.Temperature inputUnit, Units.Type.Temperature outUnit)
+        public Enum InputMeasure { get; set; }
+        public Enum OutputMeasure { get; set; }
+        public TMeasure Measure { get; set; }
+        public decimal? InputValue { get; set; }
+        public decimal? OutputValue { get; set; }
+
+        public decimal? Result()
         {
-            Value = value;
-            Unit = new Units.Temperature(Value, inputUnit);
-            Input = Unit.Result(inputUnit);
-            Output = Unit.Result(outUnit);
+            return OutputValue;
         }
 
-        public double Value { get; set; }
-        public IUnit Unit{ get; set; }
-        public double Input { get; set; }
-        public double Output { get; set; }
-
-        public double Result()
+        //TODO: Create Converter's Swap
+        public void SwapUnit()
         {
-            if(Unit is Temperature)
-                return Output;
-            return Value * Input / Output;
+            Measure = (TMeasure)Activator.CreateInstance(typeof(TMeasure), InputValue, OutputMeasure);
+            OutputValue = Measure?.Result(InputMeasure);
+            (InputMeasure, OutputMeasure) = (OutputMeasure, InputMeasure);
         }
 
-        public void SerializeUnit()
+        public override string ToString()
         {
-            List<System.Type> types = new(){typeof(Volume), typeof(Area), typeof(Time), typeof(Weight), typeof(Length), typeof(Temperature)};
-            TextWriter? writer = null;
+            return $"{InputValue} {InputMeasure} = {OutputValue} {OutputMeasure}";
+        }
+
+        public void SerializeMeasure()
+        {
+            TextWriter writer = null;
+
             try
             {
-                writer = new StreamWriter("Converter.json", true);
-                foreach (var d in types)
-                {
-                    var data = Activator.CreateInstance(d);
-                    var json = JsonConvert.SerializeObject(data, Formatting.Indented);
-                    writer.Write(json+"\n");
-                }
+                writer = new StreamWriter("./Converter.json", true);
+                var json = JsonConvert.SerializeObject(Measure, Formatting.Indented);
+                writer.Write(this.ToString() + "\n");
+                writer.Write(json + "\n");
             }
             finally
             {

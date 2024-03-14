@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelX.Units.Type
+namespace ModelX.Measure.Unit
 {
-    public enum Area
+    public enum Angle
     {
+        Radian,
+        Degree,
+        Turn,
+        Gradian
     }
 }
