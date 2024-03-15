@@ -48,7 +48,6 @@ namespace ModelX
             {
                 writer = new StreamWriter("./Converter.json", true);
                 var json = JsonConvert.SerializeObject(Measure, Formatting.Indented);
-                writer.Write(this.ToString() + "\n");
                 writer.Write(json + "\n");
             }
             finally
