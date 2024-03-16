@@ -1,7 +1,7 @@
 using System;
-using ModelX.Measure;
+using Converter.Measure;
 
-namespace ModelX
+namespace Converter
 {
     internal static class Program
     {

@@ -21,7 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModelX\ModelX.csproj" />
+    <ProjectReference Include="..\Converter\Converter.csproj" />
+    <ProjectReference Include="..\User\User.csproj" />
   </ItemGroup>
 
 </Project>
+ 

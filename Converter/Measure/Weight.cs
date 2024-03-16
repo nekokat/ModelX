@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace ModelX.Measure
+namespace Converter.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class Weight : IMeasure

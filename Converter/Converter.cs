@@ -3,7 +3,7 @@ using System;
 using ModelX.Measure;
 using System.IO;
 
-namespace ModelX
+namespace Converter
 {
     class Converter<TMeasure> where TMeasure : IMeasure, new()
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace ModelX.Measure
+namespace Converter.Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class Temperature : IMeasure

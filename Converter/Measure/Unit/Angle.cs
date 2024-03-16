@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelX.Measure.Unit
-{
+namespace Converter.Measure.Unit {
+
     public enum Angle
     {
         Radian,
