@@ -1,5 +1,4 @@
-using UserTest;
-namespace UserTest;
+namespace User.Tests;
 
 public class Tests
 {
