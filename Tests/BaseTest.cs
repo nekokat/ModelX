@@ -1,8 +1,8 @@
 ﻿using System;
-using ModelX;
+using Converter;
 using NUnit.Framework;
 
-namespace Tests
+namespace Converter.Tests
 {
     public abstract class BaseTest
     {
