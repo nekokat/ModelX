@@ -3,7 +3,7 @@ using Converter.Measure.Unit;
 
 namespace Converter.Tests
 {
-    public class Tests : BaseTest
+    public class ConverterTests : BaseConverterTest
     {
         [SetUp]
         public void Setup(){}

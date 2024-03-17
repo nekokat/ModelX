@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace Converter.Tests
 {
-    public abstract class BaseTest
+    public abstract class BaseConverterTest
     {
         public void Test<T>(decimal x, Enum typex, decimal y, Enum typey, decimal delta) where T: IMeasure
         {
