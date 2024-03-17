@@ -8,7 +8,7 @@ namespace User.Tests
         [SetUp]
         public void Setup()
         {
-            Player User = new("Maxim","Khalyapin", 35);
+            User = new("Maxim","Khalyapin", 35);
             Console.WriteLine(User.ToString());
         }
 
@@ -18,7 +18,7 @@ namespace User.Tests
         public void EmailIsNull()
         {
             Setup();
-            Assert.That(this.User.Email, Is.Null);
+            Assert.That(User.Email, Is.Null);
         }
         
         [Test]
@@ -27,16 +27,28 @@ namespace User.Tests
             Setup();
             string email = "nekokat89@gmail.com";
             this.User.Email = email;
-            Assert.That(this.User.Email, Is.EqualTo(email));
+            Assert.That(User.Email, Is.Not.Empty);
+            Assert.That(User.Email, Is.EqualTo(email));
         }
         
         [Test]
-        public void UserToString()
+        public void UserToStringFull()
         {
             Setup();
             string email = "nekokat89@gmail.com";
             string phone = "89202395397";
-            Assert.That(User.ToString(), Is.EqualTo($"FirstName: Maxim\nLastName: Khalyapin\nAge: 35\nEmail: {email}\nPhone: {phone}"));
+            User.Email = email;
+            User.Phone = phone;
+            Assert.That(User.ToString(), Is.EqualTo($"FirstName: {User.FirstName}\nLastName: {User.LastName}\nAge: {User.Age}\nEmail: {email}\nPhone: {phone}"));
+        }
+        
+        [Test]
+        public void UserToStringDefault()
+        {
+            Setup();
+            Assert.That(User.Email, Is.Null);
+            Assert.That(User.Phone, Is.Null);
+            Assert.That(User.ToString(), Is.EqualTo($"FirstName: {User.FirstName}\nLastName: {User.LastName}\nAge: {User.Age}\nEmail: Empty\nPhone: Empty"));
         }
     }
 }

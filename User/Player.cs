@@ -22,7 +22,7 @@ namespace User{
 
         public override string ToString()
         {
-            return $"FirstName: {FirstName}\nLastName{LastName}\nAge: {Age}\n" + (Email !?? "Email: {Email}\n") + (Phone !?? "Phone: {Phone}");
+            return $"FirstName: {FirstName}\nLastName: {LastName}\nAge: {Age}\nEmail: {Email !?? "Empty"}\nPhone: {Phone !?? "Empty"}";
         }
     }
 }
