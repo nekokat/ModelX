@@ -24,6 +24,7 @@
     <ProjectReference Include="..\Converter\Converter.csproj" />
     <ProjectReference Include="..\User\User.csproj" />
     <ProjectReference Include="..\Setting\Setting.csproj" />
+    <ProjectReference Include="..\ModelX.Workspace\Workspace.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,7 +9,6 @@ namespace User.Tests
         public void Setup()
         {
             User = new("Maxim","Khalyapin", 35);
-            Console.WriteLine(User.ToString());
         }
 
         Player User {get; set;}
