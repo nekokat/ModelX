@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Converter\Converter.csproj" />
     <ProjectReference Include="..\User\User.csproj" />
+    <ProjectReference Include="..\Setting\Setting.csproj" />
   </ItemGroup>
 
 </Project>
