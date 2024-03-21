@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Support.Version;
 
 namespace ModelX.Workspace
 {
@@ -8,7 +9,7 @@ namespace ModelX.Workspace
     public class Blank
     {
         [JsonProperty]
-        public string? Type { get; set; }
+        public BlankType? Type { get; set; }
 
         [JsonProperty]
         public int? Version { get; set; }
