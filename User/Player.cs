@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace User{
+namespace ModelX.User{
     
     [JsonObject(MemberSerialization.OptIn)]
     public class Player

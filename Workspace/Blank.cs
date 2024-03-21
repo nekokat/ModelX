@@ -18,7 +18,8 @@ namespace ModelX.Workspace
 
         [JsonProperty]
         public int? TotalPoints { get; set; }
-/*
+
+        /*
         [JsonProperty]
         public List<PointsRecord>? points_record { get; set; }
 
@@ -27,21 +28,25 @@ namespace ModelX.Workspace
 
         [JsonProperty]
         public Settings? settings { get; set; }
-*/
+        */
+
         [JsonProperty]
         public List<Attribute>? Attributes { get; set; }
-/*
+
+        /*
         [JsonProperty]
         public List<Trait>? traits { get; set; }
-*/
+        */
+
         [JsonProperty]
         public DateTime CreatedDate { get; set; }
 
         [JsonProperty]
         public DateTime ModifiedDate { get; set; }
-/*
+
+        /*
         [JsonProperty]
         public Calc? calc { get; set; }
-*/
+        */
     }
 }

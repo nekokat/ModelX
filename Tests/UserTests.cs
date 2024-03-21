@@ -1,5 +1,5 @@
 using System;
-using User;
+using ModelX.User;
 
 namespace User.Tests
 {
