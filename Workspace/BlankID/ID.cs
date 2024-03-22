@@ -8,10 +8,15 @@ namespace ModelX.Workspace
     {
         public ID(BlankType type)
         {
-            BlankID = Guid.NewGuid(type.ToString()).ToString();
+            BlankID = Guid.NewGuid(type.ToString());
         }
 
         Guid BlankID { get; set; }
+
+        public override ToString()
+        {
+            return BlankID.ToString();
+        }
     }
 }
 
