@@ -16,4 +16,11 @@ public class VersionTests
             Assert.That(Support.Version.Parse(version).ToString(), Is.EqualTo(actual));
         }
         
+        [TestCase(1, 20, 3, "1.20.3")]
+        [TestCase(0, 2, 3, "0.2.3")]
+        [TestCase(9, 0, 0, "9.0.0")]
+        public void ConstructorTest(int current, int revision, int age, string actual)
+        {
+            Assert.That(new Version(current, revision, age).ToString(), Is.EqualTo(actual));
+        }
 }
