@@ -12,8 +12,8 @@ namespace ModelX.Workspace.Blank
         {
             using (MD5 _md5 = MD5.Create())
             {
-                string? _name = Enum.GetName(typeof(BlankType), type);
-                byte[] _hash = _md5.ComputeHash(Encoding.Default.GetBytes(_name ?? string.Empty));
+                string _name = Enum.GetName(typeof(BlankType), type) ?? string.Empty;
+                byte[] _hash = _md5.ComputeHash(Encoding.Default.GetBytes(_name));
                 Guid BlankID = new Guid(_hash);
 				guid = BlankID.ToString();
             }
