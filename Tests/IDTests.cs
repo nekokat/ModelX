@@ -16,7 +16,8 @@ namespace Tests
         [TestCase(BlankType.Skill,  "6f76bb88-c30c-7521-9ed2-eeb0bc06be5d")]
         public void GuidTest(BlankType type, string guid)
         {
-            Assert.That(new ID(type).ToString(), Is.EqualTo(guid));
+            ID blankId = new(type);
+            Assert.That(blankId.ToString(), Is.EqualTo(guid));
         }
     }
 }
