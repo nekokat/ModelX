@@ -14,7 +14,12 @@ namespace Support
             return new(t);
         }
 
-        //public Version(params string[] list) :this(Int32.Parse(list[0]), Int32.Parse(list[1]), Int32.Parse(list[2])){}
+        public Version(string cur, string rev, string age)
+        {
+            Int32.TryParse(cur, out _current);
+            Int32.TryParse(rev, out _revision);
+            Int32.TryParse(age, out _age);
+        }
 
         public Version(params int[] list) :this(list[0], list[1], list[2]){}
 
