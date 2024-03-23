@@ -10,8 +10,15 @@ namespace Support
 
         public static Version Parse(string version)
         {
-            var t = Regex.Matches(version, @"\d+").Select((x) => Int32.Parse(x.Value)).ToArray();
-            return new(t);
+            string[] _matches = Regex.Matches(version, @"\d+").Select((x) => x.Value).ToArray();
+            return new(_matches);
+        }
+        
+        public Version(int cur, int rev, int age)
+        {
+            _current = cur;
+            _revision = rev;
+            _age = age;
         }
 
         public Version(string cur, string rev, string age)
@@ -23,14 +30,10 @@ namespace Support
 
         public Version(params int[] list) :this(list[0], list[1], list[2]){}
 
-        public Version(int cur, int rev, int age)
-        {
-            _current = cur;
-            _revision = rev;
-            _age = age;
-        }
+        public Version(params string[] list) :this(list[0], list[1], list[2]){}
 
-        public Version() : this(0,0,0){ Next(); }
+        
+        public Version() : this(0,0,1){}
 
         public Version Next()
         {
