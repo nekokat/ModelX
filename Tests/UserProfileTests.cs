@@ -11,7 +11,7 @@ namespace Tests
             User = new("Maxim","Khalyapin", 35);
         }
 
-        Player User {get; set;}
+        Profile User {get; set;}
 
         [Test]
         public void EmailIsNull()

@@ -4,9 +4,9 @@ using System;
 namespace ModelX.User
 {    
     [JsonObject(MemberSerialization.OptIn)]
-    public class Player
+    public class Profile
     {
-        public Player(string firstName, string lastName, int age, string? email, string? phone)
+        public Profile(string firstName, string lastName, int age, string? email, string? phone)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -15,7 +15,7 @@ namespace ModelX.User
             Phone = phone;
         }
         
-        public Player(string firstName, string lastName, int age) : this(firstName, lastName, age, null, null){}
+        public Profile(string firstName, string lastName, int age) : this(firstName, lastName, age, null, null){}
 
         [JsonProperty]
         public string? FirstName{ get; set;}

@@ -32,14 +32,16 @@ namespace Support
 
         public Version() : this(0,0,0){ Next(); }
 
-        public void Next()
+        public Version Next()
         {
-            _age++; 
+            _age++;
+            return this; 
         }
 
-        public void Previous()
+        public Version Previous()
         {
             _age--; 
+            return this;
         }
 
         public override string ToString()

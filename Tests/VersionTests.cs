@@ -19,10 +19,15 @@ public class VersionTests
         [TestCase(1, 20, 3, "1.20.3")]
         [TestCase(0, 2, 3, "0.2.3")]
         [TestCase(9, 0, 0, "9.0.0")]
+        public void ConstructorIntTest(int current, int revision, int age, string actual)
+        {
+            Assert.That(new Version(current, revision, age).ToString(), Is.EqualTo(actual));
+        }
+
         [TestCase("01", "00", "3", "1.0.3")]
         [TestCase("5", "14", "8", "5.14.8")]
         [TestCase("9", "0", "6", "9.0.6")]
-        public void ConstructorTest(int current, int revision, int age, string actual)
+        public void ConstructorStringTest(string current, string revision, string age, string actual)
         {
             Assert.That(new Version(current, revision, age).ToString(), Is.EqualTo(actual));
         }

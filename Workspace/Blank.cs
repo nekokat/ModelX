@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Support;
+using ModelX.User;
 
 namespace ModelX.Workspace.Blank
 {
@@ -15,7 +16,7 @@ namespace ModelX.Workspace.Blank
         public int? Version { get; set; }
 
         [JsonProperty]
-        public string? Id { get; set; }
+        public ID? Id { get; set; }
 
         [JsonProperty]
         public int? TotalPoints { get; set; }
@@ -23,10 +24,10 @@ namespace ModelX.Workspace.Blank
         /*
         [JsonProperty]
         public List<PointsRecord>? points_record { get; set; }
-
+        */
         [JsonProperty]
         public Profile? profile { get; set; }
-
+        /*
         [JsonProperty]
         public Settings? settings { get; set; }
         */
