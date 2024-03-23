@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Support.Version
+namespace Support
 {
     public class Version
     {
@@ -14,7 +14,7 @@ namespace Support.Version
             return new(t);
         }
 
-        public Version(params string[] list) :this(Int32.Parse(list[0]), Int32.Parse(list[1]), Int32.Parse(list[2])){}
+        //public Version(params string[] list) :this(Int32.Parse(list[0]), Int32.Parse(list[1]), Int32.Parse(list[2])){}
 
         public Version(params int[] list) :this(list[0], list[1], list[2]){}
 
