@@ -1,7 +1,7 @@
 using System;
 using ModelX.User;
 
-namespace User.Tests
+namespace Tests
 {
     public class UserTests
     {

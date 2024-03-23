@@ -1,4 +1,4 @@
-namespace ModelX.Workspace
+namespace ModelX.Workspace.Blank
 {
     public enum BlankType
     {

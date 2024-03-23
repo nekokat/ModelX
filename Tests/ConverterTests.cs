@@ -1,7 +1,7 @@
 using System;
 using Converter.Measure.Unit;
 
-namespace Converter.Tests
+namespace Tests
 {
     public class ConverterTests : BaseConverterTest
     {

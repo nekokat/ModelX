@@ -2,7 +2,7 @@
 using Converter;
 using NUnit.Framework;
 
-namespace Converter.Tests
+namespace Tests
 {
     public abstract class BaseConverterTest
     {
