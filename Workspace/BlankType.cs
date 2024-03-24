@@ -5,6 +5,11 @@ namespace ModelX.Workspace.Blank
         Clear,
         Person,
         Weapon,
-        Skill
+        Skill,
+        Spell,
+        Notes,
+        Equipment,
+        Trait
+
     }
 }
