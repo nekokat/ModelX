@@ -5,6 +5,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Support\Version\Version.csproj" />
     <ProjectReference Include="..\User\User.csproj" />
+    <ProjectReference Include="Create.Blank\Create.Blank.csproj" />
   </ItemGroup>
   
   <PropertyGroup>
