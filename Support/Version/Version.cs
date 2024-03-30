@@ -1,7 +1,9 @@
 ﻿using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace Support
 {
+    [JsonObject(MemberSerialization = MemberSerialization.OptOut)]
     public class Version
     {
         int _current;
@@ -46,7 +48,7 @@ namespace Support
             _age--; 
             return this;
         }
-
+        
         public override string ToString()
         {
             return $"{_current}.{_revision}.{_age}";

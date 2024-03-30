@@ -11,9 +11,20 @@ namespace ModelX.Workspace.Create
         {
             foreach (BlankType type in (BlankType[]) Enum.GetValues(typeof(BlankType)))
             {
-                using (StreamWriter file = File.CreateText(@$".\Template\{Enum.GetName(typeof(BlankType), type)}.json"))
+                if(!File.Exists(@"./Template"))
                 {
-                    Blank _data = new ();
+                    Directory.CreateDirectory(@"./Template");
+                }
+
+                using (StreamWriter file = File.CreateText(@$"./Template/{Enum.GetName(typeof(BlankType), type)}.json"))
+                {
+                    Blank _data = new()
+                    {
+                        Type = type,
+                        Version = new(0,0,1),
+                        Id = new(type)
+                    };
+
                     JsonSerializer serializer = new JsonSerializer();
                     serializer.Serialize(file, _data);
                 }

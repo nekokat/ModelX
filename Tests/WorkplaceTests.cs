@@ -8,12 +8,13 @@ namespace Tests
 {
     public class CreateTests
     {
-        [SetUp]
+            [SetUp]
             public void Setup()
             {
                 Create.GenerateEmptyJson();
             }
 
+            [Test]
             public void CreateTest()
             {
                 foreach (string filePath in Directory.GetFiles(@"./Template", "*.json"))

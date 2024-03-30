@@ -9,14 +9,20 @@ namespace ModelX.Workspace
     [JsonObject(MemberSerialization.OptIn)]
     public class Blank
     {
-        [JsonProperty]
-        public BlankType? Type { get; set; }
+        public BlankType Type { get; set; } = BlankType.Clear;
 
-        [JsonProperty]
-        public Support.Version? Version { get; set; } = new();
+        public Support.Version Version { get; set; } = new(0,0,1);
 
-        [JsonProperty]
-        public ID? Id { get; set; }
+        public ID Id { get; set; } = new(BlankType.Clear);
+
+        [JsonProperty(PropertyName = "Version")]
+        public string VersionJson => Version.ToString();
+
+        [JsonProperty(PropertyName = "Id")]
+        public string IdJson => Id.ToString();
+
+        [JsonProperty(PropertyName = "Type")]
+        public string TypeJson => Type.ToString();
 
         /*
         [JsonProperty]
