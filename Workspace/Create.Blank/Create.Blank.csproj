@@ -2,6 +2,10 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Support\Version\Version.csproj" />
+    <ProjectReference Include="..\Workspace.csproj" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

@@ -1,8 +1,8 @@
-﻿using ModelX.Workspace.Blank;
-using Support;
+﻿using Support;
+using ModelX.Workspace;
 using Newtonsoft.Json;
 
-namespace ModelX.Workspace.CreateBlank
+namespace ModelX.Workspace.Create
 {
 
     public class Create
@@ -13,7 +13,7 @@ namespace ModelX.Workspace.CreateBlank
             {
                 using (StreamWriter file = File.CreateText(@$".\Template\{Enum.GetName(typeof(BlankType), type)}.json"))
                 {
-                    Blank.Blank _data = new ();
+                    Blank _data = new ();
                     JsonSerializer serializer = new JsonSerializer();
                     serializer.Serialize(file, _data);
                 }
@@ -34,12 +34,8 @@ namespace ModelX.Workspace.CreateBlank
             Version = version;
         }
 
-        Support.Version Version {get; set; }
+        private Support.Version Version {get; set; }
 
-        BlankType Type { get; set; }
-
-
-
-
+        private BlankType Type { get; set; }
     }
 }

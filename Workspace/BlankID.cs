@@ -2,7 +2,7 @@
 using System.Text;
 using System.Security.Cryptography;
 
-namespace ModelX.Workspace.Blank
+namespace ModelX.Workspace
 {
     public class ID
     {

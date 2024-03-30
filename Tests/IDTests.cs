@@ -1,7 +1,7 @@
 using System;
 using Converter;
 using NUnit.Framework;
-using ModelX.Workspace.Blank;
+using ModelX.Workspace;
 
 namespace Tests
 {
