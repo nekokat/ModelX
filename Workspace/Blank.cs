@@ -9,6 +9,7 @@ namespace ModelX.Workspace
     [JsonObject(MemberSerialization.OptIn)]
     public class Blank
     {
+        [JsonProperty]
         public BlankType Type { get; set; } = BlankType.Clear;
 
         public Support.Version Version { get; set; } = new(0,0,1);
@@ -20,10 +21,10 @@ namespace ModelX.Workspace
 
         [JsonProperty(PropertyName = "Id")]
         public string IdJson => Id.ToString();
-
+/*
         [JsonProperty(PropertyName = "Type")]
         public string TypeJson => Type.ToString();
-
+*/
         /*
         [JsonProperty]
         public int? TotalPoints { get; set; }
