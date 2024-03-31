@@ -36,7 +36,7 @@ namespace Tests
             [TestCase(BlankType.Trait)]
             public void LoadTest(BlankType type)
             {
-                Assert.That(Blank.Load(@$"{TempPath}/{type.ToString()}.json"), Is.EqualTo(new Blank()));
+                Assert.That(Blank.Load(@$"{TempPath}/{type.ToString()}.json"), Is.EqualTo(new Blank(type)));
             }
     }
 }
