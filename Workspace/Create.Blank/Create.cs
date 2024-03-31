@@ -30,14 +30,8 @@ namespace ModelX.Workspace.Create
         {
             using (StreamWriter file = File.CreateText(@$"{tempPath}/{Enum.GetName(typeof(BlankType), type)}.json"))
             {
-                Blank _data = new()
-                {
-                    Type = type,
-                    Version = new(0, 0, 1),
-                    Id = new(type)
-                };
-
-                JsonSerializer serializer = new JsonSerializer();
+                Blank _data = new(type, new(0, 0, 1));
+                JsonSerializer serializer = new();
                 serializer.Serialize(file, _data);
             }
         }
