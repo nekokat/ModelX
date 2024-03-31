@@ -9,18 +9,49 @@ namespace ModelX.Workspace
     [JsonObject(MemberSerialization.OptIn)]
     public class Blank
     {
+
+        public static Blank Load(string jsonPath)
+        {
+            using (StreamReader reader = new StreamReader(jsonPath))
+            {
+                string json = reader.ReadToEnd();
+                Blank? files = JsonConvert.DeserializeObject<Blank>(json);
+                return files ?? new Blank();
+            }
+            
+        }
+
+        public Blank() :this(BlankType.Clear, new(0,0,1)) {}
+
+        public Blank(BlankType type) : this(type, new(0,0,1)) {}
+
+        public Blank(BlankType type, Support.Version version)
+        {
+            Type = type;
+            Version = version;
+            Id = new(type);
+        }
+
         [JsonProperty]
-        public BlankType Type { get; set; } = BlankType.Clear;
+        public BlankType Type { get; set; }
 
-        public Support.Version Version { get; set; } = new(0,0,1);
+        public Support.Version Version { get; set; }
 
-        public ID Id { get; set; } = new(BlankType.Clear);
+        public ID Id { get; set; }
 
         [JsonProperty(PropertyName = "Version")]
-        public string VersionJson => Version.ToString();
+        public string VersionJson
+        {
+            get => Version.ToString();
+            set => Version = Support.Version.Parse(value);
+        }
 
         [JsonProperty(PropertyName = "Id")]
-        public string IdJson => Id.ToString();
+        public string IdJson
+        {
+            get => Id.ToString();
+            set => Id = new ID(Type);
+        }
 /*
         [JsonProperty(PropertyName = "Type")]
         public string TypeJson => Type.ToString();
