@@ -1,5 +1,4 @@
 using ModelX.Workspace;
-using ModelX.Workspace.Create;
 using System;
 using System.IO;
 using Support;
@@ -37,7 +36,7 @@ namespace Tests
             [TestCase(BlankType.Trait)]
             public void LoadTest(BlankType type)
             {
-                Assert.That(Blank.Load(@$"{TempPath}/{type.ToString()}.json"), Is.EqualTo(new Blank(type, new(0,0,1))));
+                Assert.That(Blank.Load(@$"{TempPath}/{type.ToString()}.json"), Is.EqualTo(new Blank()));
             }
     }
 }

@@ -25,6 +25,7 @@
     <ProjectReference Include="..\User\User.csproj" />
     <ProjectReference Include="..\Setting\Setting.csproj" />
     <ProjectReference Include="..\Workspace\Workspace.csproj" />
+    <ProjectReference Include="..\Create.Blank\Create.Blank.csproj" />
   </ItemGroup>
 
 </Project>
