@@ -6,7 +6,7 @@ namespace ModelX.Workspace
 {
     public class ID : IEquatable<ID>
     {
-		static string _guid = string.Empty;
+		string _guid = string.Empty;
 		
         public ID(BlankType type)
         {
