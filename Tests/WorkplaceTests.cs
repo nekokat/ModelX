@@ -24,22 +24,17 @@ namespace Tests
                 }
             }
 
-            [Test]
-            public void LoadTest()
+            [TestCase(BlankType.Clear)]
+            [TestCase(BlankType.Person)]
+            [TestCase(BlankType.Weapon)]
+            [TestCase(BlankType.Skill)]
+            [TestCase(BlankType.Spell)]
+            [TestCase(BlankType.Notes)]
+            [TestCase(BlankType.Equipment)]
+            [TestCase(BlankType.Trait)]
+            public void LoadTest(BlankType type)
             {
-                Blank _blank;
-                foreach (string filePath in Directory.GetFiles(@"./Template", "*.json"))
-                {
-                    _blank = Blank.Load(filePath);
-
-                    Assert.That(_blank, Is.Not.Null);
-                    
-                    using (StreamWriter file = new("./LoadTest.log", true))
-                    {
-                        var json = JsonConvert.SerializeObject(_blank, Formatting.Indented);
-                        file.Write(json + "\n");
-                    }
-                }
+                Assert.That(Blank.Load(@$"./Template/{type.ToString()}.json"), Is.EqualTo(new Blank(type, new(0,0,1))));
             }
     }
 }

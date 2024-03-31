@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace Support
 {
     [JsonObject(MemberSerialization = MemberSerialization.OptOut)]
-    public class Version
+    public class Version : IEquatable<Version>
     {
         int _current;
         int _revision;
@@ -52,6 +52,11 @@ namespace Support
         public override string ToString()
         {
             return $"{_current}.{_revision}.{_age}";
+        }
+
+        public bool Equals(Version? other)
+        {
+            return _age == other?._age && _revision == other?._revision && _current == other?._current;
         }
     }
 }

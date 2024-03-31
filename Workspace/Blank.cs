@@ -7,7 +7,7 @@ namespace ModelX.Workspace
 {
 
     [JsonObject(MemberSerialization.OptIn)]
-    public class Blank
+    public class Blank : IEquatable<Blank>
     {
 
         public static Blank Load(string jsonPath)
@@ -89,5 +89,10 @@ namespace ModelX.Workspace
         [JsonProperty]
         public Calc? calc { get; set; }
         */
+        
+        public bool Equals(Blank? other)
+        {
+            return Id.Equals(other?.Id) && Version.Equals(other?.Version) && Type.Equals(other?.Type);
+        }
     }
 }

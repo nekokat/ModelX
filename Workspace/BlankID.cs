@@ -4,9 +4,9 @@ using System.Security.Cryptography;
 
 namespace ModelX.Workspace
 {
-    public class ID
+    public class ID : IEquatable<ID>
     {
-		string guid = string.Empty;
+		static string _guid = string.Empty;
 		
         public ID(BlankType type)
         {
@@ -15,15 +15,20 @@ namespace ModelX.Workspace
                 string _name = Enum.GetName(typeof(BlankType), type) ?? string.Empty;
                 byte[] _hash = _md5.ComputeHash(Encoding.Default.GetBytes(_name));
                 Guid BlankID = new Guid(_hash);
-				guid = BlankID.ToString();
+				_guid = BlankID.ToString();
             }
         }
 
-        private Guid BlankID { get; set; }
-        
+        public Guid BlankID { get; set; }
+
+        public bool Equals(ID? other)
+        {
+            return ToString().Equals(other?.ToString());
+        }
+
         public override string ToString()
         {			
-            return guid;
+            return _guid;
         }
     }
 }
