@@ -23,7 +23,7 @@ namespace ModelX.Workspace
 
         public bool Equals(ID? other)
         {
-            return ToString().Equals(other?.ToString());
+            return BlankID.Equals(other?.BlankID);
         }
 
         public override string ToString()

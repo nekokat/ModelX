@@ -12,13 +12,16 @@ namespace Tests
             [SetUp]
             public void Setup()
             {
+                TempPath = @"./Template";
                 Create.GenerateEmptyJson();
             }
+
+            string TempPath { get; set; }
 
             [Test]
             public void CreateTest()
             {
-                foreach (string filePath in Directory.GetFiles(@"./Template", "*.json"))
+                foreach (string filePath in Directory.GetFiles(TempPath, "*.json"))
                 {
                     Assert.That(filePath, Does.Exist);
                 }
@@ -34,7 +37,7 @@ namespace Tests
             [TestCase(BlankType.Trait)]
             public void LoadTest(BlankType type)
             {
-                Assert.That(Blank.Load(@$"./Template/{type.ToString()}.json"), Is.EqualTo(new Blank(type, new(0,0,1))));
+                Assert.That(Blank.Load(@$"{TempPath}/{type.ToString()}.json"), Is.EqualTo(new Blank(type, new(0,0,1))));
             }
     }
 }

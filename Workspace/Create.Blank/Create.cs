@@ -9,25 +9,36 @@ namespace ModelX.Workspace.Create
     {
         public static void GenerateEmptyJson()
         {
+            string tempPath = "./Template";
             foreach (BlankType type in (BlankType[]) Enum.GetValues(typeof(BlankType)))
             {
-                if(!File.Exists(@"./Template"))
-                {
-                    Directory.CreateDirectory(@"./Template");
-                }
+                GenerateFile(tempPath, type);
+            }
+        }
 
-                using (StreamWriter file = File.CreateText(@$"./Template/{Enum.GetName(typeof(BlankType), type)}.json"))
-                {
-                    Blank _data = new()
-                    {
-                        Type = type,
-                        Version = new(0,0,1),
-                        Id = new(type)
-                    };
+        private static void GenerateFile(string tempPath, BlankType type)
+        {
+            if (!File.Exists(tempPath))
+            {
+                Directory.CreateDirectory(tempPath);
+            }
 
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, _data);
-                }
+            GenerateFileData(tempPath, type);
+        }
+
+        private static void GenerateFileData(string tempPath, BlankType type)
+        {
+            using (StreamWriter file = File.CreateText(@$"{tempPath}/{Enum.GetName(typeof(BlankType), type)}.json"))
+            {
+                Blank _data = new()
+                {
+                    Type = type,
+                    Version = new(0, 0, 1),
+                    Id = new(type)
+                };
+
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, _data);
             }
         }
 

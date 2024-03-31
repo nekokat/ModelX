@@ -56,7 +56,7 @@ namespace Support
 
         public bool Equals(Version? other)
         {
-            return _age == other?._age && _revision == other?._revision && _current == other?._current;
+            return ToString().Equals(other?.ToString());
         }
     }
 }
