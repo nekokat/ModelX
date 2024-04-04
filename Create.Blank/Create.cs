@@ -52,5 +52,6 @@ namespace ModelX.Workspace
         private Support.Version Version {get; set; }
 
         private BlankType Type { get; set; }
+
     }
 }
