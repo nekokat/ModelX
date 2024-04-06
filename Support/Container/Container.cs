@@ -10,7 +10,7 @@ namespace Support{
 
         public string? Name {get; set;}
 
-        public ContainerID ID { get;set; }
+        public ContainerID<T> ID { get;set; }
     
         public T this[int index] { get => list[index]; set => list[index] = value; }
         object? IList.this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
