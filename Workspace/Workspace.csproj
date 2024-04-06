@@ -5,7 +5,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Support\Version\Version.csproj" />
     <ProjectReference Include="..\User\User.csproj" />
-    <ProjectReference Include="..\Support\Container\Container.csproj" />
+    <ProjectReference Include="Container\Container.csproj" />
   </ItemGroup>
   
   <PropertyGroup>

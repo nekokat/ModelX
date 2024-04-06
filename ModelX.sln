@@ -19,7 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workspace", "Workspace\Work
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Create.Blank", "Create.Blank\Create.Blank.csproj", "{2777DE38-0805-41B4-8408-A4CBBF6DC0F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Container", "Support\Container\Container.csproj", "{8927901D-9549-4956-B17D-61A3B00D0E73}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workspace", "Workspace", "{8A237D1F-975D-4DD9-8961-E261CB82CDC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Container", "Workspace\Container\Container.csproj", "{F6690749-A9FB-4BC8-8ACA-9CCD7603DB37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{8927901D-9549-4956-B17D-61A3B00D0E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8927901D-9549-4956-B17D-61A3B00D0E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8927901D-9549-4956-B17D-61A3B00D0E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6690749-A9FB-4BC8-8ACA-9CCD7603DB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6690749-A9FB-4BC8-8ACA-9CCD7603DB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6690749-A9FB-4BC8-8ACA-9CCD7603DB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6690749-A9FB-4BC8-8ACA-9CCD7603DB37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{51FE7103-11A2-42DF-A92F-250E55F6B846} = {93CC1608-56DF-40DC-9A6C-08085D66780B}
-		{8927901D-9549-4956-B17D-61A3B00D0E73} = {93CC1608-56DF-40DC-9A6C-08085D66780B}
+		{7C261ABB-F84C-4463-ADF8-ED2B6D3A15CD} = {8A237D1F-975D-4DD9-8961-E261CB82CDC2}
+		{F6690749-A9FB-4BC8-8ACA-9CCD7603DB37} = {8A237D1F-975D-4DD9-8961-E261CB82CDC2}
 	EndGlobalSection
 EndGlobal

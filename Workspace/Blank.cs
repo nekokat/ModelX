@@ -7,7 +7,7 @@ namespace ModelX.Workspace
 {
 
     [JsonObject(MemberSerialization.OptIn)]
-    public class Blank : IEquatable<Blank>, IBlank
+    public class Blank<T> : IEquatable<Blank> where T: BlankType
     {
 
         public static Blank Load(string jsonPath)
@@ -19,6 +19,8 @@ namespace ModelX.Workspace
                 return files ?? new Blank();
             }            
         }
+        
+        public Blank<T>() :this(T, new(0,0,1)) {}
 
         public Blank() :this(BlankType.Clear, new(0,0,1)) {}
 

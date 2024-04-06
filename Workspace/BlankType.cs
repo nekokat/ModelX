@@ -15,6 +15,5 @@ namespace ModelX.Workspace
         Notes,
         Equipment,
         Trait
-
     }
 }

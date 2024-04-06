@@ -2,15 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Support{
+namespace ModelX.Workspace{
 
     public class Container<T> : IList<T>, IList
     {
         private List<T> list = new ();
 
+        public Container()
+        {   
+            ID = new ContainerID(new Blank<T>().Type.ToString());
+        }
+
         public string? Name {get; set;}
 
-        public ContainerID<T> ID { get;set; }
+        public ContainerID ID { get; set; }
     
         public T this[int index] { get => list[index]; set => list[index] = value; }
         object? IList.this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

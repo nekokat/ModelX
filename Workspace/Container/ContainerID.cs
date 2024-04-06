@@ -2,23 +2,27 @@ using System;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace Support
+namespace ModelX.Workspace
 {
-    public class ContainerID<T> where T: class
+    public class ContainerID
     {
         string _guid;        
 
-        public ContainerID(Container<T> container)
+        public ContainerID(string blankName)
         {
             DateTime _localDate = DateTime.Now;
+
             using (MD5 _md5 = MD5.Create())
             {
-                string _name = typeof(T).ToString() ?? string.Empty;
-                byte[] _hash = _md5.ComputeHash(Encoding.Default.GetBytes($"ContainerOf{_name}_{_localDate}"));
+                byte[] _hash = _md5.ComputeHash(Encoding.Default.GetBytes($"ContainerOf{blankName}_{_localDate}"));
                 Guid ID = new Guid(_hash);
 				_guid = ID.ToString();
             }
-            
+        }        
+
+        public override string ToString()
+        {
+            return _guid;
         }
     }
 }

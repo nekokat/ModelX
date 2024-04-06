@@ -26,6 +26,7 @@
     <ProjectReference Include="..\Setting\Setting.csproj" />
     <ProjectReference Include="..\Workspace\Workspace.csproj" />
     <ProjectReference Include="..\Create.Blank\Create.Blank.csproj" />
+    <ProjectReference Include="..\Support\Container\Container.csproj" />
   </ItemGroup>
 
 </Project>
