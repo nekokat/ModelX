@@ -1,29 +1,30 @@
 ﻿using System;
 using System.Text;
 using System.Security.Cryptography;
+using Support;
 
 namespace ModelX.Workspace
 {
-    public class ID : IEquatable<ID>
+    public class BlankID : IEquatable<BlankID>
     {
 		string _guid = string.Empty;
 		
-        public ID(BlankType type)
+        public BlankID(BlankType type)
         {
             using (MD5 _md5 = MD5.Create())
             {
                 string _name = Enum.GetName(typeof(BlankType), type) ?? string.Empty;
                 byte[] _hash = _md5.ComputeHash(Encoding.Default.GetBytes(_name));
-                Guid BlankID = new Guid(_hash);
-				_guid = BlankID.ToString();
+                Guid ID = new Guid(_hash);
+				_guid = ID.ToString();
             }
         }
 
-        public Guid BlankID { get; set; }
+        public Guid ID { get; set; }
 
-        public bool Equals(ID? other)
+        public bool Equals(BlankID? other)
         {
-            return BlankID.Equals(other?.BlankID);
+            return ID.Equals(other?.ID);
         }
 
         public override string ToString()

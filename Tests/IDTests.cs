@@ -20,7 +20,7 @@ namespace Tests
         [TestCase(BlankType.Trait,      "0fea1891-d076-f2a8-1a42-591caeee043e")]
         public void GuidTest(BlankType type, string guid)
         {
-            Assert.That(new ID(type).ToString(), Is.EqualTo(guid));
+            Assert.That(new BlankID(type).ToString(), Is.EqualTo(guid));
         }
     }
 }

@@ -7,7 +7,7 @@ namespace ModelX.Workspace
 {
 
     [JsonObject(MemberSerialization.OptIn)]
-    public class Blank : IEquatable<Blank>
+    public class Blank : IEquatable<Blank>, IBlank
     {
 
         public static Blank Load(string jsonPath)
@@ -17,8 +17,7 @@ namespace ModelX.Workspace
                 string json = reader.ReadToEnd();
                 Blank? files = JsonConvert.DeserializeObject<Blank>(json);
                 return files ?? new Blank();
-            }
-            
+            }            
         }
 
         public Blank() :this(BlankType.Clear, new(0,0,1)) {}
@@ -37,7 +36,7 @@ namespace ModelX.Workspace
 
         public Support.Version Version { get; set; }
 
-        public ID Id { get; set; }
+        public BlankID Id { get; set; }
 
         [JsonProperty(PropertyName = "Version")]
         public string VersionJson
@@ -50,7 +49,7 @@ namespace ModelX.Workspace
         public string IdJson
         {
             get => Id.ToString();
-            set => Id = new ID(Type);
+            set => Id = new BlankID(Type);
         }
 /*
         [JsonProperty(PropertyName = "Type")]
