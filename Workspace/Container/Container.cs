@@ -4,13 +4,15 @@ using System.Collections.Generic;
 
 namespace ModelX.Workspace{
 
-    public class Container<T> : IList<T>, IList
+    public class Container<T> : IList<T>, IList where T : Blank, new()
     {
         private List<T> list = new ();
 
         public Container()
         {   
-            ID = new ContainerID(new Blank<T>().Type.ToString());
+            T? item = new T();
+            string containerName = Enum.GetName(typeof(BlankType), item.Type) ?? string.Empty;
+            ID = new ContainerID(containerName);
         }
 
         public string? Name {get; set;}
@@ -110,5 +112,4 @@ namespace ModelX.Workspace{
             throw new NotImplementedException();
         }
     }
-
 }

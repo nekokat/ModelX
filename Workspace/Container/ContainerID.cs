@@ -8,9 +8,9 @@ namespace ModelX.Workspace
     {
         string _guid;        
 
-        public ContainerID(string blankName)
+        public ContainerID(string blankName, DateTime? date)
         {
-            DateTime _localDate = DateTime.Now;
+            DateTime _localDate = date ?? DateTime.Now;
 
             using (MD5 _md5 = MD5.Create())
             {
@@ -20,6 +20,8 @@ namespace ModelX.Workspace
             }
         }        
 
+        public ContainerID(string blankName) : this(blankName, null){}
+        
         public override string ToString()
         {
             return _guid;

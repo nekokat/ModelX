@@ -24,9 +24,9 @@
     <ProjectReference Include="..\Converter\Converter.csproj" />
     <ProjectReference Include="..\User\User.csproj" />
     <ProjectReference Include="..\Setting\Setting.csproj" />
-    <ProjectReference Include="..\Workspace\Workspace.csproj" />
-    <ProjectReference Include="..\Create.Blank\Create.Blank.csproj" />
-    <ProjectReference Include="..\Support\Container\Container.csproj" />
+    <ProjectReference Include="..\Workspace\Blank\Blank.csproj" />
+    <ProjectReference Include="..\Workspace\Create\Create.csproj" />
+    <ProjectReference Include="..\Workspace\Container\Container.csproj" />
   </ItemGroup>
 
 </Project>
