@@ -18,5 +18,10 @@ namespace Support
         FP,
         HP
         */
+        Strength,
+        Dexterity,
+        Intelligence,
+        Health
+ 
     }
 }
