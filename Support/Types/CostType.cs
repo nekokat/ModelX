@@ -2,5 +2,7 @@
 
 public enum CostType
 {
-    Points
+    Points,
+    Percentage,
+    Multiplier
 }
