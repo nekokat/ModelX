@@ -10,8 +10,8 @@ namespace ModelX.Workspace{
 
         public Container()
         {   
-            T? item = new T();
-            string containerName = Enum.GetName(typeof(BlankType), item.Type) ?? string.Empty;
+            T? _item = new T();
+            string containerName = Enum.GetName(typeof(BlankType), _item.Type) ?? string.Empty;
             ID = new ContainerID(containerName);
         }
 
