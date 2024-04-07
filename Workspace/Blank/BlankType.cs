@@ -14,6 +14,9 @@ namespace ModelX.Workspace
         Spell,
         Notes,
         Equipment,
-        Trait
+        Trait,
+        Modifier,
+        SkillBonus,
+        Technique
     }
 }

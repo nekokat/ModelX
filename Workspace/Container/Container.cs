@@ -8,11 +8,16 @@ namespace ModelX.Workspace{
     {
         private List<T> list = new ();
 
+        public DateTime Date {get; set;}
+        
+        public List<string> Tags{get; set;}
+
         public Container()
         {   
+            Date = DateTime.Now;
             T? _item = new T();
             string containerName = Enum.GetName(typeof(BlankType), _item.Type) ?? string.Empty;
-            ID = new ContainerID(containerName);
+            ID = new ContainerID(containerName, Date);
         }
 
         public string? Name {get; set;}
