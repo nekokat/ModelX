@@ -1,15 +1,16 @@
 ﻿namespace ModelX.Workspace
 {
-
     public class Modifier
     {
-        public Modifier()
+        public Modifier(string name)
         {
-
+            Name = name;
         }
 
-        public BlankID? Id {get; set;}
-        public BlankType? Type {get; set;}
+        public Modifier() : this("Empty_Modifier"){}
+
+        public BlankID? Id {get; set; }
+        public BlankType? Type {get; set; }
         public string? Name {get; set;}
         public int? Cost {get; set;}
         public bool? Disabled {get; set;}
