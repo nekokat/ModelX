@@ -10,7 +10,7 @@ namespace ModelX.Workspace{
 
         public DateTime Date {get; set;}
         
-        public List<string> Tags{get; set;}
+        public List<string>? Tags{get; set;}
 
         public Container()
         {   

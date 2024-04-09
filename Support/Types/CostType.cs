@@ -1,8 +1,9 @@
-﻿namespace Types;
-
-public enum CostType
+﻿namespace Types
 {
-    Points,
-    Percentage,
-    Multiplier
+    public enum CostType
+    {
+        Points,
+        Percentage,
+        Multiplier
+    }
 }
