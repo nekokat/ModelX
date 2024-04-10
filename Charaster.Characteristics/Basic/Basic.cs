@@ -12,6 +12,18 @@ namespace Characteristics{
             Type = attributeType;
         }
 
+        public static Dictionary<AttributeType, int> Load(string filename)
+        {
+            Dictionary<AttributeType, int>? dictionary;
+            using (StreamReader r = new StreamReader(filename))
+            {
+                string json = r.ReadToEnd();
+                dictionary = JsonConvert.DeserializeObject<Dictionary<AttributeType, int>>(json);
+                
+            }
+            return dictionary ?? new();
+        }
+
         public AttributeType Type { get; set; }
 
         public int Cost {
@@ -48,15 +60,8 @@ namespace Characteristics{
                 _ => throw new Exception()
             };
             */
-
-            Dictionary<AttributeType, int>? dictionary;
-            using (StreamReader r = new StreamReader("file.json"))
-            {
-                string json = r.ReadToEnd();
-                dictionary = JsonConvert.DeserializeObject<Dictionary<AttributeType, int>>(json);
-                
-            }
-            return dictionary?[type] ?? 0;
+            Basic.Load("basic.json").TryGetValue(type, out int value);
+            return value;
         }
         
         public CostType CType{ get; set; }

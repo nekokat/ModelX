@@ -18,6 +18,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,8 @@
     <ProjectReference Include="..\Workspace\Blank\Blank.csproj" />
     <ProjectReference Include="..\Workspace\Create\Create.csproj" />
     <ProjectReference Include="..\Workspace\Container\Container.csproj" />
+    <ProjectReference Include="..\Support\Types\Types.csproj" />
+    <ProjectReference Include="..\Charaster.Characteristics\Basic\Basic.csproj" />
   </ItemGroup>
 
 </Project>
