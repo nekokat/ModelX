@@ -1,6 +1,5 @@
 ﻿using System;
 using Converter;
-using NUnit.Framework;
 
 namespace Tests
 {

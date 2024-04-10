@@ -18,26 +18,18 @@ namespace Tests
                 {AttributeType.Strength, 10}
             };
             
-            TextWriter writer = null;
-
             TestFilename = "./BasicTest.json";
 
-            try
+            using (StreamWriter writejson = new (TestFilename))
             {
-                writer = new StreamWriter(TestFilename);
                 var json = JsonConvert.SerializeObject(PointsAttributeList, Formatting.Indented);
-                writer.Write(json);
-            }
-            finally
-            {
-                if (writer != null)
-                    writer.Close();
+                writejson.WriteLine(json);
             }
         }
 
         Dictionary<AttributeType, int> PointsAttributeList;
 
-        string TestFilename {get;set;}
+        string TestFilename { get; set; }
 
         [Test]
         public void PointsAttributeFromJson()
