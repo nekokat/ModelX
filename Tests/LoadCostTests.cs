@@ -20,9 +20,11 @@ namespace Tests
             
             TextWriter writer = null;
 
+            TestFilename = "./BasicTest.json";
+
             try
             {
-                writer = new StreamWriter("./BasicTest.json");
+                writer = new StreamWriter(TestFilename);
                 var json = JsonConvert.SerializeObject(PointsAttributeList, Formatting.Indented);
                 writer.Write(json);
             }
@@ -35,10 +37,12 @@ namespace Tests
 
         Dictionary<AttributeType, int> PointsAttributeList;
 
+        string TestFilename {get;set;}
+
         [Test]
         public void PointsAttributeFromJson()
         {
-            var dict = Basic.Load("./BasicTest.json");
+            var dict = Basic.Load(TestFilename);
             Assert.That(PointsAttributeList, Is.EqualTo(dict));
             
         }
