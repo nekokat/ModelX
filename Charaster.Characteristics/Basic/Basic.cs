@@ -7,24 +7,23 @@ namespace Characteristics{
 
     public class Basic
     {
-        public Basic(AttributeType attributeType)
+        public Basic(BasicAttributesType attributeType)
         {
             Type = attributeType;
         }
 
-        public static Dictionary<AttributeType, int> Load(string filename)
+        public static Dictionary<BasicAttributesType, int> Load(string filename)
         {
-            Dictionary<AttributeType, int>? dictionary;
+            Dictionary<BasicAttributesType, int>? dictionary;
             using (StreamReader r = new StreamReader(filename))
             {
                 string json = r.ReadToEnd();
-                dictionary = JsonConvert.DeserializeObject<Dictionary<AttributeType, int>>(json);
-                
+                dictionary = JsonConvert.DeserializeObject<Dictionary<BasicAttributesType, int>>(json);                
             }
             return dictionary ?? new();
         }
 
-        public AttributeType Type { get; set; }
+        public BasicAttributesType Type { get; set; }
 
         public int Cost {
             get {
@@ -38,29 +37,29 @@ namespace Characteristics{
             }
         }
 
-        private int CostSetMultiplier(AttributeType type)
+        private int CostSetMultiplier(BasicAttributesType type)
         {
             throw new NotImplementedException();
         }
 
-        private int CostSetPercentage(AttributeType type)
+        private int CostSetPercentage(BasicAttributesType type)
         {
             throw new NotImplementedException();
         }
 
-        private int CostSetPoints(AttributeType type)
+        private int CostSetPoints(BasicAttributesType type)
         {
             /*
             return type switch
             {
-                AttributeType.Dexterity => 20,
-                AttributeType.Health => 10,
-                AttributeType.Intelligence => 20,
-                AttributeType.Strength => 10,
+                BasicAttributesType.Dexterity => 20,
+                BasicAttributesType.Health => 10,
+                BasicAttributesType.Intelligence => 20,
+                BasicAttributesType.Strength => 10,
                 _ => throw new Exception()
             };
             */
-            Basic.Load("basic.json").TryGetValue(type, out int value);
+            Load("basic.json").TryGetValue(type, out int value);
             return value;
         }
         

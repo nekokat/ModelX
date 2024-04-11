@@ -12,31 +12,30 @@ namespace Tests
         public void Setup()
         {
             PointsAttributeList = new(){    
-                {AttributeType.Dexterity,20},
-                {AttributeType.Health, 10},
-                {AttributeType.Intelligence, 20},
-                {AttributeType.Strength, 10}
+                {BasicAttributesType.Dexterity,20},
+                {BasicAttributesType.Health, 10},
+                {BasicAttributesType.Intelligence, 20},
+                {BasicAttributesType.Strength, 10}
             };
             
-            TestFilename = "./BasicTest.json";
+            Filepath = "./BasicTest.json";
 
-            using (StreamWriter writejson = new (TestFilename))
+            using (StreamWriter writejson = new (Filepath))
             {
                 var json = JsonConvert.SerializeObject(PointsAttributeList, Formatting.Indented);
                 writejson.WriteLine(json);
             }
         }
 
-        Dictionary<AttributeType, int> PointsAttributeList;
+        Dictionary<BasicAttributesType, int> PointsAttributeList;
 
-        string TestFilename { get; set; }
+        string Filepath { get; set; }
 
         [Test]
         public void PointsAttributeFromJson()
         {
-            var dict = Basic.Load(TestFilename);
-            Assert.That(PointsAttributeList, Is.EqualTo(dict));
-            
+            var dict = Basic.Load(Filepath);
+            Assert.That(PointsAttributeList, Is.EqualTo(dict));            
         }
     }
 }

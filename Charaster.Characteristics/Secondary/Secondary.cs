@@ -1,6 +1,7 @@
-﻿namespace Secondary;
+﻿namespace Secondary{
 
-public class Class1
-{
+    public abstract class Characteristics
+    {
 
+    }
 }
