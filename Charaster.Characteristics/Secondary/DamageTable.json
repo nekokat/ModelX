@@ -1,0 +1,210 @@
+{
+    "1": {
+      "Thrust": "1d-6",
+      "Swing": "1d-5"
+    },
+    "2": {
+      "Thrust": "1d-6",
+      "Swing": "1d-5"
+    },
+    "3": {
+      "Thrust": "1d-5",
+      "Swing": "1d-4"
+    },
+    "4": {
+      "Thrust": "",
+      "Swing": "1d-5"
+    },
+    "5": {
+      "Thrust": "1d-4",
+      "Swing": "1d-3"
+    },
+    "6": {
+      "Thrust": "1d-4",
+      "Swing": "1d-3"
+    },
+    "7": {
+      "Thrust": "1d-3",
+      "Swing": "1d-2"
+    },
+    "8": {
+      "Thrust": "1d-3",
+      "Swing": "1d-2"
+    },
+    "9": {
+      "Thrust": "1d-2",
+      "Swing": "1d-1"
+    },
+    "10": {
+      "Thrust": "1d-2",
+      "Swing": "1d"
+    },
+    "11": {
+      "Thrust": "1d-1",
+      "Swing": "1d+1"
+    },
+    "12": {
+      "Thrust": "1d-1",
+      "Swing": "1d+2"
+    },
+    "13": {
+      "Thrust": "1d",
+      "Swing": "2d-1"
+    },
+    "14": {
+      "Thrust": "1d",
+      "Swing": "2d"
+    },
+    "15": {
+      "Thrust": "1d+1",
+      "Swing": "2d+1"
+    },
+    "16": {
+      "Thrust": "1d+1",
+      "Swing": "2d+2"
+    },
+    "17": {
+      "Thrust": "1d+2",
+      "Swing": "3d-1"
+    },
+    "18": {
+      "Thrust": "1d+2",
+      "Swing": "3d"
+    },
+    "19": {
+      "Thrust": "2d-1",
+      "Swing": "3d+1"
+    },
+    "20": {
+      "Thrust": "2d-1",
+      "Swing": "3d+2"
+    },
+    "21": {
+      "Thrust": "2d",
+      "Swing": "4d-1"
+    },
+    "22": {
+      "Thrust": "2d",
+      "Swing": "4d"
+    },
+    "23": {
+      "Thrust": "2d+1",
+      "Swing": "4d+1"
+    },
+    "24": {
+      "Thrust": "2d+1",
+      "Swing": "4d+2"
+    },
+    "25": {
+      "Thrust": "2d+2",
+      "Swing": "5d-1"
+    },
+    "26": {
+      "Thrust": "2d+2",
+      "Swing": "5d"
+    },
+    "27": {
+      "Thrust": "3d-1",
+      "Swing": "5d+1"
+    },
+    "28": {
+      "Thrust": "3d-1",
+      "Swing": "5d+1"
+    },
+    "29": {
+      "Thrust": "3d",
+      "Swing": "5d+2"
+    },
+    "30": {
+      "Thrust": "3d",
+      "Swing": "5d+2"
+    },
+    "31": {
+      "Thrust": "3d+1",
+      "Swing": "6d-1"
+    },
+    "32": {
+      "Thrust": "3d+1",
+      "Swing": "6d-1"
+    },
+    "33": {
+      "Thrust": "3d+2",
+      "Swing": "6d"
+    },
+    "34": {
+      "Thrust": "3d+2",
+      "Swing": "6d"
+    },
+    "35": {
+      "Thrust": "4d-1",
+      "Swing": "6d+1"
+    },
+    "36": {
+      "Thrust": "4d-1",
+      "Swing": "6d+1"
+    },
+    "37": {
+      "Thrust": "4d",
+      "Swing": "6d+2"
+    },
+    "38": {
+      "Thrust": "4d",
+      "Swing": "6d+2"
+    },
+    "39": {
+      "Thrust": "4d+1",
+      "Swing": "7d-1"
+    },
+    "40": {
+      "Thrust": "4d+1",
+      "Swing": "7d-1"
+    },
+    "45": {
+      "Thrust": "5d",
+      "Swing": "7d+1"
+    },
+    "50": {
+      "Thrust": "5d+2",
+      "Swing": "8d-1"
+    },
+    "55": {
+      "Thrust": "6d",
+      "Swing": "8d+1"
+    },
+    "60": {
+      "Thrust": "7d-1",
+      "Swing": "9d"
+    },
+    "65": {
+      "Thrust": "7d+1",
+      "Swing": "9d+2"
+    },
+    "70": {
+      "Thrust": "8d",
+      "Swing": "10d"
+    },
+    "75": {
+      "Thrust": "8d+2",
+      "Swing": "10d+2"
+    },
+    "80": {
+      "Thrust": "9d",
+      "Swing": "11d"
+    },
+    "85": {
+      "Thrust": "9d+2",
+      "Swing": "11d+2"
+    },
+    "90": {
+      "Thrust": "10d",
+      "Swing": "12d"
+    },
+    "95": {
+      "Thrust": "10d+2",
+      "Swing": "12d+2"
+    },
+    "100": {
+      "Thrust": "11d",
+      "Swing": "13d"
+    }
+  }
