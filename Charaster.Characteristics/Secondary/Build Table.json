@@ -1,0 +1,74 @@
+{
+  "7": {
+    "Height Range": "4’7”-5’5”",
+    "Skinny": "50-90",
+    "Average": "75-135",
+    "Overweight": "100-175",
+    "Fat": "115-205",
+    "Very Fat": "150-270"
+  },
+  "8": {
+    "Height Range": "4’10”-5’8”",
+    "Skinny": "60-100",
+    "Average": "90-150",
+    "Overweight": "120-195",
+    "Fat": "135-225",
+    "Very Fat": "180-300"
+  },
+  "9": {
+    "Height Range": "5’1”-5’11”",
+    "Skinny": "70-110",
+    "Average": "105-165",
+    "Overweight": "140-215",
+    "Fat": "160-250",
+    "Very Fat": "210-330"
+  },
+  "10": {
+    "Height Range": "5’3”-6’1”",
+    "Skinny": "80-120",
+    "Average": "115-175",
+    "Overweight": "150-230",
+    "Fat": "175-265",
+    "Very Fat": "230-350"
+  },
+  "11": {
+    "Height Range": "5’5”-6’3”",
+    "Skinny": "85-130",
+    "Average": "125-195",
+    "Overweight": "165-255",
+    "Fat": "190-295",
+    "Very Fat": "250-390"
+  },
+  "12": {
+    "Height Range": "5’8”-6’6”",
+    "Skinny": "95-150",
+    "Average": "140-220",
+    "Overweight": "185-290",
+    "Fat": "210-330",
+    "Very Fat": "280-440"
+  },
+  "13": {
+    "Height Range": "5’11”-6’9”",
+    "Skinny": "105-165",
+    "Average": "155-245",
+    "Overweight": "205-320",
+    "Fat": "235-370",
+    "Very Fat": "310-490"
+  },
+  "6 or less": {
+    "Height Range": "4’4”-5’2”",
+    "Skinny": "40-80",
+    "Average": "60-120",
+    "Overweight": "80-160",
+    "Fat": "90-180",
+    "Very Fat": "120-240"
+  },
+  "14 or more": {
+    "Height Range": "6’2”-7’",
+    "Skinny": "115-180",
+    "Average": "170-270",
+    "Overweight": "225-355",
+    "Fat": "255-405",
+    "Very Fat": "340-540"
+  }
+}
