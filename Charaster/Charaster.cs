@@ -1,6 +1,12 @@
-﻿namespace Charaster;
+﻿using CharasterType;
 
-public class Class1
-{
+namespace Charaster{
 
+    public class Charaster
+    {
+        public Charaster(CharasterType charasterType)
+        {
+            
+        }
+    }
 }
