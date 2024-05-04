@@ -2,6 +2,7 @@
 using Types;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.Drawing;
 
 namespace Characteristics{
 
@@ -11,6 +12,8 @@ namespace Characteristics{
         {
             Type = attributeType;
         }
+
+        public int Point { get; set; }
 
         public static Dictionary<BasicAttributesType, int> Load(string filename)
         {
@@ -63,6 +66,28 @@ namespace Characteristics{
             return value;
         }
         
+        enum BasicLevel
+        {
+            Crippling,
+            Poor,
+            BelowAverage,
+            Average,
+            AboveAverage,
+            Exceptional,
+            Amazing
+        }
+
+        BasicLevel Level => Point switch
+        {
+            <= 6 => BasicLevel.Crippling,
+            7 => BasicLevel.Poor,
+            8 or 9 => BasicLevel.BelowAverage,
+            10 => BasicLevel.Average,
+            11 or 12 => BasicLevel.AboveAverage,
+            13 or 14 => BasicLevel.Exceptional,
+            >= 15 => BasicLevel.Amazing
+        };
+
         public CostType CType{ get; set; }
     }
 }
