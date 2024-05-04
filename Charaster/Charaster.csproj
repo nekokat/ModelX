@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Charaster.Characteristics\Basic\Basic.csproj" />
     <ProjectReference Include="..\Charaster.Characteristics\Secondary\Secondary.csproj" />
+    <ProjectReference Include="..\Support\Types\Types.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

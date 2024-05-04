@@ -1,5 +1,5 @@
-﻿using CharasterType;
-using Characteristics;
+﻿using Characteristics;
+using Support.Types;
 
 namespace Charaster{
 
@@ -7,11 +7,16 @@ namespace Charaster{
     {
         public Charaster(CharasterType charasterType)
         {
-            
         }
 
-        Characteristics.Basic BasicAttributes? { get; set; }
-        Characteristics.Secondary SecondaryCharacteristics ? { get; set; }  
+        public Charaster()
+        {            
+            Dexterity = new(BasicAttributesType.Dexterity);
+        }
+        
+        Basic Dexterity { get; set; }
+        Secondary SecondaryCharacteristics { get; set; }  
+        /*
         Build?;
         AgeAndBeauty?;
         SocialBackground?;
@@ -26,5 +31,6 @@ namespace Charaster{
         Quirks?;
         Skills?;
         Techniques?;
+        */
     }
 }
