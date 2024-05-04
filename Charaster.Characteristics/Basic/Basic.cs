@@ -88,6 +88,11 @@ namespace Characteristics{
             >= 15 => BasicLevel.Amazing
         };
 
+        public override string ToString()
+        {
+            return $"{Type}: {Point}({Level})";
+        }
+
         public CostType CType{ get; set; }
     }
 }
