@@ -10,8 +10,14 @@ namespace Charaster
         public Checklist(){}
 
         public Charaster? Item { get; set; }
+        
+        private bool CheckBasicAttributes(){
+            return  Item.Dexterity != null &&
+                    Item.Health != null &&
+                    Item.Intelligence != null &&
+                    Item.Strength != null;
+        }
         /*
-        private bool CheckBasicAttributes => Item.BasicAttributes?
         private bool CheckSecondaryCharacteristics => Item.SecondaryCharacteristics ?
         private bool CheckBuild => return Item.Build?
         private bool CheckAgeAndBeauty => Item.AgeAndBeauty?
