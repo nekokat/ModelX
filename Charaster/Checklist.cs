@@ -9,7 +9,7 @@ namespace Charaster
 
         public Checklist(){}
 
-        public Charaster Item { get; set; }
+        public Charaster? Item { get; set; }
         /*
         private bool CheckBasicAttributes => Item.BasicAttributes?
         private bool CheckSecondaryCharacteristics => Item.SecondaryCharacteristics ?
