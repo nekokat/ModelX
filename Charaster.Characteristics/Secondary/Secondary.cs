@@ -1,6 +1,6 @@
-﻿namespace Secondary{
+﻿namespace Characteristics{
 
-    public abstract class Characteristics
+    public class Secondary
     {
         public static void Load(string filename)
         {
