@@ -11,19 +11,17 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            BasicValue = new Basic(BasicAttributesType.Strength);
+            Value = new Basic(BasicAttributesType.Strength);
         }
 
-        Basic BasicValue { get; set; }
+        Basic Value { get; set; }
 
-        string Filepath { get; set; }
-
-        [TestCase(0, BasicLevel.Crippling)]
-        [TestCase(5, BasicLevel.Crippling)]
-        [TestCase(6, BasicLevel.Crippling)]
-        [TestCase(7, BasicLevel.Poor)]
-        [TestCase(8, BasicLevel.BelowAverage)]
-        [TestCase(9, BasicLevel.BelowAverage)]
+        [TestCase( 0, BasicLevel.Crippling)]
+        [TestCase( 5, BasicLevel.Crippling)]
+        [TestCase( 6, BasicLevel.Crippling)]
+        [TestCase( 7, BasicLevel.Poor)]
+        [TestCase( 8, BasicLevel.BelowAverage)]
+        [TestCase( 9, BasicLevel.BelowAverage)]
         [TestCase(10, BasicLevel.Average)]
         [TestCase(11, BasicLevel.AboveAverage)]
         [TestCase(12, BasicLevel.AboveAverage)]
@@ -34,8 +32,8 @@ namespace Tests
         [TestCase(50, BasicLevel.Amazing)]
         public void BasicValueTest(int points, BasicLevel level)
         {
-            BasicValue.Point = points;
-            Assert.That(BasicValue.Level, Is.EqualTo(level));
+            Value.Point = points;
+            Assert.That(Value.Level, Is.EqualTo(level));
         }
     }
 }
