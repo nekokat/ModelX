@@ -13,7 +13,7 @@ namespace Characteristics
             BasicValue = basic;
         }
 
-        public double Value => data[BasicValue?.Point - 1 ?? 0];
+        public double Value => (data ?? [0])[BasicValue?.Point - 1 ?? 0];
         public Basic? BasicValue { get; set; }
 
         public double None => (int)Encumbrance.None * Value;
