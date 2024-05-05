@@ -6,19 +6,19 @@ namespace Characteristics
     {
         private readonly double[] data = [0.2, 0.8, 1.8, 3.2, 5, 7.2, 9.8, 13, 16, 20, 24, 29, 34, 39, 45, 51, 58, 65, 72, 80];
 
-        public BasicLift( Basic strength)
+        public BasicLift( Basic basic)
         {
-            Strength = strength;
+            BasicValue = basic;
         }
 
-        public double BasicValue => data[Strength?.Point - 1 ?? 0];
-        public Basic? Strength { get; set; }
+        public double Value => data[BasicValue?.Point - 1 ?? 0];
+        public Basic? BasicValue { get; set; }
 
-        public double None => (int)Encumbrance.None * BasicValue;
-        public double Light => (int)Encumbrance.Light * BasicValue;
-        public double Medium => (int)Encumbrance.Medium * BasicValue;
-        public double Heavy => (int)Encumbrance.Heavy * BasicValue;
-        public double ExtraHeavy => (int)Encumbrance.ExtraHeavy * BasicValue;
+        public double None => (int)Encumbrance.None * Value;
+        public double Light => (int)Encumbrance.Light * Value;
+        public double Medium => (int)Encumbrance.Medium * Value;
+        public double Heavy => (int)Encumbrance.Heavy * Value;
+        public double ExtraHeavy => (int)Encumbrance.ExtraHeavy * Value;
     }
 
 }
