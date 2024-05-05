@@ -1,10 +1,12 @@
 using System.CodeDom.Compiler;
+using ModelX.Setting;
+using Newtonsoft.Json;
 
 namespace Characteristics
 {
     public class BasicLift
     {
-        private readonly double[] data = [0.2, 0.8, 1.8, 3.2, 5, 7.2, 9.8, 13, 16, 20, 24, 29, 34, 39, 45, 51, 58, 65, 72, 80];
+        public static double[]? data = Settings.BasicLift;
 
         public BasicLift( Basic basic)
         {
