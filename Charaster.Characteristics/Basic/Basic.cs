@@ -13,7 +13,7 @@ namespace Characteristics{
             Type = attributeType;
         }
 
-        public int Point { get; set; }
+        public int Point { get; set; } = 10;
 
         public static Dictionary<BasicAttributesType, int> Load(string filename)
         {
@@ -52,32 +52,11 @@ namespace Characteristics{
 
         private int CostSetPoints(BasicAttributesType type)
         {
-            /*
-            return type switch
-            {
-                BasicAttributesType.Dexterity => 20,
-                BasicAttributesType.Health => 10,
-                BasicAttributesType.Intelligence => 20,
-                BasicAttributesType.Strength => 10,
-                _ => throw new Exception()
-            };
-            */
             Load("basic.json").TryGetValue(type, out int value);
             return value;
-        }
-        
-        enum BasicLevel
-        {
-            Crippling,
-            Poor,
-            BelowAverage,
-            Average,
-            AboveAverage,
-            Exceptional,
-            Amazing
-        }
+        }        
 
-        BasicLevel Level => Point switch
+        public BasicLevel Level => Point switch
         {
             <= 6 => BasicLevel.Crippling,
             7 => BasicLevel.Poor,
