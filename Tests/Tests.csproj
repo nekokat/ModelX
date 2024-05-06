@@ -30,6 +30,7 @@
     <ProjectReference Include="..\Workspace\Container\Container.csproj" />
     <ProjectReference Include="..\Support\Types\Types.csproj" />
     <ProjectReference Include="..\Charaster.Characteristics\Basic\Basic.csproj" />
+    <ProjectReference Include="..\Charaster.Characteristics\Secondary\Secondary.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,6 +9,11 @@ namespace Characteristics
     {
         public static double[]? data = Settings.BasicLift;
 
+        public BasicLift()
+        {
+
+        }
+
         public BasicLift( Basic basic)
         {
             BasicValue = basic;
@@ -18,7 +23,7 @@ namespace Characteristics
         {
             int strength = 1;
             string line;
-            using (StreamWriter outputFile = new StreamWriter("WriteLines.txt"))
+            using (StreamWriter outputFile = new StreamWriter("/home/neko/Документы/ModelX/Tests/bin/Debug/net8.0/BasicLift.json", true))
             {
                 foreach(double bf in data)
                 {
