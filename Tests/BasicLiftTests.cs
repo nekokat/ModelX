@@ -11,8 +11,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            BasicLift basicLift = new BasicLift(new Basic(BasicAttributesType.Strength));
-            basicLift.Generate();
+            BasicLift.Generate();
         }
 
         Basic Value { get; set; }
