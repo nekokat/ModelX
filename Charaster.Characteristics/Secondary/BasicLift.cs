@@ -1,5 +1,5 @@
 using System.CodeDom.Compiler;
-using ModelX.Setting;
+using Settings;
 using Newtonsoft.Json;
 using Types;
 
@@ -7,8 +7,20 @@ namespace Characteristics
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class BasicLift
-    {
-        public static List<double> data = Settings.BasicLift;
+    {       
+        public Setting FromJson (string filename)
+        {
+            Setting result;
+            using (StreamReader r = new(filename))
+            {
+                string json = r.ReadToEnd();
+                result = JsonConvert.DeserializeObject<Setting>(json);
+            }
+            return result;
+        }
+
+        public double[] data = FromJson("/home/neko/Документы/ModelX/Tests/bin/Debug/net8.0/Secondary.json").BasicLift;
+
 
         public BasicLift( Basic basic)
         {
