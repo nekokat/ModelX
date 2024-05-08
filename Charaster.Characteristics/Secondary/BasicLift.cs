@@ -8,7 +8,7 @@ namespace Characteristics
     [JsonObject(MemberSerialization.OptIn)]
     public class BasicLift
     {
-        public static double[] data = Settings.BasicLift;
+        public static List<double> data = Settings.BasicLift;
 
         public BasicLift( Basic basic)
         {
@@ -26,7 +26,7 @@ namespace Characteristics
                 foreach(double bf in data)
                 {
                     line = JsonConvert.SerializeObject(basicLift, Formatting.Indented);
-                    outputFile.WriteLine(basicLift.BasicValue.Point++);
+                    //outputFile.WriteLine(basicLift.BasicValue.Point++);
                     outputFile.WriteLine(line);
                 }
             }

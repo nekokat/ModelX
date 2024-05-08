@@ -1,12 +1,16 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
+
 
 namespace ModelX.Setting
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Settings
     {
         //TODO: Create reading from json
-        public static double[] BasicLift => FromJson<double[]>("./BasicLift.json") ?? 
-            [0.2, 0.8, 1.8, 3.2, 5, 7.2, 9.8, 13, 16, 20, 24, 29, 34, 39, 45, 51, 58, 65, 72, 80];
+        [JsonProperty("BasicLift")]
+        public static List<double> BasicLift => FromJson<List<double>>("Secondary.json");
 
         public static T? FromJson<T>(string filename)
         {
