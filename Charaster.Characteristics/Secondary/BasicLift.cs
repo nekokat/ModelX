@@ -13,7 +13,7 @@ namespace Characteristics
         public BasicLift( Basic basic)
         {
             BasicValue = basic;
-            Setting.Load("./Setting.json");
+            Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json");
         }
 
         public static void Generate()

@@ -14,7 +14,7 @@ namespace Tests
         {
             BasicLift.Generate();
             //Setting.Load("./Setting.json");
-            Setting.Load("./bin/Debug/net8.0/Setting.json");
+            Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json");
         }
 
         Basic Value { get; set; }

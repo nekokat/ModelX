@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using Types;
 
 
 namespace Settings
@@ -12,7 +13,7 @@ namespace Settings
         [JsonProperty("BasicLift")]
         public static BL BasicLift{ get; set; }
         [JsonProperty]
-        public static Dictionary<string, int> Basic { get; set; }
+        public static Dictionary<BasicAttributesType, int> Basic { get; set; }
         [JsonProperty]
         public static Dictionary<string, string> Blank { get; set; }
 
