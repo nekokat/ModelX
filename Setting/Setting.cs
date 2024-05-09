@@ -10,18 +10,28 @@ namespace Settings
     {
         //TODO: Create reading from json
         [JsonProperty("BasicLift")]
-        public static List<double> BasicLift { get; set; }
+        public static BL BasicLift{ get; set; }
+        [JsonProperty]
+        public static Dictionary<string, int> Basic { get; set; }
+        [JsonProperty]
+        public static Dictionary<string, string> Blank { get; set; }
 
-        public static Setting Load (string filename)
+        public static void Load (string filename)
         {
-            Setting result;
             using (StreamReader r = new(filename))
             {
                 string json = r.ReadToEnd();
-                result = JsonConvert.DeserializeObject<Setting>(json);
+                JsonConvert.DeserializeObject<Setting>(json);
             }
-            return result;
         }
     }
 
+    [JsonObject(MemberSerialization.OptIn)]
+    public record BL
+    {
+        [JsonProperty]
+        public string Generate;
+        [JsonProperty]
+        public List<double> Data;        
+    }
 }

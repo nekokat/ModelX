@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Characteristics;
 using System.IO;
 using Newtonsoft.Json;
+using Settings;
 
 namespace Tests
 {
@@ -12,6 +13,8 @@ namespace Tests
         public void Setup()
         {
             BasicLift.Generate();
+            //Setting.Load("./Setting.json");
+            Setting.Load("./bin/Debug/net8.0/Setting.json");
         }
 
         Basic Value { get; set; }
@@ -19,7 +22,7 @@ namespace Tests
         [Test]
         public void BasicLiftGenerateTest()
         {
-            Assert.That("/home/neko/Документы/ModelX/Tests/bin/Debug/net8.0/BasicLift.json", Does.Exist);
+            Assert.That(Setting.BasicLift.Generate, Does.Exist);
         }
     }
 }

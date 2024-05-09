@@ -1,0 +1,14 @@
+{
+    "BasicLift" : {
+        "Generate" : "./BasicLift.json",
+        "Data" : [0.2, 0.8, 1.8, 3.2, 5, 7.2, 9.8, 13, 16, 20, 24, 29, 34, 39, 45, 51, 58, 65, 72, 80]
+    },
+    
+    "Basic" : { "Dexterity": 20,
+                "Health": 10,
+                "Intelligence": 20,        
+                "Strength": 10
+    },
+
+    "Blank" : { "TempPath" : "./Template" }
+}

@@ -7,19 +7,19 @@ namespace Characteristics
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class BasicLift
-    {   
-        public static Setting localSetting = Setting.Load("/home/neko/Документы/ModelX/Tests/bin/Debug/net8.0/Secondary.json");
-        public static List<double> basicLiftData = Setting.BasicLift;
+    {     
+        public static List<double> basicLiftData = Setting.BasicLift.Data;
 
         public BasicLift( Basic basic)
         {
             BasicValue = basic;
+            Setting.Load("./Setting.json");
         }
 
         public static void Generate()
         {
             string line;
-            using (StreamWriter outputFile = new StreamWriter("/home/neko/Документы/ModelX/Tests/bin/Debug/net8.0/BasicLift.json", true))
+            using (StreamWriter outputFile = new StreamWriter("./BasicLift.json", true))
             {
                 Basic strength = new Basic(BasicAttributesType.Strength);
                 BasicLift basicLift = new BasicLift(strength);
