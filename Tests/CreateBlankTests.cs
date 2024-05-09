@@ -11,7 +11,8 @@ namespace Tests
             [SetUp]
             public void Setup()
             {
-                TempPath = @"./Template";
+                Settings.Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json");
+                TempPath = Settings.Setting.Blank.TempPath;
                 Create.GenerateEmptyJson();
             }
 

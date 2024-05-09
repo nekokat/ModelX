@@ -15,7 +15,7 @@ namespace Settings
         [JsonProperty]
         public static Dictionary<BasicAttributesType, int> Basic { get; set; }
         [JsonProperty]
-        public static Dictionary<string, string> Blank { get; set; }
+        public static Blank Blank { get; set; }
 
         public static void Load (string filename)
         {
@@ -34,5 +34,12 @@ namespace Settings
         public string Generate;
         [JsonProperty]
         public List<double> Data;        
+    }
+
+    [JsonObject(MemberSerialization.OptIn)]
+    public record Blank
+    {
+        [JsonProperty]
+        public string TempPath;
     }
 }
