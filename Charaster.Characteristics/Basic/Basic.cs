@@ -11,9 +11,16 @@ namespace Characteristics{
         public Basic(BasicAttributesType attributeType)
         {
             Type = attributeType;
+            Point = 10;
         }
 
-        public int Point { get; set; } = 10;
+        public Basic(BasicAttributesType attributeType, int point)
+        {
+            Type = attributeType;
+            Point = point;
+        }
+
+        public int Point { get; set; }
 
         public static Dictionary<BasicAttributesType, int> Load(string filename)
         {

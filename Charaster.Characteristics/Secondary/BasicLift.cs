@@ -7,35 +7,40 @@ namespace Characteristics
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class BasicLift
-    {     
-        public static List<double> basicLiftData = Setting.BasicLift.Data;
+    {
 
         public BasicLift( Basic basic)
         {
-            BasicValue = basic;
+            Basic = basic;
             Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json");
         }
 
         public static void Generate()
         {
-            string line;
+            string line = string.Empty;
             using (StreamWriter outputFile = new StreamWriter("./BasicLift.json", true))
             {
-                Basic strength = new Basic(BasicAttributesType.Strength);
+                Basic strength = new Basic(BasicAttributesType.Strength, 1);
                 BasicLift basicLift = new BasicLift(strength);
-                basicLift.BasicValue.Point = 1;
-                foreach(double bf in basicLiftData)
+                Dictionary<string, BasicLift> outputData = new(){};
+
+                foreach(double bl in Setting.BasicLift.Data)
                 {
-                    line = JsonConvert.SerializeObject(basicLift, Formatting.Indented);
-                    basicLift.BasicValue.Point++;
-                    outputFile.WriteLine(line);
+                    outputData.Add($"{basicLift.Basic.Point++}", basicLift);
                 }
+
+                line = JsonConvert.SerializeObject(outputData, Formatting.Indented);
+                outputFile.WriteLine(line);
             }
         }
 
-        [JsonProperty("BL")]
-        public double Value => basicLiftData[BasicValue.Point - 1];
-        public Basic BasicValue { get; set; }
+        [JsonProperty("BasicLift")]
+        public double Value {
+            get => Setting.BasicLift.Data[Basic.Point];
+            set => Value = value;
+        }
+
+        public Basic Basic { get; set; }
         
         [JsonProperty]
         public double None => (int)Encumbrance.None * Value;
@@ -48,5 +53,4 @@ namespace Characteristics
         [JsonProperty]
         public double ExtraHeavy => (int)Encumbrance.ExtraHeavy * Value;
     }
-
 }
