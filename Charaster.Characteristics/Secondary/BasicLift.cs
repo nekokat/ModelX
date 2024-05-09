@@ -7,20 +7,9 @@ namespace Characteristics
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class BasicLift
-    {       
-        public Setting FromJson (string filename)
-        {
-            Setting result;
-            using (StreamReader r = new(filename))
-            {
-                string json = r.ReadToEnd();
-                result = JsonConvert.DeserializeObject<Setting>(json);
-            }
-            return result;
-        }
-
-        public double[] data = FromJson("/home/neko/Документы/ModelX/Tests/bin/Debug/net8.0/Secondary.json").BasicLift;
-
+    {   
+        public static Setting localSetting = Setting.Load("/home/neko/Документы/ModelX/Tests/bin/Debug/net8.0/Secondary.json");
+        public static List<double> basicLiftData = Setting.BasicLift;
 
         public BasicLift( Basic basic)
         {
@@ -35,17 +24,17 @@ namespace Characteristics
                 Basic strength = new Basic(BasicAttributesType.Strength);
                 BasicLift basicLift = new BasicLift(strength);
                 basicLift.BasicValue.Point = 1;
-                foreach(double bf in data)
+                foreach(double bf in basicLiftData)
                 {
                     line = JsonConvert.SerializeObject(basicLift, Formatting.Indented);
-                    //outputFile.WriteLine(basicLift.BasicValue.Point++);
+                    basicLift.BasicValue.Point++;
                     outputFile.WriteLine(line);
                 }
             }
         }
 
         [JsonProperty("BL")]
-        public double Value => (data ?? [0])[BasicValue?.Point - 1 ?? 0];
+        public double Value => basicLiftData[BasicValue.Point - 1];
         public Basic BasicValue { get; set; }
         
         [JsonProperty]
