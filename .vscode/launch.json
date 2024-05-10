@@ -10,11 +10,11 @@
             "type": "coreclr",
             "request": "launch",
             "program": "${workspaceFolder}/Converter/bin/Debug/net8.0/Converter.dll",
-            "pipeTransport": {
-            "pipeCwd": "${workspaceFolder}",
-            "pipeProgram": "/usr/bin/bash",
-            "pipeArgs": ["-c"],
-            "debuggerPath": "/usr/bin/netcoredbg"
+            "pipeTransport": { 
+                "pipeCwd": "${workspaceFolder}",
+                "pipeProgram": "/usr/bin/bash",
+                "pipeArgs": ["-c"],
+                "debuggerPath": "/usr/bin/netcoredbg"
             }
         }
     ]

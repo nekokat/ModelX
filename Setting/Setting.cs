@@ -26,20 +26,4 @@ namespace Settings
             }
         }
     }
-
-    [JsonObject(MemberSerialization.OptIn)]
-    public record BL
-    {
-        [JsonProperty]
-        public string Generate;
-        [JsonProperty]
-        public List<double> Data;        
-    }
-
-    [JsonObject(MemberSerialization.OptIn)]
-    public record Blank
-    {
-        [JsonProperty]
-        public string TempPath;
-    }
 }
