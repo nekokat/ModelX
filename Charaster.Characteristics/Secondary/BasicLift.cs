@@ -18,15 +18,16 @@ namespace Characteristics
         public static void Generate()
         {
             string line = string.Empty;
-            List<double> data;
-            using (StreamWriter outputFile = new StreamWriter("./BasicLift.json", true))
+            Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json");
+            
+            using (StreamWriter outputFile = new StreamWriter(Setting.BasicLift.Generate))
             {
                 Basic strength = new Basic(BasicAttributesType.Strength, 1);
                 BasicLift basicLift = new BasicLift(strength);
                 Dictionary<string, BasicLift> outputData = new(){};
-                data = Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json").BasicLift.Data;
+                
 
-                foreach(double basicLiftValue in data)
+                foreach(double basicLiftValue in Setting.BasicLift.Data)
                 {
                     outputData.Add($"{basicLift.Basic.Point++}", basicLift);
                 }

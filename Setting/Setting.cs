@@ -7,13 +7,15 @@ using Types;
 namespace Settings
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public sealed class Setting
+    public record Setting
     {
         //TODO: Create reading from json
-        [JsonProperty("BasicLift")]
+        [JsonProperty]
         public static BL BasicLift{ get; set; }
+
         [JsonProperty]
         public static Dictionary<BasicAttributesType, int> Basic { get; set; }
+
         [JsonProperty]
         public static Blank Blank { get; set; }
 
@@ -25,5 +27,21 @@ namespace Settings
                 JsonConvert.DeserializeObject<Setting>(json);
             }
         }
+    }
+
+    [JsonObject(MemberSerialization.OptIn)]
+    public record BL
+    {
+        [JsonProperty]
+        public string Generate;
+        [JsonProperty]
+        public List<double> Data; 
+    }
+
+    [JsonObject(MemberSerialization.OptIn)]
+    public record Blank
+    {
+        [JsonProperty]
+        public string TempPath;
     }
 }
