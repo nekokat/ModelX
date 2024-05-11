@@ -1,9 +1,10 @@
 using System;
-using Measure;
 using System.IO;
+using Measure;
 using Newtonsoft.Json;
+using Converter;
 
-namespace Converter
+namespace ModelX
 {
     internal static class Program
     {
@@ -15,8 +16,8 @@ namespace Converter
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            //Converter<Temperature> res = new (90.0m, Measure.Unit.Temperature.Celsius, Measure.Unit.Temperature.Fahrenheit);
-            //res.SerializeMeasure();
+            Converter<Temperature> res = new (100.0m, UnitTemperature.Celsius, UnitTemperature.Fahrenheit);
+            res.ToJson();
         }
     }
 }

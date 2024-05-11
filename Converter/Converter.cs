@@ -41,9 +41,9 @@ namespace Converter
             return $"{InputValue} {InputMeasure} = {OutputValue} {OutputMeasure}";
         }
 
-        public void SerializeMeasure()
+        public void ToJson()
         {
-            using (StreamWriter writer = new("./Converter.json", true))
+            using (StreamWriter writer = new("./Converter.json", false))
             {
                 string json = JsonConvert.SerializeObject(Measure, Formatting.Indented);
                 writer.Write(json);
