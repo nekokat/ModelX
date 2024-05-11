@@ -1,10 +1,3 @@
-using ModelX;
-using ModelX.Workspace;
-using System;
-using System.IO;
-using Support;
-using Newtonsoft.Json;
-
 namespace Tests
 {
     public class CreateTests
@@ -39,9 +32,9 @@ namespace Tests
             public void LoadTest(BlankType type)
             {
                 string testFile = @$"{TemplatePath}/{type.ToString()}.json";
-                ModelX.Workspace.Blank testBlank = new (type);
+                Workspace.Blank testBlank = new (type);
 
-                Assert.That(ModelX.Workspace.Blank.Load(testFile),Is.EqualTo(testBlank));
+                Assert.That(Workspace.Blank.Load(testFile),Is.EqualTo(testBlank));
             }
     }
 }

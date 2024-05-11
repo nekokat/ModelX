@@ -3,7 +3,7 @@ using System.Text;
 using System.Security.Cryptography;
 using Support;
 
-namespace ModelX.Workspace
+namespace Workspace
 {
     public class BlankID : IEquatable<BlankID>
     {

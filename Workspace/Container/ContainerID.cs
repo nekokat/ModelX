@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace ModelX.Workspace
+namespace Workspace
 {
     public class ContainerID
     {

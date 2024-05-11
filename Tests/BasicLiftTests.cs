@@ -1,9 +1,3 @@
-using Types;
-using System.Collections.Generic;
-using Characteristics;
-using System.IO;
-using Newtonsoft.Json;
-
 namespace Tests
 {
     public class BasicLiftTest

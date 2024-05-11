@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Support;
 using User;
 
-namespace ModelX.Workspace
+namespace Workspace
 {
 
     [JsonObject(MemberSerialization.OptIn)]

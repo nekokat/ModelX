@@ -1,8 +1,3 @@
-using System;
-using Converter;
-using NUnit.Framework;
-using ModelX.Workspace;
-
 namespace Tests
 {
     public class BlankTypeTest

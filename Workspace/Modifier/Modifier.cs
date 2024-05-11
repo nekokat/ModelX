@@ -1,4 +1,4 @@
-﻿namespace ModelX.Workspace
+﻿namespace Workspace
 {
     public class Modifier
     {

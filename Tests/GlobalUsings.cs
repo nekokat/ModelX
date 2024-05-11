@@ -1,6 +1,11 @@
 global using NUnit.Framework;
+global using Newtonsoft.Json;
 global using Settings;
 global using Measure;
 global using Support;
 global using User;
 global using Characteristics;
+global using Types;
+global using Workspace;
+global using System;
+global using System.IO;

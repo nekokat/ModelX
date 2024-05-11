@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ModelX.Workspace{
+namespace Workspace{
 
     public class Container<T> : IList<T>, IList where T : Blank, new()
     {

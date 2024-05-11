@@ -1,7 +1,7 @@
 ﻿using Support;
 using Newtonsoft.Json;
 
-namespace ModelX.Workspace
+namespace Workspace
 {
 
     public class Create

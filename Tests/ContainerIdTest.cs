@@ -1,7 +1,3 @@
-using System;
-using ModelX.Workspace;
-using Support;
-
 namespace Tests
 {
     public class ContainerIDTest
