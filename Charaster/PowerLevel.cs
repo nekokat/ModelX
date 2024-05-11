@@ -1,20 +1,20 @@
 namespace Charaster
 {
+    public enum LevelType
+    {
+        Feeble,
+        Average,
+        Competent,
+        Exceptional,
+        Heroic,
+        LargerThanLife,
+        Legendary,
+        Superhuman,
+        Godlike
+    }
+    
     public class Level
     {
-        enum LevelType
-        {
-            Feeble,
-            Average,
-            Competent,
-            Exceptional,
-            Heroic,
-            LargerThanLife,
-            Legendary,
-            Superhuman,
-            Godlike
-        }
-
         public int Points { get; set;}
 
         LevelType Type => Points switch
