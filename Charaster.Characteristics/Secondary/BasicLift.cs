@@ -42,14 +42,6 @@ namespace Characteristics
         public Basic Basic { get; set; }
         
         [JsonProperty]
-        public double None => (int)Encumbrance.None * Value;
-        [JsonProperty]
-        public double Light => (int)Encumbrance.Light * Value;
-        [JsonProperty]
-        public double Medium => (int)Encumbrance.Medium * Value;
-        [JsonProperty]
-        public double Heavy => (int)Encumbrance.Heavy * Value;
-        [JsonProperty]
-        public double ExtraHeavy => (int)Encumbrance.ExtraHeavy * Value;
-    }
+        public Encumbrance Encumbrance => new Encumbrance(Value);
+    }    
 }
