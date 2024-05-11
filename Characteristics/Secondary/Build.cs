@@ -1,4 +1,4 @@
-using Converter.Measure.Unit;
+using Measure.Unit;
 using Converter;
 
 namespace Characteristics
@@ -13,8 +13,8 @@ namespace Characteristics
         public Type TMeasure { get; set; }
         public Enum RangeUnit { get; set; }
 
-        public double Min { get; set; }
-        public double Max { get; set; }
+        public decimal Min { get; set; }
+        public decimal Max { get; set; }
 
         override public string ToString()
         {

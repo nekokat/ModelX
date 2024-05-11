@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Converter.Measure
+namespace Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class Area : IMeasure

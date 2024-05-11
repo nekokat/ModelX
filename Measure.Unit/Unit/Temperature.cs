@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Converter.Measure.Unit
+namespace Measure.Unit
 {
     public enum Temperature
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Support;
-using ModelX.User;
+using User;
 
 namespace ModelX.Workspace
 {

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Converter.Measure
+namespace Measure
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class Volume : IMeasure
