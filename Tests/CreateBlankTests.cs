@@ -1,3 +1,4 @@
+using ModelX;
 using ModelX.Workspace;
 using System;
 using System.IO;
@@ -11,8 +12,8 @@ namespace Tests
             [SetUp]
             public void Setup()
             {
-                Settings.Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json");
-                TempPath = Settings.Setting.Blank.TempPath;
+                
+                TempPath = Global.Setting.Blank.TempPath;
                 Create.GenerateEmptyJson();
             }
 
@@ -37,7 +38,10 @@ namespace Tests
             [TestCase(BlankType.Trait)]
             public void LoadTest(BlankType type)
             {
-                Assert.That(Blank.Load(@$"{TempPath}/{type.ToString()}.json"), Is.EqualTo(new Blank(type)));
+                string testFile = @$"{TempPath}/{type.ToString()}.json";
+                ModelX.Workspace.Blank testBlank = new (type);
+
+                Assert.That(ModelX.Workspace.Blank.Load(testFile),Is.EqualTo(testBlank));
             }
     }
 }

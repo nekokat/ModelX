@@ -7,29 +7,25 @@ namespace Characteristics
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class BasicLift
-    {
-
+    {  
         public BasicLift( Basic basic)
         {
             Basic = basic;
-            Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json");
         }
         
         public static void Generate()
         {
             string line = string.Empty;
-            Setting.Load("/run/media/neko/files/ModelX/Tests/bin/Debug/net8.0/Setting.json");
-            
-            using (StreamWriter outputFile = new StreamWriter(Setting.BasicLift.Generate))
+            using (StreamWriter outputFile = new StreamWriter(Global.Setting.BasicLift.Generate))
             {
-                Basic strength = new Basic(BasicAttributesType.Strength, 1);
-                BasicLift basicLift = new BasicLift(strength);
-                Dictionary<string, BasicLift> outputData = new(){};
-                
+                Dictionary<int, BasicLift> outputData = new(){};
+                int strength = 1;   
 
-                foreach(double basicLiftValue in Setting.BasicLift.Data)
+                foreach (double item in Global.Setting.BasicLift.Data)
                 {
-                    outputData.Add($"{basicLift.Basic.Point++}", basicLift);
+                    Basic strengthValue = new Basic(BasicAttributesType.Strength, strength);
+                    BasicLift basicLift = new BasicLift(strengthValue);
+                    outputData.Add(strength++, basicLift);
                 }
 
                 line = JsonConvert.SerializeObject(outputData, Formatting.Indented);
@@ -39,7 +35,7 @@ namespace Characteristics
 
         [JsonProperty("BasicLift")]
         public double Value {
-            get => Setting.BasicLift.Data[Basic.Point];
+            get => Global.Setting.BasicLift.Data[Basic.Point-1];
             set => Value = value;
         }
 

@@ -5,43 +5,51 @@ using Types;
 
 
 namespace Settings
-{
+{    
+
+    public static class Global
+    {
+        public static Setting Setting => Setting.Load("./Setting.json");
+    }
+
     [JsonObject(MemberSerialization.OptIn)]
     public record Setting
     {
         //TODO: Create reading from json
         [JsonProperty]
-        public static BL BasicLift{ get; set; }
+        public BL BasicLift{ get; set; }
 
         [JsonProperty]
-        public static Dictionary<BasicAttributesType, int> Basic { get; set; }
+        public Dictionary<BasicAttributesType, int> Basic { get; set; }
 
         [JsonProperty]
-        public static Blank Blank { get; set; }
+        public Blank Blank { get; set; }
 
-        public static void Load (string filename)
+        public static Setting Load (string filename)
         {
+            Setting setting;
             using (StreamReader r = new(filename))
             {
                 string json = r.ReadToEnd();
-                JsonConvert.DeserializeObject<Setting>(json);
+                setting = JsonConvert.DeserializeObject<Setting>(json);
             }
+            return setting;
         }
     }
 
     [JsonObject(MemberSerialization.OptIn)]
     public record BL
     {
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Generate")]
         public string Generate;
-        [JsonProperty]
-        public List<double> Data; 
+        [JsonProperty(PropertyName = "Data")]
+        public double[] Data; 
     }
 
     [JsonObject(MemberSerialization.OptIn)]
     public record Blank
     {
-        [JsonProperty]
+        [JsonProperty(PropertyName = "TempPath")]
         public string TempPath;
     }
 }
