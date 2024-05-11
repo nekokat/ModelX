@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Basic\Basic.csproj" />
     <ProjectReference Include="..\..\Setting\Setting.csproj" />
+    <ProjectReference Include="..\..\Converter\Converter.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

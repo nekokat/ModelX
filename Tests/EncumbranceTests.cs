@@ -25,7 +25,7 @@ namespace Tests
             double actual = Encumbrance.GetByName(Enum.GetName(typeof(EncumbranceType), type));
             double expected = Encumbrance.GetByType(type);
 
-            Assert.That(actual, Is.EqualTo(expected + 1));
+            Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }

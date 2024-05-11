@@ -44,6 +44,9 @@ namespace Characteristics{
             };
         }
 
-        public double GetByName(string typeName) => (int)Enum.Parse(typeof(EncumbranceType), typeName) * Value;
+        public double GetByName(string typeName) {
+            int encumbranceTypeValue = (int)Enum.Parse(typeof(EncumbranceType), typeName);
+            return encumbranceTypeValue * Value;
+        }
     }
 }

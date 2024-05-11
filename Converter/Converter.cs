@@ -42,18 +42,10 @@ namespace Converter
 
         public void SerializeMeasure()
         {
-            TextWriter writer = null;
-
-            try
+            using (StreamWriter writer = new("./Converter.json", true))
             {
-                writer = new StreamWriter("./Converter.json", true);
-                var json = JsonConvert.SerializeObject(Measure, Formatting.Indented);
-                writer.Write(json + "\n");
-            }
-            finally
-            {
-                if (writer != null)
-                    writer.Close();
+                string json = JsonConvert.SerializeObject(Measure, Formatting.Indented);
+                writer.Write(json);
             }
         }
     }
