@@ -16,7 +16,7 @@ namespace Characteristics
         public static void Generate()
         {
             string line = string.Empty;
-            using (StreamWriter outputFile = new StreamWriter(Global.Setting.BasicLift.Generate))
+            using (StreamWriter outputFile = new StreamWriter(Global.Setting.BasicLift.Path))
             {
                 Dictionary<int, BasicLift> outputData = new(){};
                 int strength = 1;   

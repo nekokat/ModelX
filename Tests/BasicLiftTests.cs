@@ -22,7 +22,7 @@ namespace Tests
         [Test]
         public void BasicLiftGenerateTest()
         {
-            Assert.That(Global.Setting.BasicLift.Generate, Does.Exist);
+            Assert.That(Global.Setting.BasicLift.Path, Does.Exist);
         }
     }
 }

@@ -40,16 +40,16 @@ namespace Settings
     [JsonObject(MemberSerialization.OptIn)]
     public record BL
     {
-        [JsonProperty(PropertyName = "Generate")]
-        public string Generate;
-        [JsonProperty(PropertyName = "Data")]
+        [JsonProperty]
+        public string Path;
+        [JsonProperty]
         public double[] Data; 
     }
 
     [JsonObject(MemberSerialization.OptIn)]
     public record Blank
     {
-        [JsonProperty(PropertyName = "TempPath")]
-        public string TempPath;
+        [JsonProperty]
+        public string TemplatePath;
     }
 }
