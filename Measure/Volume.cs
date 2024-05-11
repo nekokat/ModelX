@@ -41,16 +41,16 @@ namespace Measure
         {
             return unit switch
             {
-                Unit.Volume.Litre           => Litre,
-                Unit.Volume.CubicDecimetre  => CubicDecimetre,
-                Unit.Volume.CubicMetre      => CubicMetre,
-                Unit.Volume.CubicCentimetre => CubicCentimetre,
-                Unit.Volume.CubicInch       => CubicInch,
-                Unit.Volume.BarrelOil       => BarrelOil,
-                Unit.Volume.USGallon        => USGallon,
-                Unit.Volume.USPint          => USPint,
-                Unit.Volume.USFluidOunce    => USFluidOunce,
-                Unit.Volume.CubicFoot       => CubicFoot,
+                UnitVolume.Litre           => Litre,
+                UnitVolume.CubicDecimetre  => CubicDecimetre,
+                UnitVolume.CubicMetre      => CubicMetre,
+                UnitVolume.CubicCentimetre => CubicCentimetre,
+                UnitVolume.CubicInch       => CubicInch,
+                UnitVolume.BarrelOil       => BarrelOil,
+                UnitVolume.USGallon        => USGallon,
+                UnitVolume.USPint          => USPint,
+                UnitVolume.USFluidOunce    => USFluidOunce,
+                UnitVolume.CubicFoot       => CubicFoot,
                 _ => throw new NotSupportedException()
             };
         }

@@ -7,20 +7,20 @@ namespace Measure
     public class Temperature : IMeasure
     {
         public Temperature() { }
-        public Temperature(decimal value) : this(value, Unit.Temperature.Celsius) { }
+        public Temperature(decimal value) : this(value, UnitTemperature.Celsius) { }
     
         public Temperature(decimal value, Enum unit)
         {
             Celsius = unit switch
             {
-                Unit.Temperature.Celsius    => value,
-                Unit.Temperature.Kelvin     => value - 273.15m,
-                Unit.Temperature.Fahrenheit => (value - 32) * 5 / 9,
-                Unit.Temperature.Rankine    => (value - 273.15m) * 5 / 9,
-                Unit.Temperature.Newton     => value / 0.33m,
-                Unit.Temperature.Romer      => (value - 7.5m) * 40m / 21m,
-                Unit.Temperature.Reaumur    => value * 5 / 4,
-                Unit.Temperature.Delisle    => 100 - value * 2 / 3,
+                UnitTemperature.Celsius    => value,
+                UnitTemperature.Kelvin     => value - 273.15m,
+                UnitTemperature.Fahrenheit => (value - 32) * 5 / 9,
+                UnitTemperature.Rankine    => (value - 273.15m) * 5 / 9,
+                UnitTemperature.Newton     => value / 0.33m,
+                UnitTemperature.Romer      => (value - 7.5m) * 40m / 21m,
+                UnitTemperature.Reaumur    => value * 5 / 4,
+                UnitTemperature.Delisle    => 100 - value * 2 / 3,
                 _ => throw new NotSupportedException()
             };
         }
@@ -46,14 +46,14 @@ namespace Measure
         {
             return unit switch
             {
-                Unit.Temperature.Celsius    => Celsius,
-                Unit.Temperature.Kelvin     => Kelvin,
-                Unit.Temperature.Fahrenheit => Fahrenheit,
-                Unit.Temperature.Rankine    => Rankine,
-                Unit.Temperature.Newton     => Newton,
-                Unit.Temperature.Romer      => Romer,
-                Unit.Temperature.Reaumur    => Reaumur,
-                Unit.Temperature.Delisle    => Delisle,
+                UnitTemperature.Celsius    => Celsius,
+                UnitTemperature.Kelvin     => Kelvin,
+                UnitTemperature.Fahrenheit => Fahrenheit,
+                UnitTemperature.Rankine    => Rankine,
+                UnitTemperature.Newton     => Newton,
+                UnitTemperature.Romer      => Romer,
+                UnitTemperature.Reaumur    => Reaumur,
+                UnitTemperature.Delisle    => Delisle,
                 _ => throw new NotSupportedException()
             };
 

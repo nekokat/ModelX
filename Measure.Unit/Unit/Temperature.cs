@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Measure.Unit
+namespace Measure
 {
-    public enum Temperature
+    public enum UnitTemperature
     {
         Celsius,
         Kelvin,

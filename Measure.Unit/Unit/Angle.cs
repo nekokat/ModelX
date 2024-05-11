@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Measure.Unit {
+namespace Measure {
 
-    public enum Angle
+    public enum UnitAngle
     {
         Radian,
         Degree,

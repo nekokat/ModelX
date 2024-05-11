@@ -63,20 +63,20 @@ namespace Measure
         {
             return unit switch
             {
-                Unit.Area.SquareKilometer   => SquareKilometer,
-                Unit.Area.SquareHectometer  => SquareHectometer,
-                Unit.Area.SquareDecameter   => SquareDecameter,
-                Unit.Area.SquareMeter       => SquareMeter,
-                Unit.Area.SquareDecimeter   => SquareDecimeter,
-                Unit.Area.SquareCentimeter  => SquareCentimeter,
-                Unit.Area.SquareMillimeter  => SquareMillimeter,
-                Unit.Area.Perch             => Perch,
-                Unit.Area.Rood              => Rood,
-                Unit.Area.Acre              => Acre,
-                Unit.Area.SquareMile        => SquareMile,
-                Unit.Area.SquareYard        => SquareYard,
-                Unit.Area.SquareFoot        => SquareFoot,
-                Unit.Area.SquareInch        => SquareInch,
+                UnitArea.SquareKilometer   => SquareKilometer,
+                UnitArea.SquareHectometer  => SquareHectometer,
+                UnitArea.SquareDecameter   => SquareDecameter,
+                UnitArea.SquareMeter       => SquareMeter,
+                UnitArea.SquareDecimeter   => SquareDecimeter,
+                UnitArea.SquareCentimeter  => SquareCentimeter,
+                UnitArea.SquareMillimeter  => SquareMillimeter,
+                UnitArea.Perch             => Perch,
+                UnitArea.Rood              => Rood,
+                UnitArea.Acre              => Acre,
+                UnitArea.SquareMile        => SquareMile,
+                UnitArea.SquareYard        => SquareYard,
+                UnitArea.SquareFoot        => SquareFoot,
+                UnitArea.SquareInch        => SquareInch,
                 _ => throw new NotSupportedException()
             };
         }

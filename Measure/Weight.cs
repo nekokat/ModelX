@@ -46,20 +46,20 @@ namespace Measure
         {
             return unit switch
             {
-                Unit.Weight.Gigatonne   => Gigatonne,
-                Unit.Weight.Megatonne   => Megatonne,
-                Unit.Weight.Tonne       => Tonne,
-                Unit.Weight.Kilogramm   => Kilogramm,
-                Unit.Weight.Gramm       => Gramm,
-                Unit.Weight.Milligramm  => Milligramm,
-                Unit.Weight.Microgram   => Microgram,
-                Unit.Weight.Nanogram    => Nanogram,
-                Unit.Weight.Picogram    => Picogram,
+                UnitWeight.Gigatonne   => Gigatonne,
+                UnitWeight.Megatonne   => Megatonne,
+                UnitWeight.Tonne       => Tonne,
+                UnitWeight.Kilogramm   => Kilogramm,
+                UnitWeight.Gramm       => Gramm,
+                UnitWeight.Milligramm  => Milligramm,
+                UnitWeight.Microgram   => Microgram,
+                UnitWeight.Nanogram    => Nanogram,
+                UnitWeight.Picogram    => Picogram,
                 //Imperial
-                Unit.Weight.USton       => USton,
-                Unit.Weight.UKton       => UKton,
-                Unit.Weight.Pound       => Pound,
-                Unit.Weight.Ounce       => Ounce,
+                UnitWeight.USton       => USton,
+                UnitWeight.UKton       => UKton,
+                UnitWeight.Pound       => Pound,
+                UnitWeight.Ounce       => Ounce,
                 _ => throw new NotSupportedException()
             };
         }

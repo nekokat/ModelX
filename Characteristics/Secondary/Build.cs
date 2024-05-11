@@ -1,4 +1,4 @@
-using Measure.Unit;
+using Measure;
 using Converter;
 
 namespace Characteristics
@@ -21,11 +21,11 @@ namespace Characteristics
             return $"{Min} - {Max}";
         }
     }
-
+/*
     interface IRange
     {
         //public Type TMeasure { get; set; }
-        public Enum RangeUnit { get; set; }
+        public static Enum RangeUnit { get; set; }
     }
 
     public class HeightRange : Range, IRange
@@ -75,4 +75,5 @@ namespace Characteristics
             RangeUnit = Weight.Pound;
         }
     }
+    */
 }

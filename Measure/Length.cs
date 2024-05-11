@@ -50,21 +50,21 @@ namespace Measure
         {
             return unit switch
             {
-                Unit.Length.KiloMeter   => KiloMeter,
-                Unit.Length.HectoMeter  => HectoMeter,
-                Unit.Length.DecaMeter   => DecaMeter,
-                Unit.Length.Meter       => Meter,
-                Unit.Length.DeciMeter   => DeciMeter,
-                Unit.Length.CentiMeter  => CentiMeter,
-                Unit.Length.MilliMeter  => MilliMeter,
-                Unit.Length.Foot        => Foot,
-                Unit.Length.Inch        => Inch,
-                Unit.Length.Hand        => Hand,
-                Unit.Length.Yard        => Yard,
-                Unit.Length.Chain       => Chain,
-                Unit.Length.Furlong     => Furlong,
-                Unit.Length.Mile        => Mile,
-                Unit.Length.League      => League,
+                UnitLength.KiloMeter   => KiloMeter,
+                UnitLength.HectoMeter  => HectoMeter,
+                UnitLength.DecaMeter   => DecaMeter,
+                UnitLength.Meter       => Meter,
+                UnitLength.DeciMeter   => DeciMeter,
+                UnitLength.CentiMeter  => CentiMeter,
+                UnitLength.MilliMeter  => MilliMeter,
+                UnitLength.Foot        => Foot,
+                UnitLength.Inch        => Inch,
+                UnitLength.Hand        => Hand,
+                UnitLength.Yard        => Yard,
+                UnitLength.Chain       => Chain,
+                UnitLength.Furlong     => Furlong,
+                UnitLength.Mile        => Mile,
+                UnitLength.League      => League,
                 _ => throw new NotSupportedException()
             };
         }

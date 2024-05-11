@@ -1,6 +1,4 @@
-﻿using Measure.Unit;
-
-namespace Measure
+﻿namespace Measure
 {
     public interface IMeasure
     {

@@ -33,14 +33,14 @@ namespace Measure
         public decimal Result<T>(T unit) where T : Enum
         {
             return unit switch {
-                Unit.Time.Millisecond   => Millisecond,
-                Unit.Time.Second        => Second,
-                Unit.Time.Minute        => Minute,
-                Unit.Time.Kilosecond    => Kilosecond,
-                Unit.Time.Hour          => Hour,
-                Unit.Time.Day           => Day,
-                Unit.Time.Week          => Week,
-                Unit.Time.Megasecond    => Megasecond,
+                UnitTime.Millisecond   => Millisecond,
+                UnitTime.Second        => Second,
+                UnitTime.Minute        => Minute,
+                UnitTime.Kilosecond    => Kilosecond,
+                UnitTime.Hour          => Hour,
+                UnitTime.Day           => Day,
+                UnitTime.Week          => Week,
+                UnitTime.Megasecond    => Megasecond,
                 _ => throw new NotSupportedException()
             };
         }

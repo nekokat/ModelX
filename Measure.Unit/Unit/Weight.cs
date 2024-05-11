@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Measure.Unit
+namespace Measure
 {
-    public enum Weight
+    public enum UnitWeight
     {
         //Metric
         Gigatonne,

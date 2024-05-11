@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+
 namespace Measure;
 
 [JsonObject(MemberSerialization.OptIn)]
@@ -35,10 +36,10 @@ public class Angle : IMeasure
     {
         return unit switch
         {
-            Unit.Angle.Radian   => Radian,
-            Unit.Angle.Degree   => Degree,
-            Unit.Angle.Turn     => Turn,
-            Unit.Angle.Gradian  => Gradian,
+            UnitAngle.Radian   => Radian,
+            UnitAngle.Degree   => Degree,
+            UnitAngle.Turn     => Turn,
+            UnitAngle.Gradian  => Gradian,
             _ => throw new NotSupportedException()
         };
     }

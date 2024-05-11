@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Measure.Unit
+namespace Measure
+
 {
-    public enum Area
+    public enum UnitArea
     {
         SquareKilometer,
         SquareHectometer,
