@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Converter
 {
-    class Converter<TMeasure> where TMeasure : IMeasure, new()
+    public class Converter<TMeasure> where TMeasure : IMeasure, new()
     {
         public Converter(decimal value, Enum inputUnit, Enum outputUnit)
         {
