@@ -7,17 +7,18 @@ namespace Tests
         {
 
         }
-        protected static void Load
+        public static void Load()
         {
             Value = Global.Setting.Measure.Temperature;
         }
 
-        IMeasure Value {get; set; }
+        static Temperature Value {get; set; }
 
         [Test]
-        public void MeasureTest()
+        public void MeasureLoadTest()
         {
-            Assert.That();
+            Temperature temperature = new Temperature(Value.Celsius, UnitTemperature.Celsius))
+            Assert.That(Value, Is.EqualTo(temperature);
         }
     }
 }

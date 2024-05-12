@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Charaster.Characteristics\Basic\Basic.csproj" />
-    <ProjectReference Include="..\Charaster.Characteristics\Secondary\Secondary.csproj" />
+    <ProjectReference Include="..\Characteristics\Basic\Basic.csproj" />
+    <ProjectReference Include="..\Characteristics\Secondary\Secondary.csproj" />
     <ProjectReference Include="..\Support\Types\Types.csproj" />
   </ItemGroup>
 

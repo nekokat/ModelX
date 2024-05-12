@@ -4,6 +4,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Support\Types\Types.csproj" />
+    <ProjectReference Include="..\Measure\Measure.csproj" />
+    <ProjectReference Include="..\Measure.Unit\Unit.csproj" />
   </ItemGroup>
   
   <PropertyGroup>

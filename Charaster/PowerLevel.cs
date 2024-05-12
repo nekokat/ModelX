@@ -27,8 +27,7 @@ namespace Charaster
                 > 200 and <= 300 => LevelType.LargerThanLife,
                 > 300 and <= 500 => LevelType.Legendary,
                 > 500 and <= 1000 => LevelType.Superhuman,
-                > 1000 => LevelType.Godlike,
-                _ => throw new Exception()
+                > 1000 => LevelType.Godlike
             };
     }
 }

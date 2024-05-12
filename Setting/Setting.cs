@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Types;
 using Measure;
-using Measure.Unit;
-
 
 namespace Settings
 {    

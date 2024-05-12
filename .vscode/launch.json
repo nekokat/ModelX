@@ -9,7 +9,7 @@
             "name": "Debug",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/Converter/bin/Debug/net8.0/Converter.dll",
+            "program": "${workspaceFolder}/Program/bin/Debug/net8.0/Program.dll",
             "pipeTransport": { 
                 "pipeCwd": "${workspaceFolder}",
                 "pipeProgram": "/usr/bin/bash",
