@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using Measure;
-
 using System.IO;
 
 namespace Converter

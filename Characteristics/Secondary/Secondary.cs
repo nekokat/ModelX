@@ -2,8 +2,7 @@
 
     public class Secondary
     {
-        public static void Load(string filename)
-        {}
+        public static void Load(string filename){}
 
         public Secondary()
         {
