@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Types;
+using Measure;
+using Measure.Unit;
 
 
 namespace Settings
@@ -24,6 +26,8 @@ namespace Settings
 
         [JsonProperty]
         public Blank Blank { get; set; }
+
+        public Measure Measure { get; set; }
 
         public static Setting Load (string filename)
         {
@@ -51,5 +55,12 @@ namespace Settings
     {
         [JsonProperty]
         public string TemplatePath;
+    }
+    
+    [JsonObject(MemberSerialization.OptIn)]
+    public record Measure
+    {
+        [JsonProperty]
+        public Temperature Temperature;
     }
 }

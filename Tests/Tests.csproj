@@ -31,6 +31,11 @@
     <ProjectReference Include="..\Support\Types\Types.csproj" />
     <ProjectReference Include="..\Characteristics\Basic\Basic.csproj" />
     <ProjectReference Include="..\Characteristics\Secondary\Secondary.csproj" />
+    <ProjectReference Include="..\Support\Version\Version.csproj" />
+    <ProjectReference Include="..\Charaster\Charaster.csproj" />
+    <ProjectReference Include="..\Workspace\Modifier\Modifier.csproj" />
+    <ProjectReference Include="..\Measure\Measure.csproj" />
+    <ProjectReference Include="..\Measure.Unit\Unit.csproj" />
   </ItemGroup>
 
 </Project>
