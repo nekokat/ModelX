@@ -9,16 +9,16 @@ namespace Tests
         }
         public static void Load()
         {
-            Value = Global.Setting.Measure.Temperature;
+            Value = Global.Setting.Measure;
         }
 
-        static Temperature Value {get; set; }
+        static Settings.Measure Value {get; set; }
 
         [Test]
         public void MeasureLoadTest()
         {
-            Temperature temperature = new Temperature(Value.Celsius, UnitTemperature.Celsius))
-            Assert.That(Value, Is.EqualTo(temperature);
+            Temperature temperature = new Temperature(Value.Temperature.Celsius, UnitTemperature.Celsius);
+            Assert.That(Value.Temperature, Is.EqualTo(temperature));
         }
     }
 }
