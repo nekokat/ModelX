@@ -59,6 +59,6 @@ namespace Settings
     public record Measure
     {
         [JsonProperty]
-        public Temperature Temperature;
+        public Dictionary<UnitTemperature, decimal> Temperature;
     }
 }
