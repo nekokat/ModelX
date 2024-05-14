@@ -24,7 +24,8 @@ namespace Settings
 
         [JsonProperty]
         public Blank Blank { get; set; }
-
+        
+        [JsonProperty]
         public Measure Measure { get; set; }
 
         public static Setting Load (string filename)
@@ -59,6 +60,6 @@ namespace Settings
     public record Measure
     {
         [JsonProperty]
-        public Dictionary<UnitTemperature, decimal> Temperature;
+        public Temperature Temperature;
     }
 }

@@ -5,23 +5,13 @@ namespace Tests
     public class MeasureTest
     {
         [SetUp]
-        public void Setup()
-        {
-
-        }
-        public static void Load()
-        {
-            Value = Global.Setting.Measure.Temperature;
-        }
-
-        static Dictionary<UnitTemperature, decimal> Value {get; set; }
+        public void Setup(){}
 
         [Test]
-        public void MeasureLoadTest()
+        public static void MeasureTemperatureTest()
         {
-            //Temperature temperatureCelsius = new Temperature(Value[UnitTemperature.Celsius], UnitTemperature.Celsius);
-            //Temperature temperatureKelvin = new Temperature(Value[UnitTemperature.Kelvin], UnitTemperature.Kelvin);
-            Assert.Pass();
+            Assert.That(Global.Setting.Measure?.Temperature, Is.Not.Null);
+            Assert.That(Global.Setting.Measure.Temperature, Is.EqualTo(new Temperature(100)));
         }
     }
 }

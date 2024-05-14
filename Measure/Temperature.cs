@@ -27,6 +27,7 @@ namespace Measure
 
         [JsonProperty]
         public decimal Celsius { get; set; } = 0;
+
         [JsonProperty]
         public decimal Kelvin { get => Celsius + 273.15m; }
         [JsonProperty]
